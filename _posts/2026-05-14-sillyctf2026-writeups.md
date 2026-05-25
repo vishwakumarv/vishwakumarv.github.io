@@ -2,6 +2,11 @@
 
 Repository: [https://github.com/vishwakumarv/SillyCTF2026-Writeups](https://github.com/vkumxr/SillyCTF2026-Writeups)
 
+image:
+  path: /assets/img/posts/SillyCTF.png
+
+excerpt: Writeups and solutions for SillyCTF 2026 CTF challenges.
+
 ---
 
 # Crypto

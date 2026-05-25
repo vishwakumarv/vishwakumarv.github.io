@@ -3,6 +3,12 @@ title: "ThunderCipher CTF Writeup"
 date: 2026-03-10
 categories: [CTF]
 tags: [thundercipher, cryptography, osint, forensics, web, reverse]
+
+image:
+  path: /assets/img/posts/thundercipher.png
+
+excerpt: Writeups and solutions for ThunderCipher CTF challenges.
+
 ---
 
 ## Introduction

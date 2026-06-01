@@ -208,109 +208,1252 @@ export type Post = {
   date: string;
   readingMinutes: number;
   featured?: boolean;
-  body: string[];
+  body: string;
 };
 
 export const posts: Post[] = [
   {
-    slug: "triaging-suspicious-apks-fast",
-    title: "Triaging Suspicious APKs Fast: A Static-First Workflow",
+    slug: "thundercipher-ctf-writeup",
+    title: "ThunderCipher CTF Writeup",
     excerpt:
-      "A repeatable static analysis playbook for Android samples — manifests, strings, and exported components in under five minutes.",
-    category: "Malware Analysis",
-    tags: ["Android", "Static Analysis", "Triage"],
-    date: "2026-04-12",
-    readingMinutes: 7,
-    featured: true,
-    body: [
-      "Most APK triage time is spent re-running the same four commands. This post documents the static-first workflow I use, what each step is meant to surface, and where it stops being useful.",
-      "Step 1 — Unpack with apktool. Step 2 — Read the manifest like an attacker. Step 3 — Grep for high-signal strings. Step 4 — Decide whether the sample warrants dynamic analysis.",
-      "The point isn't to be exhaustive. It's to be fast and consistent so cases are comparable over time.",
+      "Writeups covering cryptography, OSINT, web exploitation, forensics, hardware analysis, and binary signal decoding challenges from ThunderCipher CTF.",
+    category: "CTF",
+    tags: [
+      "thundercipher",
+      "cryptography",
+      "osint",
+      "forensics",
+      "web",
+      "reverse",
     ],
-  },
-  {
-    slug: "writing-an-ir-report-people-actually-read",
-    title: "Writing an IR Report People Actually Read",
-    excerpt:
-      "Structure, voice, and the one section every incident report should lead with. Lessons from drafting case-study writeups.",
-    category: "DFIR",
-    tags: ["Incident Response", "Documentation", "Writeups"],
-    date: "2026-03-21",
-    readingMinutes: 6,
+    date: "2026-03-10",
+    readingMinutes: 12,
     featured: true,
-    body: [
-      "An IR report is read by people who weren't in the room and have ten minutes. Optimize for that.",
-      "Lead with the timeline. Put findings before evidence. Recommendations belong at the top, not buried at the bottom.",
-      "Anything else is for the appendix.",
-    ],
+    body: `## Introduction
+
+This post contains my writeups for several challenges from the **ThunderCipher CTF**.  
+The challenges covered multiple domains including **Cryptography, OSINT, Web Exploitation, Forensics, Hardware Analysis, and Binary Signal Analysis**.
+
+---
+
+# 1. Easy Cipher
+
+## Challenge Overview
+
+The challenge provided only a ciphertext string without any additional files.
+
+From its structure, it appeared to be an encoded string rather than encrypted data.
+
+## Analysis
+
+The string contained:
+
+- Uppercase and lowercase letters
+- Numbers
+- A structure typical of encoded text
+
+This pattern suggested **Base64 encoding**, which is commonly used in beginner cryptography challenges.
+
+## Solution
+
+I used **CyberChef** to decode the string using the Base64 decode function.
+
+Steps:
+
+1. Open CyberChef
+2. Paste the ciphertext
+3. Apply **From Base64**
+
+The decoding immediately revealed the flag.
+
+## Flag
+ThunderCipher{34sy_b4s3}
+
+
+---
+
+# 2. Hidden in Plain Sight
+
+## Challenge Overview
+
+This OSINT challenge suggested that the flag was hidden on the **official ThunderCipher YouTube channel**.
+
+## Investigation
+
+Initial steps included:
+
+- Checking the channel **bio**
+- Reviewing **video descriptions**
+- Looking through **comments**
+
+At first, nothing appeared useful.
+
+However, when revisiting the **bio section**, I noticed a blank-looking area after a message saying the flag was not there.
+
+Scrolling further revealed hidden encoded text.
+
+## Decoding
+
+The text appeared to be **Base58 encoded**.
+
+Using a Python script to decode it revealed the flag.
+
+## Flag
+ThunderCipher{thund3rc1ph3r_y0utub3!!}
+
+
+---
+
+# 3. Our Holy Father
+
+## Challenge Overview
+
+This OSINT challenge required identifying the **church shown in the provided image**.
+
+## Investigation
+
+Steps taken:
+
+1. Uploaded the image to **Google Lens**
+2. Identified architectural and location clues
+3. Performed searches using the results
+
+Google provided a **Maps result containing the complete church name**.
+
+## Flag
+ThunderCipher{Eglise_Notre_Dame_du_Vent}
+
+
+---
+
+# 4. Good Advice
+
+## Challenge Overview
+
+This challenge provided a **corrupted audio file**.
+
+The file could not be played normally.
+
+## Analysis
+
+Using a hex dump, I noticed that the **WAV header was missing**, which explained why the audio player could not read it.
+
+## Fixing the File
+
+I restored the WAV header manually using Python and saved the repaired file.
+
+After generating decoded_audio.wav, I listened to the file.
+
+The audio contained spoken characters:
+"A one" → A1
+"W four" → W4nn
+"Y S T H three" → YSTH3
+"R three four U" → R34U
+
+
+Combining them produced: A1W4YSTH3R34U
+
+
+## Flag
+ThunderCipher{A1W4YSTH3R34U}
+
+
+---
+
+# 5. Discord
+
+## Challenge Overview
+
+This miscellaneous challenge required checking the **official ThunderCipher Discord server**.
+
+## Investigation
+
+Inside the **general channel**, clicking the message:
+Hi @everyone
+
+
+revealed the flag.
+
+## Flag
+ThunderCipher{pinged_in_discord}
+
+
+---
+
+# 6. Web – Directory Discovery
+
+## Investigation
+
+Opening the provided link revealed nothing useful.
+
+Inspecting the **page source** revealed a hint directing me to check: robots.txt
+
+
+This file contained hidden directories.
+
+Exploring them revealed the directory: /txt-of-thunder/
+
+
+Inside the page source of this directory, the flag was present.
+
+## Flag
+ThunderCipher{txt_of_thunder_7681912}
+
+
+---
+
+# 7. Web – Source of Thunder
+
+## Investigation
+
+The webpage initially appeared normal.
+
+Inspecting the **source code** revealed that the flag was split into three parts:
+
+- First part in **HTML source**
+- Second part in **style.css**
+- Third part in **app.js**
+
+Combining all parts reconstructed the complete flag.
+
+---
+
+# 8. Forensics – DMY1
+
+## Analysis
+
+After extracting the provided ZIP archive, I found a file: File.DMP
+
+
+To analyze it, I used: foremost
+
+to carve files from the dump.
+
+The extraction produced several images.
+
+One of the recovered images contained the flag.
+
+## Flag
+ThunderCipher{H0l4-4m!g0^}
+
+
+---
+
+# 9. I Hate That Scammer
+
+## Investigation
+
+The challenge contained a suspicious text file.
+
+The content appeared encoded using a **scam-mimic style encoding**.
+
+After several attempts, the correct password was identified as: SCAM
+
+
+Using this password to decode the content revealed the flag.
+
+## Flag
+ThunderCipher{h3_us3d_t0_sp4m_w1th0ut_4_p4ssw0rd}
+
+
+---
+
+# 10. Convo 1
+
+## Exploration
+
+Extracting the archive: unzip Session.zip
+
+produced: Session- Cap.sal
+                   digital-0.bin
+                   meta.json
+
+The metadata indicated a **24 MHz sample rate**.
+
+## Signal Analysis
+
+The binary data revealed two pulse durations:
+Short pulse ≈ 2.88M samples
+Long pulse ≈ 8.64M samples
+
+This timing pattern corresponds to **Morse Code (1T vs 3T)**.
+
+## Decoding
+
+A script converted the pulses to Morse symbols and then to ASCII.
+
+Output: The Flag is D0ts4nDd4$h3s
+
+
+## Flag
+ThunderCipher{D0ts4nDd4$h3s}
+
+
+---
+
+# 11. Convo 2
+
+## Dataset
+
+This challenge contained a **3GB logic capture dataset**.
+
+The metadata indicated: Sample Rate: 1 GHz
+                        Probe: D0
+
+## Analysis
+
+Initial investigation suggested the signal represented **UART serial communication**.
+
+Using brute force, the correct parameters were identified: Baud Rate: 230400
+                                                           Polarity: Standard                        
+
+## Decoding
+
+The decoded stream revealed three encoded components:
+
+| Encoding | Result |
+|--------|--------|
+| Hex | ThunderCipher{H3lL0_w |
+| Base64 | 0RlD_1n_u |
+| Base32 | 4Rt_#$!} |
+
+Combining them produced the final flag.
+
+## Flag
+ThunderCipher{H3lL0_w0RlD_1n_u4Rt_#$!}
+
+
+---
+
+# 12. Panel – PCB Analysis
+
+## Challenge Overview
+
+The challenge included **Gerber files**, which are used in PCB manufacturing.
+
+## Investigation
+
+Using **pygerber**, I rendered the layers into images: python3 -m pygerber render raster -o InnerLayer4.png -d 40 Gerber_InnerLayer4.G4
+
+The internal PCB layer contained a hidden string: KRUHK3TEMVZEG2LQNBSXE6ZBI4ZXEYS7KYYTG526FF5X2
+
+The character set suggested **Base32 encoding**.
+
+## Flag
+ThunderCipher{!G3rb_V13w^}
+
+
+---
+
+# 13. Tree
+
+## Analysis
+
+The extracted JPEG file contained obfuscated text with printable ASCII characters and symbols.
+
+The pattern matched **ROT47 encoding**.
+
+ROT47 rotates characters within the ASCII range 33–126.
+
+After decoding, the flag appeared.
+
+## Flag
+ThunderCipher{tr33s_4r3_h1dd3n}
+
+
+---
+
+# 14. Dotsies Font
+
+## Investigation
+
+The displayed message used the **Dotsies font**, which represents characters using dot patterns.
+
+Decoding the dot patterns revealed the hidden message.
+
+## Flag
+ThunderCipher{JUST_TAKING_A_DOT_OUT_ON_A_DATE}
+
+
+---
+
+# 15. Unauthenticated Strike
+
+## Step 1 – ZIP Password Crack
+
+The ZIP archive was password-protected.
+
+Using:
+zip2john joel.zip > hash.txt
+john --wordlist=wordlist.txt hash.txt
+
+
+Recovered password: youfoundme1
+
+
+## Step 2 – File Inspection
+
+Extracted files are:
+.hacker.jpeg
+file.cap
+
+
+Running \`strings\` on the image revealed encoded text.
+
+Decoding the text using **ROT47** produced a Google Drive link containing the flag.
+
+## Flag
+ThunderCipher{y0u_f0und_m3_n1ce!}
+
+
+---
+
+# 16. CyberHunt
+
+## Reconnaissance
+
+Using Nmap: nmap -sT -p- --min-rate=1000 <TARGET_IP>
+
+Open ports: 22 – SSH and 80 – HTTP
+
+
+## Web Enumeration
+gobuster dir -u http://target/cgi-bin/ -w common.txt -x sh,cgi
+
+
+Discovered: /cgi-bin/test.sh
+
+## Exploitation – Shellshock
+
+Testing with: curl -H "User-Agent: () { :; }; echo; /bin/id" http://target/cgi-bin/test.sh
+
+
+confirmed **Shellshock RCE**.
+
+## Privilege Escalation
+
+Kernel version: 3.2.0
+
+
+This version is vulnerable to **Dirty COW (CVE-2016-5195)**.
+
+Using the exploit allowed modification of \`/etc/passwd\`, creating a root user.
+
+## Final Flag
+ThunderCipher{dirty_cow_owned_the_kernel_08918}
+
+
+---
+
+# Conclusion
+
+This CTF included challenges across multiple domains:
+
+- Cryptography
+- OSINT
+- Web exploitation
+- Digital forensics
+- Hardware analysis
+- Binary signal decoding
+- Full system exploitation
+
+Each challenge required a combination of **technical tools, analytical reasoning, and reverse engineering techniques**.`,
   },
+
   {
-    slug: "detection-ideas-from-phishing-labs",
-    title: "Detection Ideas From a Weekend in a Phishing Lab",
+    slug: "sillyctf-2026-writeups",
+    title: "SillyCTF 2026 Writeups",
     excerpt:
-      "Three detections worth writing after spending a weekend simulating phishing kill-chains in an isolated network.",
-    category: "Detection Engineering",
-    tags: ["Detection", "Phishing", "Blue Team"],
-    date: "2026-02-28",
+      "Archive of challenge writeups covering cryptography, forensics, OSINT, steganography, and web exploitation.",
+    category: "CTF",
+    tags: [
+      "ctf",
+      "cryptography",
+      "forensics",
+      "osint",
+      "steganography",
+      "web",
+    ],
+    date: "2026-05-14",
+    readingMinutes: 10,
+    body: `# SillyCTF 2026 — Complete Writeups Archive
+
+Repository: https://github.com/vishwakumarv/SillyCTF2026-Writeups
+
+
+# Crypto
+
+## Cryptos
+
+\`\`\`markdown
+# Cryptos
+
+## Challenge Description
+Cryptography challenge from SillyCTF 2026.
+
+## Category
+Crypto
+
+## Focus Areas
+- Cipher Analysis
+- Decoding
+- Cryptographic Enumeration
+
+## Methodology
+The challenge involved identifying the cryptographic pattern and analyzing the encoded content step by step.
+
+## Skills Used
+- Cryptanalysis
+- Pattern Recognition
+- Encoding Analysis
+
+## Tools
+- CyberChef
+- Python
+- Online Decoders
+
+## Learning Outcome
+Understanding how layered encodings and cryptographic transformations can be reversed systematically.
+\`\`\`
+
+---
+
+## ECC
+
+\`\`\`markdown
+# ECC
+
+## Challenge Description
+Elliptic Curve Cryptography based challenge.
+
+## Category
+Crypto
+
+## Focus Areas
+- ECC Analysis
+- Mathematical Reconstruction
+- Cryptographic Weakness Analysis
+
+## Skills Used
+- Python Scripting
+- ECC Understanding
+- Parameter Analysis
+
+## Tools
+- SageMath
+- Python
+
+## Learning Outcome
+Improved understanding of elliptic curve cryptographic concepts and attack methodology.
+\`\`\`
+
+---
+
+## Kyber
+
+\`\`\`markdown
+# Kyber
+
+## Challenge Description
+Post-Quantum Cryptography challenge based on Kyber.
+
+## Category
+Crypto
+
+## Focus Areas
+- Lattice Cryptography
+- Kyber Analysis
+- Post-Quantum Concepts
+
+## Skills Used
+- PQC Understanding
+- Cryptanalysis
+
+## Tools
+- Python
+- SageMath
+
+## Learning Outcome
+Introduction to post-quantum cryptographic schemes and Kyber internals.
+\`\`\`
+
+---
+
+## Quick Maths
+
+\`\`\`markdown
+# Quick Maths
+
+## Challenge Description
+Math-based cryptographic challenge.
+
+## Category
+Crypto
+
+## Focus Areas
+- Fast Computation
+- Modular Arithmetic
+- Number Theory
+
+## Skills Used
+- Mathematical Reasoning
+- Python Scripting
+
+## Tools
+- Python
+
+## Learning Outcome
+Applying mathematical concepts to cryptographic problem solving.
+\`\`\`
+
+---
+
+## RSA
+
+\`\`\`markdown
+# RSA
+
+## Challenge Description
+RSA cryptography challenge involving parameter analysis.
+
+## Category
+Crypto
+
+## Focus Areas
+- RSA Weaknesses
+- Prime Factorization
+- Key Recovery
+
+## Skills Used
+- Modular Arithmetic
+- RSA Analysis
+- Scripting
+
+## Tools
+- Python
+- RsaCtfTool
+
+## Learning Outcome
+Understanding practical RSA attack surfaces and exploitation techniques.
+\`\`\`
+
+---
+
+## Six to the Seven
+
+\`\`\`markdown
+# Six to the Seven
+
+## Challenge Description
+Cryptographic puzzle challenge.
+
+## Category
+Crypto
+
+## Focus Areas
+- Encoding Logic
+- Number Transformation
+
+## Skills Used
+- Logical Analysis
+- Pattern Recognition
+
+## Tools
+- Python
+
+## Learning Outcome
+Developing systematic approaches for decoding custom transformations.
+\`\`\`
+
+---
+
+# Forensics
+
+## Cartmans Business Venture
+
+\`\`\`markdown
+# Cartmans Business Venture
+
+## Challenge Description
+Digital forensics challenge involving artifact analysis.
+
+## Category
+Forensics
+
+## Focus Areas
+- Metadata Inspection
+- File Analysis
+- Artifact Recovery
+
+## Skills Used
+- Investigative Analysis
+- Data Inspection
+
+## Tools
+- exiftool
+- strings
+- binwalk
+
+## Learning Outcome
+Understanding digital artifact extraction and forensic investigation workflow.
+\`\`\`
+
+---
+
+## Fortnite Dumpy
+
+\`\`\`markdown
+# Fortnite Dumpy
+
+## Challenge Description
+Forensics challenge requiring extraction and analysis of hidden data.
+
+## Category
+Forensics
+
+## Focus Areas
+- Data Recovery
+- Memory/File Inspection
+- Hidden Information Analysis
+
+## Skills Used
+- File Carving
+- Metadata Analysis
+- Binary Inspection
+
+## Tools
+- binwalk
+- foremost
+- strings
+- exiftool
+
+## Learning Outcome
+Practical exposure to digital forensics and hidden data recovery.
+\`\`\`
+
+---
+
+## Rot Transmit
+
+\`\`\`markdown
+# Rot Transmit
+
+## Challenge Description
+Forensics and transmission decoding challenge.
+
+## Category
+Forensics
+
+## Focus Areas
+- Transmission Analysis
+- Encoding Recovery
+- Signal Interpretation
+
+## Skills Used
+- Pattern Recognition
+- Encoding Analysis
+
+## Tools
+- CyberChef
+- Python
+
+## Learning Outcome
+Learning how encoded forensic transmissions can be reconstructed and decoded.
+\`\`\`
+
+---
+
+# OSINT
+
+## Grass Toucher 3000
+
+\`\`\`markdown
+# Grass Toucher 3000
+
+## Challenge Description
+Open-source intelligence challenge.
+
+## Category
+OSINT
+
+## Focus Areas
+- Information Gathering
+- Online Enumeration
+
+## Skills Used
+- Search Techniques
+- Metadata Collection
+
+## Tools
+- Google Dorking
+- Social Enumeration
+
+## Learning Outcome
+Understanding structured OSINT investigation workflows.
+\`\`\`
+
+---
+
+## INTERNATIONAL BRAINROT
+
+\`\`\`markdown
+# INTERNATIONAL BRAINROT
+
+## Challenge Description
+OSINT challenge involving internet-based research.
+
+## Category
+OSINT
+
+## Focus Areas
+- Research Methodology
+- Public Data Correlation
+
+## Skills Used
+- Investigation
+- Correlation Analysis
+
+## Tools
+- Search Engines
+- Public Databases
+
+## Learning Outcome
+Improving information tracing and public intelligence gathering.
+\`\`\`
+
+---
+
+## Oh My God, They Killed Kenny!
+
+\`\`\`markdown
+# Oh My God, They Killed Kenny!
+
+## Challenge Description
+OSINT investigation challenge.
+
+## Category
+OSINT
+
+## Focus Areas
+- Geolocation
+- Online Investigation
+- Public Information Correlation
+
+## Skills Used
+- Reverse Search
+- Data Correlation
+
+## Tools
+- Google Maps
+- Reverse Image Search
+
+## Learning Outcome
+Developing structured online investigation methodology.
+\`\`\`
+
+---
+
+## Sussiest Challenge
+
+\`\`\`markdown
+# Sussiest Challenge
+
+## Challenge Description
+OSINT-based intelligence gathering challenge.
+
+## Category
+OSINT
+
+## Focus Areas
+- Public Information Gathering
+- Enumeration
+
+## Skills Used
+- Investigation
+- Search Correlation
+
+## Tools
+- Google
+- Metadata Tools
+
+## Learning Outcome
+Understanding practical OSINT workflows and analysis.
+\`\`\`
+
+---
+
+# Steganography
+
+## Like A Rolling Stone
+
+\`\`\`markdown
+# Like A Rolling Stone
+
+## Challenge Description
+Steganography challenge involving hidden data.
+
+## Category
+Stego
+
+## Focus Areas
+- Hidden Data Extraction
+- File Inspection
+
+## Skills Used
+- Steganalysis
+- Binary Inspection
+
+## Tools
+- stegsolve
+- zsteg
+- strings
+
+## Learning Outcome
+Understanding practical steganographic analysis techniques.
+\`\`\`
+
+---
+
+## Only in Ohio
+
+\`\`\`markdown
+# Only in Ohio
+
+## Challenge Description
+Steganography challenge focused on uncovering concealed information.
+
+## Category
+Stego
+
+## Focus Areas
+- Embedded Data Analysis
+- Hidden Message Recovery
+
+## Skills Used
+- Steganography Analysis
+- Pattern Recognition
+
+## Tools
+- zsteg
+- binwalk
+
+## Learning Outcome
+Improved understanding of hidden data extraction techniques.
+\`\`\`
+
+---
+
+# Web Exploitation
+
+## Brainrot Inject
+
+\`\`\`markdown
+# Brainrot Inject
+
+## Challenge Description
+Web exploitation challenge involving injection vulnerabilities.
+
+## Category
+Web
+
+## Focus Areas
+- Injection Attacks
+- Input Validation Weaknesses
+
+## Skills Used
+- Payload Crafting
+- Enumeration
+
+## Tools
+- Burp Suite
+- Browser DevTools
+
+## Learning Outcome
+Understanding web injection attack vectors and exploitation workflow.
+\`\`\`
+
+---
+
+## Hit Me
+
+\`\`\`markdown
+# Hit Me
+
+## Challenge Description
+Web challenge focused on request manipulation and exploitation.
+
+## Category
+Web
+
+## Focus Areas
+- HTTP Analysis
+- Request Manipulation
+
+## Skills Used
+- Traffic Inspection
+- Web Enumeration
+
+## Tools
+- curl
+- Burp Suite
+
+## Learning Outcome
+Developing understanding of HTTP exploitation methodology.
+\`\`\`
+
+---
+
+## Pibble
+
+\`\`\`markdown
+# Pibble
+
+## Challenge Description
+Web exploitation challenge involving application analysis.
+
+## Category
+Web
+
+## Focus Areas
+- Web Enumeration
+- Vulnerability Discovery
+
+## Skills Used
+- Manual Testing
+- Payload Testing
+
+## Tools
+- Burp Suite
+- Browser DevTools
+
+## Learning Outcome
+Understanding systematic web vulnerability discovery and exploitation.
+\`\`\`
+
+---
+
+## Real Time Rizz
+
+\`\`\`markdown
+# Real Time Rizz
+
+## Challenge Description
+Real-time web exploitation challenge.
+
+## Category
+Web
+
+## Focus Areas
+- Dynamic Request Analysis
+- Real-time Exploitation
+
+## Skills Used
+- Web Testing
+- Traffic Manipulation
+
+## Tools
+- Burp Suite
+- WebSockets Analysis
+
+## Learning Outcome
+Understanding live request analysis and exploitation workflows.
+\`\`\`
+
+---
+
+# Technical Skills Demonstrated
+
+* Reverse Engineering
+* Digital Forensics
+* Cryptanalysis
+* Binary Inspection
+* Steganography
+* OSINT Investigation
+* Web Exploitation
+* Vulnerability Analysis
+* Python Scripting
+* Enumeration
+* Traffic Analysis
+* Metadata Inspection
+
+---
+
+# Tools & Technologies Used
+
+* Python
+* Burp Suite
+* Ghidra
+* binwalk
+* exiftool
+* CyberChef
+* pwntools
+* GDB
+* SageMath
+* Browser DevTools
+* curl
+* stegsolve
+* zsteg
+
+---
+
+# Repository Structure
+
+\`\`\`text
+writeups/
+├── crypto/
+├── forensics/
+├── misc/
+├── osint/
+├── pwn/
+├── rev/
+├── stego/
+└── web/
+\`\`\`
+
+---
+
+# Repository
+
+[https://github.com/vkumxr/SillyCTF2026-Writeups](https://github.com/vkumxr/SillyCTF2026-Writeups)`,
+  },
+
+  {
+    slug: "evilginx-mfa-analysis",
+    title: "Why MFA Alone Isn't Saving Organizations Anymore",
+    excerpt:
+      "Analysis of adversary-in-the-middle phishing techniques, MFA limitations, session hijacking risks, and defensive considerations.",
+    category: "Security Research",
+    tags: [
+      "phishing",
+      "evilginx",
+      "redteam",
+      "mfa",
+      "security",
+    ],
+    date: "2026-05-20",
     readingMinutes: 8,
-    body: [
-      "Running through phishing scenarios end-to-end always produces more detection ideas than reading about them.",
-      "Three concrete ones came out of this weekend: tunnel CDN header fingerprints, first-seen domains receiving credential-shaped POSTs, and browser permission-prompt anomalies.",
-      "Each one is small enough to implement in a sprint and useful enough to keep.",
-    ],
-  },
-  {
-    slug: "living-on-linux-as-a-blue-teamer",
-    title: "Living on Linux as a Blue Teamer",
-    excerpt:
-      "Why a daily-driver Linux setup pays back compound interest for SOC and DFIR work — and the small habits that matter.",
-    category: "Linux Research",
-    tags: ["Linux", "Workflow", "Tooling"],
-    date: "2026-02-10",
-    readingMinutes: 5,
-    body: [
-      "There's a difference between knowing Linux and living on it. The compound interest only shows up when it's your default environment.",
-      "journalctl muscle memory, tmux discipline, and a clean dotfiles repo do more for analyst speed than any single tool.",
-    ],
-  },
-  {
-    slug: "ghidra-notes-first-90-days",
-    title: "Ghidra Notes: First 90 Days",
-    excerpt:
-      "What actually stuck after three months of Ghidra — and what I wish I had skipped in week one.",
-    category: "Reverse Engineering",
-    tags: ["Ghidra", "RE", "Notes"],
-    date: "2026-01-18",
-    readingMinutes: 6,
-    body: [
-      "Ghidra is wide. Most tutorials show you the parts you'll never use first.",
-      "This is the short list of what actually mattered in my first 90 days: function signatures, structure recovery, and bookmark hygiene.",
-    ],
-  },
-  {
-    slug: "small-python-tools-soc-analysts-should-build",
-    title: "Small Python Tools Every SOC Analyst Should Build",
-    excerpt:
-      "Five tiny scripts that compound: log parsers, IOC enrichers, evidence packagers. Build them once, save hours weekly.",
-    category: "Security Tooling",
-    tags: ["Python", "Automation", "SOC"],
-    date: "2025-12-04",
-    readingMinutes: 5,
-    body: [
-      "You don't need to ship a SOAR platform to feel the benefits of automation. Five small Python scripts cover most of the daily friction.",
-      "Log parser, IOC enricher, evidence packager, ticket templater, and a Slack-friendly status pinger. Build once, use forever.",
-    ],
+    body: `# Why MFA Alone Isn't Saving Organizations Anymore
+
+## Introduction
+
+Multi-Factor Authentication (MFA) remains one of the most effective defenses against account compromise. However, modern phishing techniques have evolved significantly, allowing attackers to bypass protections that were once considered highly reliable.
+
+This article explores why MFA should be viewed as a layer of defense rather than a complete solution and discusses how organizations can better protect users against modern phishing attacks.
+
+---
+
+## The Evolution of Phishing
+
+Traditional phishing attacks focused on stealing usernames and passwords through fake login pages.
+
+As MFA adoption increased, attackers adapted. Instead of targeting credentials alone, they began targeting authenticated sessions and user trust.
+
+Modern phishing campaigns often attempt to:
+
+* Capture credentials
+* Trick users into approving MFA prompts
+* Steal authenticated browser sessions
+* Abuse legitimate cloud services
+* Evade traditional email security controls
+
+The result is that a user may successfully complete MFA while an attacker still gains access to the account.
+
+---
+
+## Understanding Adversary-in-the-Middle Attacks
+
+An Adversary-in-the-Middle (AiTM) attack places an attacker-controlled system between a victim and a legitimate service.
+
+From the user's perspective:
+
+1. The login page appears genuine.
+2. Credentials are entered normally.
+3. MFA is completed successfully.
+4. Access appears legitimate.
+
+However, the attacker may intercept authentication artifacts generated during the process.
+
+This technique demonstrates an important security principle:
+
+> MFA verifies identity during authentication, but it does not automatically protect authenticated sessions afterward.
+
+---
+
+## Why MFA Alone Is Not Enough
+
+Organizations often deploy MFA and assume account compromise risks have been eliminated.
+
+In reality, attackers increasingly target:
+
+* Session tokens
+* Browser trust relationships
+* OAuth consent grants
+* Device enrollment processes
+* Social engineering weaknesses
+
+These techniques focus on bypassing the protection indirectly rather than defeating MFA itself.
+
+---
+
+## Detection Opportunities
+
+Security teams can improve visibility by monitoring:
+
+### Impossible Travel Events
+
+Users appearing in multiple geographic locations within unrealistic timeframes.
+
+### New Device Registrations
+
+Unexpected devices accessing sensitive services.
+
+### Unusual Session Activity
+
+Authentication sessions that deviate from established user behavior.
+
+### Token Abuse Indicators
+
+Repeated access from unfamiliar systems using valid sessions.
+
+### Risk-Based Authentication Events
+
+Identity provider alerts indicating suspicious sign-ins.
+
+---
+
+## Defensive Recommendations
+
+Organizations should consider:
+
+* Phishing-resistant MFA where possible
+* Strong conditional access policies
+* Continuous session monitoring
+* Device trust validation
+* User awareness training
+* Security logging and alerting improvements
+* Regular incident response exercises
+
+Security should be treated as multiple layers working together rather than reliance on a single control.
+
+---
+
+## Key Takeaway
+
+MFA remains essential and should be enabled everywhere possible.
+
+However, modern attackers increasingly focus on techniques that operate around MFA rather than directly attacking it.
+
+Organizations that combine MFA with strong monitoring, device trust, conditional access policies, and user education are significantly better positioned to defend against modern phishing threats.
+
+MFA is a powerful control—but it is not the final layer.
+`,
   },
 ];
 
 export const categories = [
   "All",
-  "Malware Analysis",
-  "DFIR",
-  "Detection Engineering",
-  "Linux Research",
-  "Reverse Engineering",
-  "Security Tooling",
+  "CTF",
+  "Security Research",
 ];
 
 export const skills = {

@@ -5,7 +5,7 @@ import { Menu, X, Shield } from "lucide-react";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
-  { to: "/blog", label: "Blog" },
+  { to: "/blog", label: "Writeups" },
   { to: "/resume", label: "Resume" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },

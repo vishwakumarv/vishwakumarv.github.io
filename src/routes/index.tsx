@@ -21,9 +21,9 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vishwa Kumar — SOC Analyst & DFIR Portfolio" },
+      { title: "V. Vishwa Kumar — SOC Analyst & DFIR Portfolio" },
       { name: "description", content: "Recruiter-first portfolio for SOC Analyst, DFIR, Detection Engineering, and Security Operations roles." },
-      { property: "og:title", content: "Vishwa Kumar — SOC Analyst & DFIR Portfolio" },
+      { property: "og:title", content: "V. Vishwa Kumar — SOC Analyst & DFIR Portfolio" },
       { property: "og:description", content: "SOC, DFIR, and security operations — projects, writeups, and resume." },
       { property: "og:url", content: "/" },
     ],

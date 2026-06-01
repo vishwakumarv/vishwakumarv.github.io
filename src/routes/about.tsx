@@ -6,9 +6,9 @@ import avatarAsset from "@/assets/avatar.png";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Vishwa Kumar" },
+      { title: "About — V. Vishwa Kumar" },
       { name: "description", content: "About Vishwa Kumar — security operations mindset, Linux environments, security research, and incident response interest." },
-      { property: "og:title", content: "About — Vishwa Kumar" },
+      { property: "og:title", content: "About — V. Vishwa Kumar" },
       { property: "og:description", content: "Security operations mindset and continuous learning." },
       { property: "og:url", content: "/about" },
     ],

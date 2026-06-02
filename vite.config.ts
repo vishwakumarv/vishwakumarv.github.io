@@ -1,11 +1,17 @@
 import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import path from 'path'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   plugins: [
     tanstackStart({
       server: {
-        preset: 'vercel',  // 👈 add this
+        preset: 'vercel',
       },
     }),
   ],

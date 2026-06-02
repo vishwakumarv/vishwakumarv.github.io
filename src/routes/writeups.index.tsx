@@ -4,21 +4,21 @@ import { Section } from "@/components/Section";
 import { posts, categories } from "@/data/portfolio";
 import { Search, Clock, ArrowRight } from "lucide-react";
 
-export const Route = createFileRoute("/blog/")({
+export const Route = createFileRoute("/writeups/")({
   head: () => ({
     meta: [
-      { title: "Blog — Malware, DFIR & Detection Notes" },
+      { title: "Writeups — Malware, DFIR & Detection Notes" },
       { name: "description", content: "Technical writeups on malware analysis, DFIR, detection engineering, Linux research, reverse engineering, and security tooling." },
-      { property: "og:title", content: "Blog — Vishwa Kumar" },
+      { property: "og:title", content: "Writeups — Vishwa Kumar" },
       { property: "og:description", content: "Security writeups and notes." },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: "/writeups" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: "/writeups" }],
   }),
-  component: BlogPage,
+  component: WriteupsPage,
 });
 
-function BlogPage() {
+function WriteupsPage() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState("All");
 
@@ -39,7 +39,7 @@ function BlogPage() {
 
   return (
     <Section
-      eyebrow="blog"
+      eyebrow="Writeups"
       title="Technical writeups & notes"
       description="Short, structured notes on malware analysis, DFIR, detection engineering, Linux, reverse engineering, and the small tools that make analyst work faster."
     >
@@ -49,7 +49,7 @@ function BlogPage() {
           {featured.map((p) => (
             <Link
               key={p.slug}
-              to="/blog/$slug"
+              to="/writeups/$slug"
               params={{ slug: p.slug }}
               className="group glass flex flex-col rounded-xl p-6 transition hover:border-primary/50"
             >
@@ -97,7 +97,7 @@ function BlogPage() {
         {filtered.map((p) => (
           <Link
             key={p.slug}
-            to="/blog/$slug"
+            to="/writeups/$slug"
             params={{ slug: p.slug }}
             className="group glass flex flex-col gap-2 rounded-xl p-5 transition hover:border-primary/50 md:flex-row md:items-center md:justify-between"
           >

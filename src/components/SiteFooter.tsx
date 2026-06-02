@@ -16,7 +16,7 @@ export function SiteFooter() {
 
         <div className="grid grid-cols-2 gap-3 text-sm">
           <Link to="/projects" className="text-muted-foreground hover:text-foreground">Projects</Link>
-          <Link to="/blog" className="text-muted-foreground hover:text-foreground">Blog</Link>
+          <Link to="/writeups" className="text-muted-foreground hover:text-foreground">Writeups</Link>
           <Link to="/resume" className="text-muted-foreground hover:text-foreground">Resume</Link>
           <Link to="/about" className="text-muted-foreground hover:text-foreground">About</Link>
           <Link to="/contact" className="text-muted-foreground hover:text-foreground">Contact</Link>

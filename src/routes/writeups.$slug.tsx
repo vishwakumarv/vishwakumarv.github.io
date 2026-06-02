@@ -4,7 +4,7 @@ import { posts } from "@/data/portfolio";
 import { ArrowLeft, Clock } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/writeups/$slug")({
   loader: ({ params }) => {
     const post = posts.find((p) => p.slug === params.slug);
     if (!post) throw notFound();
@@ -19,9 +19,9 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: p?.title ?? "Post" },
         { property: "og:description", content: p?.excerpt ?? "" },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/blog/${p?.slug ?? ""}` },
+        { property: "og:url", content: `/writeups/${p?.slug ?? ""}` },
       ],
-      links: [{ rel: "canonical", href: `/blog/${p?.slug ?? ""}` }],
+      links: [{ rel: "canonical", href: `/writeups/${p?.slug ?? ""}` }],
     };
   },
   notFoundComponent: () => (
@@ -37,10 +37,14 @@ function PostPage() {
   const { post: p } = Route.useLoaderData();
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 md:py-24">
+<<<<<<< HEAD:src/routes/blog.$slug.tsx
       <Link
         to="/blog"
         className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground"
       >
+=======
+      <Link to="/writeups" className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground">
+>>>>>>> ee82526 (Updated website):src/routes/writeups.$slug.tsx
         <ArrowLeft className="h-3.5 w-3.5" /> back to blog
       </Link>
 

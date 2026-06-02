@@ -2,13 +2,17 @@ import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import path from 'path'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  plugins: [
-    tanstackStart(),
-  ],
+  plugins: [tanstackStart(), cloudflare({
+    viteEnvironment: {
+      name: "ssr"
+    }
+  })],
 })

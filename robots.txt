@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://vishwakumarv.github.io/sitemap.xml

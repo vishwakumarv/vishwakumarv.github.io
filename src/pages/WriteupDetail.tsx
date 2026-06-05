@@ -5,10 +5,43 @@ import { ArrowLeft, Clock } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+const slugToCategory = {
+  all: "All",
+  ctf: "CTF",
+  htb: "HackTheBox",
+  hackthebox: "HackTheBox",
+  "security-research": "Security Research",
+  securityresearch: "Security Research",
+} as const;
+
+function getCategoryFromSlug(slug?: string) {
+  if (!slug) return undefined;
+  return slugToCategory[slug.toLowerCase() as keyof typeof slugToCategory];
+}
+
+function getCategorySlug(category: string) {
+  const map: Record<string, string> = {
+    All: "all",
+    CTF: "ctf",
+    HackTheBox: "htb",
+    "Security Research": "security-research",
+  };
+  return map[category] ?? category.toLowerCase();
+}
+
 export default function WriteupDetail() {
-  const { slug } = useParams();
+  const { category: categoryParam, slug } = useParams();
+  const routeCategory = getCategoryFromSlug(categoryParam);
   const p = posts.find((p) => p.slug === slug);
-  if (!p) return <Navigate to="/" replace />;
+
+  if (!p) return <Navigate to="/writeups" replace />;
+
+  const expectedCategorySlug = getCategorySlug(p.category);
+  if (categoryParam && routeCategory !== p.category) {
+    return <Navigate to={`/writeups/${expectedCategorySlug}/${p.slug}`} replace />;
+  }
+
+  const backLink = routeCategory ? `/writeups/${categoryParam}` : "/writeups";
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 md:py-24">
@@ -18,12 +51,12 @@ export default function WriteupDetail() {
         <meta property="og:title" content={p.title} />
         <meta property="og:description" content={p.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`/writeups/${p.slug}`} />
-        <link rel="canonical" href={`/writeups/${p.slug}`} />
+        <meta property="og:url" content={`/writeups/${expectedCategorySlug}/${p.slug}`} />
+        <link rel="canonical" href={`/writeups/${expectedCategorySlug}/${p.slug}`} />
       </Helmet>
 
       <Link
-        to="/writeups"
+        to={backLink}
         className="inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-3.5 w-3.5" /> back to Writeups

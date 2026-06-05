@@ -26,7 +26,8 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/writeups" element={<Writeups />} />
-          <Route path="/writeups/:slug" element={<WriteupDetail />} />
+          <Route path="/writeups/:category" element={<Writeups />} />
+          <Route path="/writeups/:category/:slug" element={<WriteupDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MobileBottomNav } from "@/components/mobile/MobileBottomNav";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
@@ -14,9 +15,9 @@ import NotFound from "@/pages/NotFound";
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col mobile-tap-highlight">
       <SiteHeader />
-      <main className="flex-1">
+      <main className="flex-1 mobile-safe-bottom md:pb-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -32,6 +33,7 @@ export default function App() {
         </Routes>
       </main>
       <SiteFooter />
+      <MobileBottomNav />
     </div>
   );
 }

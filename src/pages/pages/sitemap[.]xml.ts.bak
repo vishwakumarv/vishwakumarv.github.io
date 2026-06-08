@@ -1,0 +1,38 @@
+import { createFileRoute } from "@tanstack/react-router";
+import type {} from "@tanstack/react-start";
+
+const BASE_URL = "";
+
+const staticPaths = ["/", "/projects", "/writeups", "/resume", "/about", "/contact"];
+const projectSlugs = ["deadpixel", "redroid-ai", "pubot"];
+const postSlugs = [
+  "triaging-suspicious-apks-fast",
+  "writing-an-ir-report-people-actually-read",
+  "detection-ideas-from-phishing-labs",
+  "living-on-linux-as-a-blue-teamer",
+  "ghidra-notes-first-90-days",
+  "small-python-tools-soc-analysts-should-build",
+];
+
+export const Route = createFileRoute("/sitemap.xml")({
+  server: {
+    handlers: {
+      GET: async () => {
+        const paths = [
+          ...staticPaths,
+          ...projectSlugs.map((s) => `/projects/${s}`),
+          ...postSlugs.map((s) => `/writeups/${s}`),
+        ];
+        const urls = paths
+          .map(
+            (p) => `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <changefreq>weekly</changefreq>\n  </url>`
+          )
+          .join("\n");
+        const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
+        return new Response(xml, {
+          headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
+        });
+      },
+    },
+  },
+});

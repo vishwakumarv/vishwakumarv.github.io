@@ -33,7 +33,7 @@ export default function WriteupDetail() {
   }
 
   return (
-    <article className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 md:py-24">
+    <article className="mx-auto w-full max-w-3xl px-4 py-12 sm:px-6 md:py-20">
       <Helmet>
         <title>{post.title} — Vishwa Kumar</title>
         <meta name="description" content={post.excerpt} />

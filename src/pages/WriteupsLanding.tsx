@@ -1,3 +1,4 @@
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 
@@ -19,6 +20,37 @@ function getCategoryLabel(category: string) {
 }
 
 export default function WriteupsLanding() {
+  const mobileContainerRef = useRef<HTMLDivElement | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const container = mobileContainerRef.current;
+    if (!container) return;
+
+    const items = Array.from(container.querySelectorAll('[data-snap-item]')) as HTMLElement[];
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const idx = items.indexOf(entry.target as HTMLElement);
+            if (idx >= 0) setActiveIndex(idx);
+          }
+        });
+      },
+      { root: container, threshold: 0.6 }
+    );
+
+    items.forEach((it) => io.observe(it));
+    return () => io.disconnect();
+  }, []);
+
+  function scrollToIndex(index: number) {
+    const container = mobileContainerRef.current;
+    if (!container) return;
+    const child = container.querySelectorAll('[data-snap-item]')[index] as HTMLElement | undefined;
+    child?.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+  }
+
   return (
     <Section
       eyebrow="Writeups"
@@ -43,31 +75,25 @@ export default function WriteupsLanding() {
                 {categoryDescriptions[category]}
               </p>
             </div>
-            <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-              Open category
-            </span>
           </Link>
         ))}
       </div>
 
-      <div className="relative mb-8 md:hidden">
-        <div className="relative h-[28rem] max-w-[24rem] mx-auto">
-          {categories.map((category, index) => {
-            const topOffset = index * 20;
-            const scale = 1 - index * 0.03;
-            const zIndex = categories.length - index;
-            return (
+      <div className="md:hidden mb-8">
+        <div className="relative">
+          <div
+            ref={mobileContainerRef}
+            className="mx-auto flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory touch-pan-x scrollbar-hide"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {categories.map((category) => (
               <Link
                 key={category}
                 to={`/writeups/${category}`}
-                className="glass group absolute left-0 right-0 overflow-hidden rounded-[2rem] border border-border bg-surface-elevated p-6 shadow-[0_35px_80px_-30px_rgba(0,0,0,0.8)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_45px_120px_-40px_rgba(0,0,0,0.85)]"
-                style={{
-                  top: `${topOffset}px`,
-                  transform: `scale(${scale})`,
-                  zIndex,
-                }}
+                data-snap-item
+                className="snap-center flex-shrink-0 w-[85vw] max-w-[420px] glass group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface-elevated p-6 transition hover:border-primary/60 hover:bg-surface/80"
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 h-full">
                   <div>
                     <p className="text-xs uppercase tracking-[0.35em] text-primary">
                       {getCategoryLabel(category)}
@@ -76,16 +102,23 @@ export default function WriteupsLanding() {
                       {getCategoryLabel(category)}
                     </h2>
                   </div>
-                  <p className="text-sm leading-6 text-muted-foreground">
-                    {categoryDescriptions[category]}
-                  </p>
-                  <span className="mt-auto inline-flex rounded-full border border-primary/60 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary transition group-hover:bg-primary/15">
-                    Open {getCategoryLabel(category)}
-                  </span>
+                  <p className="text-sm leading-6 text-muted-foreground">{categoryDescriptions[category]}</p>
                 </div>
               </Link>
-            );
-          })}
+            ))}
+          </div>
+
+          <div className="mt-4 flex justify-center gap-2">
+            {categories.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2 rounded-full transition ${i === activeIndex ? "w-6 bg-primary" : "w-2 bg-border"}`}
+                onClick={() => scrollToIndex(i)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </Section>

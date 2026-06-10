@@ -51,74 +51,78 @@ export default function AboutPage() {
       </Helmet>
 
       <Section eyebrow="about" title="A blue-team mindset, in practice">
-        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
-          <div className="flex flex-col items-start gap-6">
-            <img
-              src={avatarAsset}
-              alt={`${profile.name} avatar`}
-              className="h-40 w-40 rounded-2xl border border-border object-cover"
-            />
-            <div>
-              <p className="font-display text-xl font-semibold">
-                {profile.name}
-              </p>
-              <p className="text-sm text-muted-foreground">
-                {profile.title}
-              </p>
-              <p className="mt-2 font-mono text-xs text-muted-foreground">
-                {profile.location}
-              </p>
-            </div>
+        <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
+          <div className="flex flex-col gap-6">
+            <div className="glass rounded-3xl border border-border bg-surface/80 p-6 shadow-sm md:p-8">
+              <div className="flex items-start gap-5">
+                <img
+                  src={avatarAsset}
+                  alt={`${profile.name} avatar`}
+                  className="h-32 w-32 rounded-3xl border border-border object-cover shadow-2xl"
+                />
+                <div className="min-w-0">
+                  <p className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+                    {profile.name}
+                  </p>
+                  <p className="mt-2 text-sm font-medium text-foreground/90">
+                    {profile.title}
+                  </p>
+                  <p className="mt-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                    {profile.location}
+                  </p>
+                </div>
+              </div>
 
-            <div className="space-y-2 text-sm">
-              <Link
-                to="/projects"
-                className="block text-primary hover:underline"
-              >
-                → Project case studies
-              </Link>
-
-              <Link
-                to="/resume"
-                className="block text-primary hover:underline"
-              >
-                → Resume
-              </Link>
-
-              <a
-                href={profile.links.writeups}
-                target="_blank"
-                rel="noreferrer"
-                className="block text-primary hover:underline"
-              >
-                → Writeups archive ↗
-              </a>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-surface-elevated"
+                >
+                  Project case studies
+                </Link>
+                <Link
+                  to="/resume"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-surface-elevated"
+                >
+                  Resume
+                </Link>
+                <a
+                  href={profile.links.writeups}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-surface-elevated"
+                >
+                  Writeups archive ↗
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-lg text-foreground/90 leading-relaxed">
-              I'm a final-year engineering student at PSG College of Technology
-              preparing for SOC, DFIR, and Security Operations roles. My work
-              centers on three things: monitoring, investigation, and the small
-              automations that make both faster.
-            </p>
+          <div className="space-y-6">
+            <div className="space-y-4 rounded-3xl border border-border bg-surface/80 p-6 text-sm leading-relaxed text-muted-foreground shadow-sm md:p-8 md:text-base">
+              <p className="text-foreground/90">
+                I'm a final-year engineering student at PSG College of Technology
+                preparing for SOC, DFIR, and Security Operations roles. My work
+                centers on three things: monitoring, investigation, and the small
+                automations that make both faster.
+              </p>
 
-            <p className="text-base text-muted-foreground leading-relaxed">
-              I run Linux daily, document everything I touch as a case study,
-              and participate in CTFs across web, OSINT, and forensics to keep
-              an attacker's perspective fresh. I'm interested in detection
-              engineering, malware triage, and the boring-but-critical
-              reliability work that holds a security program together.
-            </p>
+              <p>
+                I run Linux daily, document everything I touch as a case study,
+                and participate in CTFs across web, OSINT, and forensics to keep
+                an attacker's perspective fresh. I'm interested in detection
+                engineering, malware triage, and the boring-but-critical
+                reliability work that holds a security program together.
+              </p>
+            </div>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {pillars.map((p) => (
-                <div key={p.label} className="glass rounded-xl p-5">
-                  <p className="font-display text-sm font-semibold">
+                <div key={p.label} className="glass rounded-3xl border border-border p-5 shadow-sm">
+                  <p className="font-display text-sm font-semibold text-foreground">
                     {p.label}
                   </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {p.body}
                   </p>
                 </div>

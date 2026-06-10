@@ -49,48 +49,122 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg" aria-hidden />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-4 pb-16 pt-16 sm:px-6 md:grid-cols-[1.2fr_1fr] md:gap-10 md:pb-24 md:pt-24">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
-              <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
-            </p>
-            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-              <span className="text-gradient">{profile.name}</span>
-              <span className="block text-foreground/85 text-2xl sm:text-3xl md:text-4xl mt-3 font-medium">
-                SOC Analyst · DFIR Enthusiast · Security Operations
-              </span>
-            </h1>
-            <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-              I focus on blue team security — monitoring, incident investigation, threat
-              analysis, and security automation. I build small tools, document cases like
-              real engagements, and study attacker tradecraft so I can defend faster.
-            </p>
+        <div className="relative mx-auto max-w-6xl gap-12 px-4 pb-16 pt-16 sm:px-6 md:grid md:grid-cols-[1.2fr_1fr] md:gap-10 md:pb-24 md:pt-24">
+          <div className="flex flex-col gap-6">
+            {/* Mobile hero row */}
+            <div className="flex flex-col gap-6 md:hidden">
+              <div className="flex w-full items-start justify-between gap-4">
+                <div className="min-w-0 flex-1 space-y-3 text-left">
+                  <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 font-mono text-[11px] text-muted-foreground">
+                    <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
+                  </p>
+                  <div>
+                    <h1 className="font-display text-[1.85rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl">
+                      <span className="text-gradient">{profile.name}</span>
+                      <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl">
+                        SOC Analyst · DFIR Enthusiast · Security Operations
+                      </span>
+                    </h1>
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground break-words">
+                      I focus on blue team security — monitoring, incident investigation, threat
+                      analysis, and security automation. I build small tools, document cases like
+                      real engagements, and study attacker tradecraft so I can defend faster.
+                    </p>
+                  </div>
+                </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 glow-primary">
-                View Projects <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
-                <Download className="h-4 w-4" /> Download Resume
-              </a>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
-                <Mail className="h-4 w-4" /> Contact
-              </Link>
+                <div className="relative flex h-full flex-shrink-0 items-start justify-center overflow-hidden rounded-full">
+                  <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl animate-cyber-pulse" aria-hidden />
+                  <img
+                    src={avatarAsset}
+                    alt={`${profile.name} avatar`}
+                    className="relative h-24 w-24 rounded-full border-2 border-primary/50 object-cover shadow-2xl ring-4 ring-primary/10 sm:h-28 sm:w-28"
+                    loading="eager"
+                    width={96}
+                    height={96}
+                  />
+                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-success animate-cyber-pulse" title="Available for hire" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 active:scale-[0.98] glow-primary">
+                  View Projects <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98]">
+                  <Download className="h-4 w-4" /> Download Resume
+                </a>
+                <Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98]">
+                  <Mail className="h-4 w-4" /> Contact
+                </Link>
+              </div>
+
+              <div className="grid w-full grid-cols-2 gap-2">
+                <SocialPill href={profile.links.github} icon={<Github className="h-3.5 w-3.5" />}>GitHub</SocialPill>
+                <SocialPill href={profile.links.linkedin} icon={<Linkedin className="h-3.5 w-3.5" />}>LinkedIn</SocialPill>
+                <SocialPill href={profile.links.bugcrowd}>Bugcrowd</SocialPill>
+                <SocialPill href={profile.links.hackerone}>HackerOne</SocialPill>
+                <SocialPill href={profile.links.tryhackme}>TryHackMe</SocialPill>
+                <SocialPill href={profile.links.hackthebox}>Hack The Box</SocialPill>
+                <SocialPill href={profile.links.email} icon={<Mail className="h-3.5 w-3.5" />}>Email</SocialPill>
+              </div>
+
+              <TerminalCard className="w-full">
+                <div className="space-y-1.5">
+                  <Line prompt>whoami</Line>
+                  <Line>vishwa.kumar — soc / dfir track</Line>
+                  <Line prompt>cat ./targets.txt</Line>
+                  <Line>SOC Analyst</Line>
+                  <Line>DFIR Analyst</Line>
+                  <Line>Detection Engineering</Line>
+                  <Line>Security Operations</Line>
+                  <Line prompt>./status --check</Line>
+                  <Line tone="success"><span className="scan-dot" />ready · open to opportunities</Line>
+                </div>
+              </TerminalCard>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              <SocialPill href={profile.links.github} icon={<Github className="h-3.5 w-3.5" />}>GitHub</SocialPill>
-              <SocialPill href={profile.links.linkedin} icon={<Linkedin className="h-3.5 w-3.5" />}>LinkedIn</SocialPill>
-              <SocialPill href={profile.links.bugcrowd}>Bugcrowd</SocialPill>
-              <SocialPill href={profile.links.hackerone}>HackerOne</SocialPill>
-              <SocialPill href={profile.links.tryhackme}>TryHackMe</SocialPill>
-              <SocialPill href={profile.links.hackthebox}>Hack The Box</SocialPill>
-              <SocialPill href={profile.links.email} icon={<Mail className="h-3.5 w-3.5" />}>Email</SocialPill>
+            <div className="hidden md:block">
+              <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
+                <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
+              </p>
+              <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
+                <span className="text-gradient">{profile.name}</span>
+                <span className="block text-foreground/85 text-2xl sm:text-3xl md:text-4xl mt-3 font-medium">
+                  SOC Analyst · DFIR Enthusiast · Security Operations
+                </span>
+              </h1>
+              <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
+                I focus on blue team security — monitoring, incident investigation, threat
+                analysis, and security automation. I build small tools, document cases like
+                real engagements, and study attacker tradecraft so I can defend faster.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 glow-primary">
+                  View Projects <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
+                  <Download className="h-4 w-4" /> Download Resume
+                </a>
+                <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
+                  <Mail className="h-4 w-4" /> Contact
+                </Link>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-2">
+                <SocialPill href={profile.links.github} icon={<Github className="h-3.5 w-3.5" />}>GitHub</SocialPill>
+                <SocialPill href={profile.links.linkedin} icon={<Linkedin className="h-3.5 w-3.5" />}>LinkedIn</SocialPill>
+                <SocialPill href={profile.links.bugcrowd}>Bugcrowd</SocialPill>
+                <SocialPill href={profile.links.hackerone}>HackerOne</SocialPill>
+                <SocialPill href={profile.links.tryhackme}>TryHackMe</SocialPill>
+                <SocialPill href={profile.links.hackthebox}>Hack The Box</SocialPill>
+                <SocialPill href={profile.links.email} icon={<Mail className="h-3.5 w-3.5" />}>Email</SocialPill>
+              </div>
             </div>
           </div>
 
-          {/* Right column: avatar + terminal */}
-          <div className="flex flex-col items-center gap-5 md:items-end">
+          <div className="hidden md:flex flex-col items-center gap-5 md:items-end">
             <div className="float-slow relative">
               <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl" aria-hidden />
               <img

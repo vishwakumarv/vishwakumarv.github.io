@@ -52,10 +52,10 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg" aria-hidden />
-        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 pb-12 pt-10 sm:px-6 md:grid-cols-[1.2fr_1fr] md:gap-10 md:pb-24 md:pt-24">
+        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 md:grid-cols-[1.2fr_1fr] md:gap-10 md:py-24">
           {/* Mobile: avatar-first centered layout */}
-          <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="float-slow relative md:hidden mb-2">
+          <div className="flex flex-col items-center text-center gap-4 md:items-start md:text-left">
+            <div className="float-slow relative mb-4 overflow-hidden rounded-full md:hidden">
               <div className="absolute -inset-3.5 rounded-full bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl animate-cyber-pulse" aria-hidden />
               <img
                 src={avatarAsset}
@@ -68,17 +68,16 @@ export default function Home() {
               <span className="absolute bottom-2 right-2 h-4 w-4 rounded-full border-2 border-background bg-success animate-cyber-pulse" title="Available for hire" />
             </div>
 
-
-            <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 font-mono text-[11px] text-muted-foreground md:mt-0">
+            <p className="mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 font-mono text-[11px] text-muted-foreground">
               <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
             </p>
-            <h1 className="mt-5 font-display text-[2rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl md:text-6xl">
+            <h1 className="mt-1 font-display text-[2rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl md:text-6xl">
               <span className="text-gradient">{profile.name}</span>
               <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl md:text-4xl">
                 SOC Analyst · DFIR Enthusiast · Security Operations
               </span>
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground break-words md:mt-6 md:text-lg">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground break-words md:mt-6 md:text-lg">
               I focus on blue team security — monitoring, incident investigation, threat
               analysis, and security automation. I build small tools, document cases like
               real engagements, and study attacker tradecraft so I can defend faster.
@@ -98,14 +97,14 @@ export default function Home() {
             </div>
 
             {/* Mobile: thumb-friendly social grid */}
-            <div className="mt-8 grid w-full max-w-md grid-cols-2 gap-2 sm:flex sm:max-w-none sm:flex-wrap md:mt-8">
+            <div className="mt-8 grid w-full max-w-md grid-cols-1 gap-2 sm:grid-cols-2 sm:max-w-none md:mt-8">
               <SocialPill href={profile.links.github} icon={<Github className="h-4 w-4" />} mobile>GitHub</SocialPill>
               <SocialPill href={profile.links.linkedin} icon={<Linkedin className="h-4 w-4" />} mobile>LinkedIn</SocialPill>
               <SocialPill href={profile.links.bugcrowd} mobile>Bugcrowd</SocialPill>
               <SocialPill href={profile.links.hackerone} mobile>HackerOne</SocialPill>
               <SocialPill href={profile.links.tryhackme} mobile>TryHackMe</SocialPill>
               <SocialPill href={profile.links.hackthebox} mobile>Hack The Box</SocialPill>
-              <SocialPill href={profile.links.email} icon={<Mail className="h-4 w-4" />} mobile className="col-span-2 sm:col-span-1">Email</SocialPill>
+              <SocialPill href={profile.links.email} icon={<Mail className="h-4 w-4" />} mobile className="col-span-1 sm:col-span-2">Email</SocialPill>
             </div>
           </div>
 

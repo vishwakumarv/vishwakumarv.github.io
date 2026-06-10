@@ -65,10 +65,7 @@ export default function WriteupsLanding() {
             className="glass group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface-elevated p-8 transition hover:border-primary/60 hover:bg-surface/80"
           >
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-primary">
-                {getCategoryLabel(category)}
-              </p>
-              <h2 className="mt-6 text-2xl font-semibold text-foreground">
+              <h2 className="text-2xl font-semibold text-foreground">
                 {getCategoryLabel(category)}
               </h2>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">
@@ -91,14 +88,11 @@ export default function WriteupsLanding() {
                 key={category}
                 to={`/writeups/${category}`}
                 data-snap-item
-                className="snap-center flex-shrink-0 w-[85vw] max-w-[420px] glass group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface-elevated p-6 transition hover:border-primary/60 hover:bg-surface/80"
+                className="snap-center flex-shrink-0 w-[90vw] max-w-[480px] glass group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface-elevated p-6 transition hover:border-primary/60 hover:bg-surface/80"
               >
                 <div className="flex flex-col gap-4 h-full">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-primary">
-                      {getCategoryLabel(category)}
-                    </p>
-                    <h2 className="mt-4 text-2xl font-semibold text-foreground">
+                    <h2 className="text-2xl font-semibold text-foreground">
                       {getCategoryLabel(category)}
                     </h2>
                   </div>

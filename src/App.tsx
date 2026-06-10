@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { MobileBottomNav } from "@/components/mobile/MobileBottomNav";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
@@ -34,7 +33,6 @@ export default function App() {
         </Routes>
       </main>
       <SiteFooter />
-      <MobileBottomNav />
     </div>
   );
 }

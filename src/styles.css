@@ -410,3 +410,97 @@
   -webkit-overflow-scrolling: touch;
   margin: 0.9rem 0;
 }
+
+/* Prevent page-level horizontal overflow while allowing internal scrolls */
+article, .prose-post {
+  box-sizing: border-box;
+}
+
+/* Ensure all prose content respects viewport width */
+.prose-post, .prose-post * {
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Allow inline code and long words to wrap when needed */
+.prose-post code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Keep pre->code formatting but avoid forcing the page wider */
+.prose-post pre code {
+  display: block;
+  white-space: pre;
+  word-break: normal;
+}
+
+/* Syntax highlighted blocks (highlight.js) also constrained */
+.prose-post pre .hljs {
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* Tables: allow horizontal scroll only inside table container */
+.prose-post table {
+  width: 100%;
+  border-collapse: collapse;
+  display: table;
+}
+
+.prose-post .table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0.75rem 0;
+}
+
+/* Small-screen specific adjustments */
+@media (max-width: 767px) {
+  /* Prevent any element from forcing viewport width */
+  html, body, #root {
+    overflow-x: hidden;
+  }
+
+  /* Add comfortable mobile padding to the main article */
+  article.mx-auto.w-full.max-w-3xl.px-4 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .prose-post {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  /* Ensure images are centered and constrained */
+  .prose-post img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Code blocks: keep formatting, but allow internal scrolling and avoid causing viewport overflow */
+  .prose-post pre {
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    background-clip: padding-box;
+  }
+
+  /* Ensure inline code can wrap on small screens */
+  .prose-post code {
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+  }
+
+  /* Make tables scroll inside container */
+  .prose-post table {
+    display: table;
+  }
+
+  .prose-post thead, .prose-post tbody, .prose-post tr, .prose-post th, .prose-post td {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}

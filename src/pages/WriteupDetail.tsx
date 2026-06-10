@@ -118,6 +118,14 @@ export default function WriteupDetail() {
                 {...props}
               />
             ),
+            table: ({ children }) => (
+              <div className="table-scroll">
+                <table className="w-full">{children}</table>
+              </div>
+            ),
+            thead: ({ children }) => <thead className="bg-surface-elevated">{children}</thead>,
+            th: ({ children }) => <th className="px-2 py-1 text-left text-[12px] font-mono text-primary">{children}</th>,
+            td: ({ children }) => <td className="px-2 py-1 align-top font-mono text-[13px]">{children}</td>,
           }}
         >
           {post.body}

@@ -120,6 +120,14 @@ export default function WriteupDetail() {
                 {children}
               </pre>
             ),
+            img: ({ src, alt, ...props }: any) => (
+              <img
+                src={String(src)}
+                alt={String(alt ?? "")}
+                className="my-4 w-full max-w-full rounded-2xl border border-border object-cover"
+                {...props}
+              />
+            ),
             blockquote: ({ children }) => (
               <blockquote className="my-4 border-l-2 border-primary pl-4 font-mono text-sm text-muted-foreground">
                 {children}
@@ -139,7 +147,7 @@ export default function WriteupDetail() {
               <li className="text-base leading-relaxed">{children}</li>
             ),
             table: ({ children }) => (
-              <div className="my-4 overflow-x-auto rounded-lg border border-border">
+              <div className="my-4 overflow-x-auto rounded-lg border border-border table-scroll">
                 <table className="w-full font-mono text-sm">{children}</table>
               </div>
             ),

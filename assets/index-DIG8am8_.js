@@ -1079,8 +1079,7 @@ os.setuid(0) → /bin/bash → root.txt
 
 **Platform:** TryHackMe  
 **Category:** Cryptography  
-**Difficulty:** Easy  
-**Author of original writeup:** Aakash Raman  
+**Difficulty:** Easy   
 
 ---
 

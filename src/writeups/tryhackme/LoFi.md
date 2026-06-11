@@ -9,7 +9,7 @@
 
 ## Overview
 
-![TryHackMe Lo-Fi Completed](/images/writeups/thm-lofi.jpeg)
+![TryHackMe Lo-Fi Completed](/images/writeups/tryhackme/thm-lofi.jpeg)
 
 Lo-Fi is a beginner-friendly TryHackMe room themed around a chill lofi music website. Beneath the aesthetic exterior lies a classic **Local File Inclusion (LFI)** vulnerability — one of the most fundamental and commonly found web vulnerabilities in real-world applications and CTFs alike. No bruteforcing, no Metasploit, no privilege escalation. Just clean recon, a vulnerable parameter, and directory traversal.
 

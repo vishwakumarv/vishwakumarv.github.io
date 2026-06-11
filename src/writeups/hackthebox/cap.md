@@ -219,6 +219,10 @@ os.setuid(0) → /bin/bash → root.txt
 
 ---
 
+![HackTheBox CAP Completed](/images/writeups/hackthebox/cap.jpeg)
+
+
+
 ## Summary
 
 | Phase                | Technique                                       |

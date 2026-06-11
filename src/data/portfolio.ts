@@ -1495,7 +1495,7 @@ writeups/
 
 # Repository
 
-[https://github.com/vkumxr/SillyCTF2026-Writeups](https://github.com/vkumxr/SillyCTF2026-Writeups)`,
+[SillyCTF2026-Writeup](https://github.com/vishwakumarv/SillyCTF2026-Writeups)`,
   },
 
   {
@@ -1648,10 +1648,10 @@ export const skills = {
     "Security Automation",
   ],
   "Tools & Platforms": [
+    "Nmap",
     "Wireshark",
     "Burp Suite",
-    "Ghidra",
-    "Nmap",
+    "Splunk",
     "Metasploit",
     "CyberChef",
     "Linux",

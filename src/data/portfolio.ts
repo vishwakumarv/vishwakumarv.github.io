@@ -1708,7 +1708,7 @@ export const experience = [
   {
     role: "Offensive Cyber Security Intern",
     company: "InLighnX Global Pvt. Ltd.",
-    location: "Bangalore, Karnataka (Remote)",
+    location: "Bangalore, Karnataka (Hybrid)",
     period: "Oct 2025 – Dec 2025",
     bullets: [
       "Worked on offensive cybersecurity concepts through hands-on Python-based security tool development in controlled testing environments.",

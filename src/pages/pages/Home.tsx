@@ -109,16 +109,16 @@ export default function Home() {
             </div>
 
             <div className="mt-6 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap md:max-w-xl">
-              <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 active:scale-[0.98] glow-primary sm:w-auto sm:rounded-md sm:py-2.5">
-                View Projects <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
-                <Download className="h-4 w-4" /> Download Resume
-              </a>
-              <Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
-                <Mail className="h-4 w-4" /> Contact
-              </Link>
-            </div>
+  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 active:scale-[0.98] glow-primary sm:w-auto sm:rounded-md sm:py-2.5">
+    View Projects <ArrowRight className="h-4 w-4" />
+  </Link>
+  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary/10 border border-primary/40 px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary/20 active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
+    View Writeups <ArrowRight className="h-4 w-4" />
+  </Link>
+  <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
+    <Download className="h-4 w-4" /> Download Resume
+  </a>
+</div>
 
             <div className="mt-6 grid w-full max-w-md grid-cols-1 gap-2 sm:grid-cols-2 sm:max-w-none md:mt-8">
               <SocialPill href={profile.links.github} icon={<Github className="h-4 w-4" />} mobile>GitHub</SocialPill>

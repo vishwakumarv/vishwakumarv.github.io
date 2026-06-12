@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 import { ChevronRight } from "lucide-react";
 
-const categories = ["ctf", "hackthebox", "tryhackme"] as const;
+const categories = ["ctf", "hackthebox", "tryhackme", "cyberdefenders"] as const;
 const categoryLabels: Record<typeof categories[number], string> = {
   ctf: "CTF Writeups",
   hackthebox: "HackTheBox",
   tryhackme: "TryHackMe",
+  cyberdefenders: "CyberDefenders",
 };
 
 const categoryDescriptions: Record<typeof categories[number], string> = {
   ctf: "Explore capture-the-flag writeups covering cryptography, web exploitation, forensics, and binary challenges.",
   hackthebox: "Browse HackTheBox writeups for exploitation, privilege escalation, and lab analysis.",
   tryhackme: "Browse TryHackMe writeups for defensive analysis, web labs, and practical exercises.",
+  cyberdefenders: "Browse CyberDefenders blue team writeups covering malware analysis, DFIR, and threat hunting.",
 };
 
 function getCategoryLabel(category: string) {
@@ -27,7 +29,7 @@ export default function WriteupsLanding() {
       description="Choose a writeup category to explore detailed challenge walkthroughs and analysis."
       className="writeups-section py-10 sm:py-14 md:py-24"
     >
-      <div className="hidden gap-6 md:grid md:grid-cols-3">
+      <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
         {categories.map((category) => (
           <Link
             key={category}

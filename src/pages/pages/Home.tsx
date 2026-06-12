@@ -52,7 +52,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 grid-bg" aria-hidden />
-        <div className="relative mx-auto max-w-6xl gap-8 px-4 py-8 sm:px-6 md:grid md:grid-cols-[1.2fr_1fr] md:gap-10 md:py-24">
+        <div className="relative mx-auto max-w-6xl gap-8 px-4 py-8 sm:px-6 md:grid md:grid-cols-[1.2fr_1fr] md:gap-10 md:py-24 md:items-start">
           <div className="flex flex-col gap-6">
             <div className="flex w-full flex-col gap-6 md:hidden">
               <div className="flex min-h-[112px] w-full items-start justify-between gap-4">

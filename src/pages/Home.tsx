@@ -145,16 +145,16 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 glow-primary">
-                  View Projects <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
-                  <Download className="h-4 w-4" /> Download Resume
-                </a>
-                <Link to="/contact" className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
-                  <Mail className="h-4 w-4" /> Contact
-                </Link>
-              </div>
+  <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 glow-primary">
+    View Projects <ArrowRight className="h-4 w-4" />
+  </Link>
+  <Link to="/writeups" className="inline-flex items-center gap-2 rounded-md bg-primary/10 border border-primary/40 px-4 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/20">
+    View Writeups <ArrowRight className="h-4 w-4" />
+  </Link>
+  <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
+    <Download className="h-4 w-4" /> Download Resume
+  </a>
+</div>
 
               <div className="mt-8 flex flex-wrap gap-2">
                 <SocialPill href={profile.links.github} icon={<Github className="h-3.5 w-3.5" />}>GitHub</SocialPill>

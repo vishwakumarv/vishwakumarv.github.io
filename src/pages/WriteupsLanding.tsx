@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 import { ChevronRight } from "lucide-react";
 
-const categories = ["ctf", "hackthebox", "tryhackme", "cyberdefenders"] as const;
+const categories = ["ctf", "hackthebox", "tryhackme", "cyberdefenders", "hacks"] as const;
 const categoryLabels: Record<typeof categories[number], string> = {
   ctf: "CTF Writeups",
   hackthebox: "HackTheBox",
   tryhackme: "TryHackMe",
   cyberdefenders: "CyberDefenders",
+  hacks: "Hacks",
 };
 
 const categoryDescriptions: Record<typeof categories[number], string> = {
@@ -15,6 +16,7 @@ const categoryDescriptions: Record<typeof categories[number], string> = {
   hackthebox: "Browse HackTheBox writeups for exploitation, privilege escalation, and lab analysis.",
   tryhackme: "Browse TryHackMe writeups for defensive analysis, web labs, and practical exercises.",
   cyberdefenders: "Browse CyberDefenders blue team writeups covering malware analysis, DFIR, and threat hunting.",
+  hacks: "Technical hacks, experiments, and misc security notes.",
 };
 
 function getCategoryLabel(category: string) {

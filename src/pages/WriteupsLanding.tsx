@@ -31,7 +31,7 @@ export default function WriteupsLanding() {
       description="Choose a writeup category to explore detailed challenge walkthroughs and analysis."
       className="writeups-section py-10 sm:py-14 md:py-24"
     >
-      <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-4">
+      <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-5">
         {categories.map((category) => (
           <Link
             key={category}

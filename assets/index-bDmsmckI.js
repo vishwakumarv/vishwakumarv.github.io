@@ -1111,10 +1111,7 @@ Now execute and check the connection on the Kali Machine.
 Successfully compromise my windows machine using kali linux. It is only for educational purpose only.
 
 How to Protect:
-For this type of attacks the most important thing is to have the Firewall enabled. Windows Defender makes a good job protecting files like this.
-
-
-`,US=`
+For this type of attacks the most important thing is to have the Firewall enabled. Windows Defender makes a good job protecting files like this.`,US=`
 # HackTheBox(HTB) - Writer - WriteUp
 
 > Austin Lai | November 19th, 2021

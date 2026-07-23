@@ -81,5 +81,3 @@ Successfully compromise my windows machine using kali linux. It is only for educ
 
 How to Protect:
 For this type of attacks the most important thing is to have the Firewall enabled. Windows Defender makes a good job protecting files like this.
-
-

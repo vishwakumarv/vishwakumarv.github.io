@@ -61,7 +61,7 @@ export default function Home() {
                   </p>
                   <div>
                     <h1 className="font-display text-[1.85rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl">
-                      <span className="text-gradient">{profile.name}</span>
+                      <span className="text-primary">{profile.name}</span>
                       <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl">
                         Security Researcher · Malware Analysis · Digital Forensics
                       </span>
@@ -131,7 +131,7 @@ export default function Home() {
                 <span className="scan-dot" />research · malware · forensics · {profile.location}
               </p>
               <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                <span className="text-gradient">{profile.name}</span>
+                <span className="text-primary">{profile.name}</span>
                 <span className="block text-foreground/85 text-2xl sm:text-3xl md:text-4xl mt-3 font-medium">
                   Security Researcher · Vulnerability Assessment · Digital Forensics
                 </span>

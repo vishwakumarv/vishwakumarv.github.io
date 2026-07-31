@@ -62,7 +62,7 @@ export default function Home() {
 
                   <div>
                     <h1 className="font-display text-[1.75rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl md:text-6xl">
-                      <span className="text-gradient">{profile.name}</span>
+                      <span className="text-primary">{profile.name}</span>
                       <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl md:text-4xl">
                         SOC Analyst · DFIR Enthusiast · Security Operations
                       </span>
@@ -95,7 +95,7 @@ export default function Home() {
                 <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
               </p>
               <h1 className="mt-5 font-display text-[2rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl md:text-6xl">
-                <span className="text-gradient">{profile.name}</span>
+                <span className="text-primary">{profile.name}</span>
                 <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl md:text-4xl">
                   SOC Analyst · DFIR Enthusiast · Security Operations
                 </span>

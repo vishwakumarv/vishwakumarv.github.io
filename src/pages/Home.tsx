@@ -169,7 +169,7 @@ export default function Home() {
 
           <div className="hidden md:flex flex-col items-center gap-5 md:items-end">
             <div className="float-slow relative">
-              <div className="absolute -inset-2 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(255,46,46,0.12),transparent_45%)] blur-xl" aria-hidden />
+              <div className="absolute -inset-2 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.12),transparent_45%)] blur-xl" aria-hidden />
               <img
                 src={avatarAsset}
                 alt={`${profile.name} avatar`}

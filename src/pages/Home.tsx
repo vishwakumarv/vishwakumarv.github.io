@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 import { TerminalCard } from "@/components/TerminalCard";
-import { profile, recruiterSnapshot, projects } from "@/data/portfolio";
+import { profile, recruiterSnapshot } from "@/data/portfolio";
 import avatarAsset from "@/assets/avatar.png";
 import {
   ArrowRight,
@@ -67,7 +67,7 @@ export default function Home() {
                       </span>
                     </h1>
                     <CredibilityBadges />
-                    <p className="mt-3 text-base leading-relaxed text-muted-foreground break-words">
+                    <p className="mt-3 text-base leading-relaxed text-foreground/80 break-words">
                       I work at the intersection of vulnerability assessment, malware analysis, and
                       digital forensics. I build small research tools, document findings clearly, and
                       study attacker tradecraft so my analysis is practical and repeatable.
@@ -90,11 +90,11 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col gap-3">
-  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 active:scale-[0.98] shadow-[0_12px_30px_-20px_rgba(255,46,46,0.3)] glow-primary">
-    View Projects <ArrowRight className="h-4 w-4" />
-  </Link>
-  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-black px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98]">
+  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 active:scale-[0.98] shadow-[0_12px_30px_-20px_rgba(255,46,46,0.3)] glow-primary">
     View Writeups <ArrowRight className="h-4 w-4" />
+  </Link>
+  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-black px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98]">
+    View Projects <ArrowRight className="h-4 w-4" />
   </Link>
   <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98]">
     <Download className="h-4 w-4" /> Download Resume
@@ -144,11 +144,11 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-  <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 shadow-[0_10px_30px_-20px_rgba(255,46,46,0.25)] glow-primary">
-    View Projects <ArrowRight className="h-4 w-4" />
-  </Link>
-  <Link to="/writeups" className="inline-flex items-center gap-2 rounded-md border border-border bg-black px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white">
+  <Link to="/writeups" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 shadow-[0_10px_30px_-20px_rgba(255,46,46,0.25)] glow-primary">
     View Writeups <ArrowRight className="h-4 w-4" />
+  </Link>
+  <Link to="/projects" className="inline-flex items-center gap-2 rounded-md border border-border bg-black px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white shadow-sm">
+    View Projects <ArrowRight className="h-4 w-4" />
   </Link>
   <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
     <Download className="h-4 w-4" /> Download Resume
@@ -219,52 +219,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* FLAGSHIP PROJECTS */}
-      <Section
-        eyebrow="flagship_projects"
-        title="Three projects, three case studies"
-        description="Each project is written like an engagement — problem, work performed, findings, and recommendations."
-      >
-        <div className="grid gap-5 lg:grid-cols-3">
-          {projects.map((p) => (
-            <Link
-              key={p.slug}
-              to={`/projects/${p.slug}`}
-              className="group glass relative flex flex-col rounded-xl p-6 transition hover:border-primary/50"
-            >
-              <div className="flex items-center justify-between">
-                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary">{p.period}</p>
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-primary" />
-              </div>
-              <h3 className="mt-3 font-display text-xl font-semibold">{p.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
-
-              <dl className="mt-5 space-y-3 text-sm">
-                <Field label="Problem">{p.problem}</Field>
-                <Field label="Solution">{p.solution}</Field>
-                <Field label="Security relevance">{p.relevance}</Field>
-              </dl>
-
-              <div className="mt-5 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <span key={t} className="rounded-full border border-border bg-surface-elevated/60 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-10">
-          <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            See all project details <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </Section>
-
       {/* CTA */}
-      <Section>
+      <Section className="!py-10 md:!py-16">
         <div className="glass overflow-hidden rounded-2xl p-8 md:p-12">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div className="max-w-xl">

@@ -203,18 +203,12 @@ export default function WriteupsPage() {
                 to={`/writeups/${getCategorySlug(p.category)}/${p.slug}`}
                 className="group glass flex flex-col gap-2 rounded-xl p-5 transition hover:border-primary/50 md:flex-row md:items-center md:justify-between"
               >
-                <div className="flex-1">
+              <div className="flex-1 min-w-0">
                   <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
                     {p.category}
                   </p>
 
-                  <h3 className="mt-1.5 font-display text-lg font-semibold">
-                    {p.title}
-                  </h3>
-
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {p.excerpt}
-                  </p>
+                  <h3 className="mt-1.5 font-display text-lg font-semibold break-words">
 
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {p.tags.map((t) => (

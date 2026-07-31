@@ -1689,6 +1689,7 @@ export const experience = [
     company: "Wimera Systems",
     location: "Bangalore, Karnataka (Onsite)",
     period: "May 2026 – Present",
+    current: true,
     bullets: [
       "Working on ESP32-based IoT device testing and dashboard validation workflows.",
       "Gaining hands-on exposure to Matter protocol concepts and IoT application debugging.",

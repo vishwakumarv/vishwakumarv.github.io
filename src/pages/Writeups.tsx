@@ -111,11 +111,11 @@ export default function WriteupsPage() {
                   </span>
                 </div>
 
-                <div>
-                  <h2 className="font-display text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl">
+                <div className="min-w-0">
+                  <h2 className="font-display text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl break-words">
                     {post.title}
                   </h2>
-                  <p className="mt-2 line-clamp-3 text-sm leading-5 text-muted-foreground sm:mt-3 sm:leading-6">
+                  <p className="mt-2 line-clamp-3 text-sm leading-5 text-foreground/85 sm:mt-3 sm:leading-6">
                     {post.excerpt}
                   </p>
                 </div>

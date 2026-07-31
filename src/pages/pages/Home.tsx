@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 import { TerminalCard } from "@/components/TerminalCard";
 import { MobileSectionCard } from "@/components/mobile/MobileSectionCard";
-import { MobileProjectCard } from "@/components/mobile/MobileProjectCard";
 import { mobileExploreSections } from "@/components/mobile/mobile-nav";
-import { profile, recruiterSnapshot, projects } from "@/data/portfolio";
+import { profile, recruiterSnapshot } from "@/data/portfolio";
 import avatarAsset from "@/assets/avatar.png";
 import {
   ArrowRight,
@@ -67,7 +66,7 @@ export default function Home() {
                         SOC Analyst · DFIR Enthusiast · Security Operations
                       </span>
                     </h1>
-                    <p className="mt-4 text-base leading-relaxed text-muted-foreground break-words md:text-lg">
+                    <p className="mt-4 text-base leading-relaxed text-foreground/80 break-words md:text-lg">
                       I focus on blue team security — monitoring, incident investigation, threat
                       analysis, and security automation. I build small tools, document cases like
                       real engagements, and study attacker tradecraft so I can defend faster.
@@ -108,11 +107,11 @@ export default function Home() {
             </div>
 
             <div className="mt-6 flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap md:max-w-xl">
-  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 active:scale-[0.98] glow-primary sm:w-auto sm:rounded-md sm:py-2.5">
-    View Projects <ArrowRight className="h-4 w-4" />
-  </Link>
-  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary/10 border border-primary/40 px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary/20 active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
+  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
     View Writeups <ArrowRight className="h-4 w-4" />
+  </Link>
+  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-black px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98] glow-primary sm:w-auto sm:rounded-md sm:py-2.5">
+    View Projects <ArrowRight className="h-4 w-4" />
   </Link>
   <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
     <Download className="h-4 w-4" /> Download Resume
@@ -220,60 +219,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* FLAGSHIP PROJECTS */}
-      <Section
-        eyebrow="flagship_projects"
-        title="Three projects, three case studies"
-        description="Each project is written like an engagement — problem, work performed, findings, and recommendations."
-      >
-        {/* Mobile project cards */}
-        <div className="flex flex-col gap-5 md:hidden">
-          {projects.map((p) => (
-            <MobileProjectCard key={p.slug} project={p} />
-          ))}
-        </div>
-
-        {/* Desktop project grid — unchanged */}
-        <div className="hidden gap-5 md:grid lg:grid-cols-3">
-          {projects.map((p) => (
-            <Link
-              key={p.slug}
-              to={`/projects/${p.slug}`}
-              className="group glass relative flex flex-col rounded-xl p-6 transition hover:border-primary/50"
-            >
-              <div className="flex items-center justify-between">
-                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary">{p.period}</p>
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-primary" />
-              </div>
-              <h3 className="mt-3 font-display text-xl font-semibold">{p.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
-
-              <dl className="mt-5 space-y-3 text-sm">
-                <Field label="Problem">{p.problem}</Field>
-                <Field label="Solution">{p.solution}</Field>
-                <Field label="Security relevance">{p.relevance}</Field>
-              </dl>
-
-              <div className="mt-5 flex flex-wrap gap-1.5">
-                {p.tags.map((t) => (
-                  <span key={t} className="rounded-full border border-border bg-surface-elevated/60 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-8 md:mt-10">
-          <Link to="/projects" className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">
-            See all project details <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </Section>
-
       {/* CTA */}
-      <Section>
+      <Section className="!py-10 md:!py-16">
         <div className="overflow-hidden rounded-2xl border border-border/60 bg-surface/40 p-6 shadow-md md:glass md:p-12">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div className="max-w-xl">

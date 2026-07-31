@@ -81,7 +81,7 @@ export default function ExperiencePage() {
                     </div>
 
                     <span className="rounded-full border border-border bg-surface-elevated px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                      {i === 0 ? "current" : "completed"}
+                      {x.current ? "current" : "completed"}
                     </span>
                   </div>
 

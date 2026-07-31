@@ -18,7 +18,7 @@ export default function Projects() {
 
       <Section
         eyebrow="projects"
-        title="Flagship projects, written as case studies"
+        title="Projects"
         description="Each project follows the same structure: summary, goal, problem solved, tools, methodology, personal contributions, findings, recommendations, skills, and learnings."
       >
         <div className="grid gap-5">

@@ -1,14 +1,14 @@
 export const profile = {
   name: "V. Vishwa Kumar",
   fullName: "Vishwa Kumar Venkateswaran",
-  title: "SOC Analyst · DFIR Enthusiast · Security Operations",
+  title: "Security Researcher · Vulnerability Assessment · Digital Forensics",
   location: "Bengaluru, India",
   email: "vishwakumarv05@gmail.com",
   phone: "+91 9342236718",
   summary:
-    "Final-year engineering student focused on blue team security — security monitoring, incident investigation, threat analysis, and security automation. I build small tools, write detailed writeups, and study how attackers operate so I can defend faster.",
+    "Security researcher focused on vulnerability assessment, malware analysis, and digital forensics. I build small tools, document findings clearly, and study attacker tradecraft so my research is practical and repeatable.",
   shortBio:
-    "Aspiring SOC / DFIR analyst building detection, triage, and investigation skills through hands-on labs, CTFs, and open-source security tooling.",
+    "Security researcher developing hands-on skills in vulnerability assessment, malware analysis, and digital forensics through labs, CTFs, and open-source tooling.",
   links: {
     github: "https://github.com/vishwakumarv",
     linkedin: "https://www.linkedin.com/in/vishwakumarv",
@@ -23,12 +23,12 @@ export const profile = {
 };
 
 export const recruiterSnapshot = [
-  { label: "Security Operations Focus", value: "Alert triage, monitoring, response workflows" },
+  { label: "Research Focus", value: "Vulnerability assessment and technical analysis" },
   { label: "Linux Experience", value: "Daily-driver Linux, shell, system internals" },
-  { label: "Security Research", value: "Web, OSINT, forensics, reverse engineering" },
-  { label: "Documentation Skills", value: "Case-study writeups, IR-style reports" },
+  { label: "Malware & Forensics", value: "Behavior analysis, evidence handling, artifact review" },
+  { label: "Documentation Skills", value: "Case-study writeups, structured findings" },
   { label: "Open Source Contributions", value: "Public tooling, writeups, lab artifacts" },
-  { label: "Security Automation", value: "Python & Bash utilities for repeatable tasks" },
+  { label: "Automation", value: "Python & Bash utilities for repeatable tasks" },
 ];
 
 export type Project = {

@@ -6,29 +6,29 @@ import avatarAsset from "@/assets/avatar.png";
 
 const pillars = [
   {
-    label: "Security Operations Mindset",
+    label: "Vulnerability Assessment",
     body:
-      "I think in terms of alerts, timelines, and evidence. A finding without a timeline and a recommendation is unfinished work.",
+      "I focus on identifying weaknesses, validating findings, and documenting them with clear impact, reproduction steps, and remediation guidance.",
   },
   {
-    label: "Linux as a Daily Driver",
+    label: "Malware Analysis",
     body:
-      "Linux is my main environment — shell, services, logs. The compound interest of journalctl and tmux discipline shows up in every investigation.",
+      "I examine binaries, behavior, and indicators to understand capabilities, persistence, and the tradecraft behind real samples.",
   },
   {
-    label: "Security Research",
+    label: "Digital Forensics",
     body:
-      "I study attacker tradecraft (web, OSINT, mobile, reverse engineering) so the defenses I build are grounded in how breaches actually happen.",
+      "I build timelines, recover artifacts, and preserve evidence in a way that supports both incident response and research workflows.",
   },
   {
-    label: "Incident Response Interest",
+    label: "Threat Research",
     body:
-      "I treat side projects like engagements: scope, evidence, findings, recommendations, lessons learned. Documentation is part of the work.",
+      "I study attacker behavior across web, OSINT, mobile, and reverse engineering so my work stays grounded in real-world TTPs.",
   },
   {
-    label: "Continuous Learning",
+    label: "Technical Writing",
     body:
-      "CTFs, lab builds, writeups, and reading. The bar isn't completing a course — it's being able to teach the topic back as a case study.",
+      "Research is only useful when it can be replicated, explained, and reused by others. I treat writeups as part of the analysis itself.",
   },
 ];
 
@@ -39,18 +39,18 @@ export default function AboutPage() {
         <title>About — V. Vishwa Kumar</title>
         <meta
           name="description"
-          content="About Vishwa Kumar — security operations mindset, Linux environments, security research, and incident response interest."
+          content="About Vishwa Kumar — vulnerability assessment and research, malware analysis, and digital forensics."
         />
         <meta property="og:title" content="About — V. Vishwa Kumar" />
         <meta
           property="og:description"
-          content="Security operations mindset and continuous learning."
+          content="Vulnerability research, malware analysis, and digital forensics in practice."
         />
         <meta property="og:url" content="/about" />
         <link rel="canonical" href="/about" />
       </Helmet>
 
-      <Section eyebrow="about" title="A blue-team mindset, in practice">
+      <Section eyebrow="about" title="Security research, malware analysis, and digital forensics">
         <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
           <div className="flex flex-col gap-6">
             <div className="glass rounded-3xl border border-border bg-surface/80 p-6 shadow-sm md:p-8">
@@ -101,18 +101,17 @@ export default function AboutPage() {
           <div className="space-y-6">
             <div className="space-y-4 rounded-3xl border border-border bg-surface/80 p-6 text-sm leading-relaxed text-muted-foreground shadow-sm md:p-8 md:text-base">
               <p className="text-foreground/90">
-                I'm a final-year engineering student at PSG College of Technology
-                preparing for SOC, DFIR, and Security Operations roles. My work
-                centers on three things: monitoring, investigation, and the small
-                automations that make both faster.
+                I'm a security researcher focused on vulnerability assessment and research,
+                malware analysis, and digital forensics. My work centers on understanding
+                how systems fail, how tradecraft evolves, and how findings can be documented
+                in a way that is actionable for defenders and peers.
               </p>
 
               <p>
-                I run Linux daily, document everything I touch as a case study,
-                and participate in CTFs across web, OSINT, and forensics to keep
-                an attacker's perspective fresh. I'm interested in detection
-                engineering, malware triage, and the boring-but-critical
-                reliability work that holds a security program together.
+                I work primarily in Linux environments, document investigations as structured
+                case studies, and participate in CTFs and labs across web, OSINT, reverse
+                engineering, and forensics. I value clear research, reliable evidence handling,
+                and practical analysis that can be reproduced and built on.
               </p>
             </div>
 

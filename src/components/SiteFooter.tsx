@@ -10,7 +10,7 @@ export function SiteFooter() {
           <p className="font-display text-base font-semibold">{profile.name}</p>
           <p className="mt-1 text-sm text-muted-foreground">{profile.title}</p>
           <p className="mt-3 max-w-xs text-xs text-muted-foreground">
-            Building toward SOC Analyst, DFIR, and Security Operations roles.
+            Focused on vulnerability assessment, malware analysis, and digital forensics.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export function SiteFooter() {
       <div className="border-t border-border/60">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 text-xs text-muted-foreground sm:px-6">
           <span className="font-mono">© {new Date().getFullYear()} {profile.name}</span>
-          <span className="font-mono"><span className="scan-dot" />systems nominal</span>
+          <span className="font-mono"><span className="scan-dot" />research active</span>
         </div>
       </div>
     </footer>

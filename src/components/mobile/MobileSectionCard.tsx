@@ -27,7 +27,7 @@ export function MobileSectionCard({
       className={cn(
         "mobile-section-card relative overflow-hidden rounded-2xl border transition-all duration-300 ease-out",
         open
-          ? "border-primary/45 bg-surface-elevated/80 shadow-[0_12px_36px_-12px_color-mix(in_oklab,var(--color-primary)_25%,transparent)]"
+          ? "border-primary/45 bg-black shadow-[0_12px_36px_-12px_rgba(255,46,46,0.24)]"
           : "border-border/60 bg-surface/40 shadow-sm",
       )}
     >
@@ -48,7 +48,7 @@ export function MobileSectionCard({
         <span className={cn(
           "grid h-12 w-12 shrink-0 place-items-center rounded-xl border transition-all duration-300 shadow-sm",
           open
-            ? "border-primary/30 bg-primary/10 text-primary scale-105"
+            ? "border-primary/30 bg-black text-primary scale-105"
             : "border-border/60 bg-surface-elevated/80 text-muted-foreground",
         )}>
           <Icon className="h-5.5 w-5.5" aria-hidden />
@@ -87,7 +87,7 @@ export function MobileSectionCard({
             )}
             <Link
               to={to}
-              className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.97] glow-primary"
+              className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.97] shadow-[0_12px_30px_-20px_rgba(255,46,46,0.25)] glow-primary"
             >
               Open {title}
               <ArrowRight className="h-4 w-4" aria-hidden />

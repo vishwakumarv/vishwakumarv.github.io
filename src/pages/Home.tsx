@@ -21,27 +21,27 @@ import {
 
 const snapshotIcons = [ShieldCheck, Terminal, Search, FileText, GitBranch, Bot];
 
-const credibilityBadges = ["Bugcrowd Researcher", "THM Top 15%", "CTF Player"];
+const credibilityBadges = ["Vulnerability Research", "Malware Analysis", "Digital Forensics"];
 
 export default function Home() {
   return (
     <>
     <Helmet>
-  <title>V. Vishwa Kumar — SOC Analyst & DFIR Portfolio</title>
+  <title>V. Vishwa Kumar — Security Researcher Portfolio</title>
 
   <meta
     name="description"
-    content="Recruiter-first portfolio for SOC Analyst, DFIR, Detection Engineering, and Security Operations roles."
+    content="Security researcher portfolio focused on vulnerability assessment, malware analysis, and digital forensics."
   />
 
   <meta
     property="og:title"
-    content="V. Vishwa Kumar — SOC Analyst & DFIR Portfolio"
+    content="V. Vishwa Kumar — Security Researcher Portfolio"
   />
 
   <meta
     property="og:description"
-    content="SOC, DFIR, and security operations — projects, writeups, and resume."
+    content="Vulnerability research, malware analysis, and digital forensics — projects, writeups, and resume."
   />
 
   <meta property="og:url" content="/" />
@@ -50,7 +50,6 @@ export default function Home() {
 </Helmet>
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" aria-hidden />
         <div className="relative mx-auto max-w-6xl gap-12 px-4 pb-16 pt-16 sm:px-6 md:grid md:grid-cols-[1.2fr_1fr] md:gap-10 md:pb-24 md:pt-24">
           <div className="flex flex-col gap-6">
             {/* Mobile hero row */}
@@ -58,20 +57,20 @@ export default function Home() {
               <div className="flex w-full items-start justify-between gap-4">
                 <div className="min-w-0 flex-1 space-y-3 text-left">
                   <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 font-mono text-[11px] text-muted-foreground">
-                    <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
+                    <span className="scan-dot" />research · malware · forensics · {profile.location}
                   </p>
                   <div>
                     <h1 className="font-display text-[1.85rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl">
                       <span className="text-gradient">{profile.name}</span>
                       <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl">
-                        SOC Analyst · DFIR Enthusiast · Security Operations
+                        Security Researcher · Malware Analysis · Digital Forensics
                       </span>
                     </h1>
                     <CredibilityBadges />
                     <p className="mt-3 text-base leading-relaxed text-muted-foreground break-words">
-                      I focus on blue team security — monitoring, incident investigation, threat
-                      analysis, and security automation. I build small tools, document cases like
-                      real engagements, and study attacker tradecraft so I can defend faster.
+                      I work at the intersection of vulnerability assessment, malware analysis, and
+                      digital forensics. I build small research tools, document findings clearly, and
+                      study attacker tradecraft so my analysis is practical and repeatable.
                     </p>
                   </div>
                 </div>
@@ -86,15 +85,15 @@ export default function Home() {
                     width={96}
                     height={96}
                   />
-                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-success animate-cyber-pulse" title="Available for hire" />
+                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-primary animate-cyber-pulse" title="Available for hire" />
                 </div>
               </div>
 
               <div className="flex flex-col gap-3">
-  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:opacity-90 active:scale-[0.98] glow-primary">
+  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 active:scale-[0.98] shadow-[0_12px_30px_-20px_rgba(255,46,46,0.3)] glow-primary">
     View Projects <ArrowRight className="h-4 w-4" />
   </Link>
-  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary/10 border border-primary/40 px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary/20 active:scale-[0.98]">
+  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-black px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98]">
     View Writeups <ArrowRight className="h-4 w-4" />
   </Link>
   <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98]">
@@ -115,12 +114,12 @@ export default function Home() {
               <TerminalCard className="w-full">
                 <div className="space-y-1.5">
                   <Line prompt>whoami</Line>
-                  <Line>vishwa.kumar — soc / dfir track</Line>
+                  <Line>vishwa.kumar — research / malware / forensics</Line>
                   <Line prompt>cat ./targets.txt</Line>
-                  <Line>SOC Analyst</Line>
-                  <Line>DFIR Analyst</Line>
-                  <Line>Detection Engineering</Line>
-                  <Line>Security Operations</Line>
+                  <Line>Vulnerability Research</Line>
+                  <Line>Malware Analysis</Line>
+                  <Line>Digital Forensics</Line>
+                  <Line>Threat Intelligence</Line>
                   <Line prompt>./status --check</Line>
                   <Line tone="success"><span className="scan-dot" />ready · open to opportunities</Line>
                 </div>
@@ -129,26 +128,26 @@ export default function Home() {
 
             <div className="hidden md:block">
               <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
-                <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
+                <span className="scan-dot" />research · malware · forensics · {profile.location}
               </p>
               <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
                 <span className="text-gradient">{profile.name}</span>
                 <span className="block text-foreground/85 text-2xl sm:text-3xl md:text-4xl mt-3 font-medium">
-                  SOC Analyst · DFIR Enthusiast · Security Operations
+                  Security Researcher · Vulnerability Assessment · Digital Forensics
                 </span>
               </h1>
               <CredibilityBadges />
               <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-                I focus on blue team security — monitoring, incident investigation, threat
-                analysis, and security automation. I build small tools, document cases like
-                real engagements, and study attacker tradecraft so I can defend faster.
+                I work at the intersection of vulnerability assessment, malware analysis, and
+                digital forensics. I build small research tools, document findings clearly, and
+                study attacker tradecraft so my analysis is practical and repeatable.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-  <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90 glow-primary">
+  <Link to="/projects" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 shadow-[0_10px_30px_-20px_rgba(255,46,46,0.25)] glow-primary">
     View Projects <ArrowRight className="h-4 w-4" />
   </Link>
-  <Link to="/writeups" className="inline-flex items-center gap-2 rounded-md bg-primary/10 border border-primary/40 px-4 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/20">
+  <Link to="/writeups" className="inline-flex items-center gap-2 rounded-md border border-border bg-black px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white">
     View Writeups <ArrowRight className="h-4 w-4" />
   </Link>
   <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
@@ -170,7 +169,7 @@ export default function Home() {
 
           <div className="hidden md:flex flex-col items-center gap-5 md:items-end">
             <div className="float-slow relative">
-              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl" aria-hidden />
+              <div className="absolute -inset-2 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(255,46,46,0.12),transparent_45%)] blur-xl" aria-hidden />
               <img
                 src={avatarAsset}
                 alt={`${profile.name} avatar`}
@@ -182,12 +181,12 @@ export default function Home() {
             <TerminalCard className="w-full max-w-md">
               <div className="space-y-1.5">
                 <Line prompt>whoami</Line>
-                <Line>vishwa.kumar — soc / dfir track</Line>
+                <Line>vishwa.kumar — research / malware / forensics</Line>
                 <Line prompt>cat ./targets.txt</Line>
-                <Line>SOC Analyst</Line>
-                <Line>DFIR Analyst</Line>
-                <Line>Detection Engineering</Line>
-                <Line>Security Operations</Line>
+                <Line>Vulnerability Research</Line>
+                <Line>Malware Analysis</Line>
+                <Line>Digital Forensics</Line>
+                <Line>Threat Intelligence</Line>
                 <Line prompt>./status --check</Line>
                 <Line tone="success"><span className="scan-dot" />ready · open to opportunities</Line>
               </div>
@@ -199,8 +198,8 @@ export default function Home() {
       {/* RECRUITER SNAPSHOT */}
       <Section
         eyebrow="recruiter_snapshot"
-        title="What you're hiring"
-        description="A quick-read scorecard for SOC, DFIR, and Security Operations interviewers."
+        title="Research profile snapshot"
+        description="A quick-read view of how I approach vulnerability research, malware analysis, and digital forensics."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {recruiterSnapshot.map((item, i) => {
@@ -271,10 +270,10 @@ export default function Home() {
             <div className="max-w-xl">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">next_step</p>
               <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
-                Hiring for a SOC, DFIR, or Detection role?
+                Looking for a research-minded security collaborator?
               </h2>
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Resume, references, and project deep-dives are one click away.
+                Resume, writeups, and project deep-dives are one click away.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -338,7 +337,7 @@ function SocialPill({ href, icon, children }: { href: string; icon?: React.React
 
 function Line({ children, prompt, tone }: { children: React.ReactNode; prompt?: boolean; tone?: "success" }) {
   return (
-    <div className={tone === "success" ? "text-success" : ""}>
+    <div className={tone === "success" ? "text-primary" : ""}>
       {prompt && <span className="text-primary">$ </span>}
       {!prompt && <span className="text-muted-foreground">› </span>}
       <span>{children}</span>

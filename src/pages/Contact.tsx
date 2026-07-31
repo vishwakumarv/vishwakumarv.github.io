@@ -108,7 +108,7 @@ export default function ContactPage() {
               >
                 {copied ? (
                   <>
-                    <Check className="h-3.5 w-3.5 text-success" />
+                    <Check className="h-3.5 w-3.5 text-primary" />
                     copied
                   </>
                 ) : (

@@ -126,7 +126,7 @@ function Block({ label, children }: { label: string; children: React.ReactNode }
 }
 
 function Bullet({ children, tone }: { children: React.ReactNode; tone?: "success" | "warning" }) {
-  const color = tone === "success" ? "bg-success" : tone === "warning" ? "bg-warning" : "bg-primary";
+  const color = tone === "warning" ? "bg-primary/80" : "bg-primary";
   return (
     <li className="flex gap-3">
       <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${color}`} />

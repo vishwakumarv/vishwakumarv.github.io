@@ -51,14 +51,13 @@ export default function Home() {
 </Helmet>
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" aria-hidden />
         <div className="relative mx-auto max-w-6xl gap-8 px-4 py-8 sm:px-6 md:grid md:grid-cols-[1.2fr_1fr] md:gap-10 md:py-24 md:items-start">
           <div className="flex flex-col gap-6">
             <div className="flex w-full flex-col gap-6 md:hidden">
               <div className="flex min-h-[112px] w-full items-start justify-between gap-4">
                 <div className="min-w-0 flex-1 space-y-3 text-left">
                   <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 font-mono text-[11px] text-muted-foreground">
-                    <span className="scan-dot" />available for SOC / DFIR roles · {profile.location}
+                    <span className="scan-dot" />research · malware · forensics · {profile.location}
                   </p>
 
                   <div>
@@ -86,7 +85,7 @@ export default function Home() {
                     width={96}
                     height={96}
                   />
-                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-success animate-cyber-pulse" title="Available for hire" />
+                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-primary animate-cyber-pulse" title="Available for hire" />
                 </div>
               </div>
             </div>
@@ -344,7 +343,7 @@ function SocialPill({
 
 function Line({ children, prompt, tone }: { children: React.ReactNode; prompt?: boolean; tone?: "success" }) {
   return (
-    <div className={tone === "success" ? "text-success" : ""}>
+    <div className={tone === "success" ? "text-primary" : ""}>
       {prompt && <span className="text-primary">$ </span>}
       {!prompt && <span className="text-muted-foreground">› </span>}
       <span>{children}</span>

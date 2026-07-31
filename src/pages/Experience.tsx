@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 
 const roleColors: Record<string, string> = {
-  "Summer Intern": "text-cyan-400",
-  "Machine Learning Intern": "text-violet-400",
-  "Offensive Cyber Security Intern": "text-rose-400",
+  "Summer Intern": "text-primary",
+  "Machine Learning Intern": "text-primary",
+  "Offensive Cyber Security Intern": "text-primary",
 };
 
 export default function ExperiencePage() {

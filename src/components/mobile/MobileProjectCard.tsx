@@ -8,46 +8,46 @@ const projectThemes: Record<
   { gradient: string; Icon: typeof Shield; accent: string }
 > = {
   deadpixel: {
-    gradient: "from-cyan-500/25 via-primary/20 to-blue-600/10",
+    gradient: "from-black/25 via-surface/20 to-surface/10",
     Icon: Shield,
-    accent: "text-cyan-400",
+    accent: "text-primary",
   },
   "redroid-ai": {
-    gradient: "from-violet-500/25 via-purple-500/15 to-fuchsia-600/10",
+    gradient: "from-black/25 via-surface/20 to-surface/10",
     Icon: Smartphone,
-    accent: "text-violet-400",
+    accent: "text-primary",
   },
   pubot: {
-    gradient: "from-emerald-500/20 via-primary/15 to-teal-600/10",
+    gradient: "from-black/25 via-surface/20 to-surface/10",
     Icon: Cpu,
-    accent: "text-emerald-400",
+    accent: "text-primary",
   },
 };
 
 const defaultTheme = {
-  gradient: "from-primary/25 via-primary/10 to-transparent",
+  gradient: "from-black/25 via-surface/10 to-surface/10",
   Icon: Shield,
   accent: "text-primary",
 };
 
 function DeadpixelVisual() {
   return (
-    <div className="w-full h-full p-4 flex flex-col justify-between font-mono text-[9px] text-cyan-400 select-none overflow-hidden relative">
+    <div className="w-full h-full p-4 flex flex-col justify-between font-mono text-[9px] text-muted-foreground select-none overflow-hidden relative">
       <div className="flex items-center justify-between border-b border-white/10 pb-1.5 opacity-80">
         <div className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-rose-500/80" />
-          <span className="h-2 w-2 rounded-full bg-amber-500/80" />
-          <span className="h-2 w-2 rounded-full bg-emerald-500/80" />
+          <span className="h-2 w-2 rounded-full bg-primary/80" />
+          <span className="h-2 w-2 rounded-full bg-primary/30" />
+          <span className="h-2 w-2 rounded-full bg-surface-elevated/60" />
           <span className="text-[8px] text-muted-foreground ml-1">deadpixel_v1.0.sh</span>
         </div>
         <span className="text-[8px] text-muted-foreground">TUNNEL: ACTIVE</span>
       </div>
       <div className="flex-1 pt-2 space-y-1 opacity-90 leading-tight">
         <div><span className="text-muted-foreground">$</span> ./deadpixel --simulate --template o365</div>
-        <div className="text-emerald-400">[+] Tunnel established: https://login.secure-verify.cf</div>
-        <div className="text-amber-400 animate-pulse">[!] Hooked listener: waiting for exfil...</div>
-        <div className="text-rose-400">[ALERT] Target exfiltrated POST credentials</div>
-        <div className="text-cyan-300">  └─ User: adm_vishwa · Pass: **********</div>
+        <div className="text-muted-foreground">[+] Tunnel established: https://login.secure-verify.cf</div>
+        <div className="text-primary animate-pulse">[!] Hooked listener: waiting for exfil...</div>
+        <div className="text-primary">[ALERT] Target exfiltrated POST credentials</div>
+        <div className="text-muted-foreground">  └─ User: adm_vishwa · Pass: **********</div>
       </div>
       <div className="absolute right-3 bottom-3 opacity-15">
         <svg viewBox="0 0 24 24" className="h-16 w-16" fill="none" stroke="currentColor" strokeWidth="1">
@@ -60,12 +60,12 @@ function DeadpixelVisual() {
 
 function RedroidVisual() {
   return (
-    <div className="w-full h-full p-4 flex flex-col justify-between font-mono text-[9px] text-violet-400 select-none overflow-hidden relative">
+    <div className="w-full h-full p-4 flex flex-col justify-between font-mono text-[9px] text-muted-foreground select-none overflow-hidden relative">
       <div className="flex items-center justify-between border-b border-white/10 pb-1.5 opacity-80">
         <div className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-rose-500/80" />
-          <span className="h-2 w-2 rounded-full bg-amber-500/80" />
-          <span className="h-2 w-2 rounded-full bg-emerald-500/80" />
+          <span className="h-2 w-2 rounded-full bg-primary/80" />
+          <span className="h-2 w-2 rounded-full bg-primary/30" />
+          <span className="h-2 w-2 rounded-full bg-surface-elevated/60" />
           <span className="text-[8px] text-muted-foreground ml-1">redroid_parser.py</span>
         </div>
         <span className="text-[8px] text-muted-foreground">APK: DANGER</span>
@@ -74,20 +74,20 @@ function RedroidVisual() {
         <div className="text-muted-foreground text-[8px]">Analyzing: malshare_sample_492.apk</div>
         <div className="flex items-center justify-between text-[8px]">
           <span>AndroidManifest.xml:</span>
-          <span className="text-rose-400 font-bold px-1 rounded bg-rose-500/10">3 HEURISTICS</span>
+          <span className="text-primary font-bold px-1 rounded bg-primary/10">3 HEURISTICS</span>
         </div>
         <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 pt-1 text-[8px]">
-          <div className="flex items-center gap-1 text-rose-300">
-            <span className="h-1 w-1 rounded-full bg-rose-500" />
+          <div className="flex items-center gap-1 text-muted-foreground">
+            <span className="h-1 w-1 rounded-full bg-primary" />
             READ_SMS (Dangerous)
           </div>
-          <div className="flex items-center gap-1 text-rose-300">
-            <span className="h-1 w-1 rounded-full bg-rose-500" />
+          <div className="flex items-center gap-1 text-muted-foreground">
+            <span className="h-1 w-1 rounded-full bg-primary" />
             SYSTEM_ALERT (Overlay)
           </div>
         </div>
-        <div className="w-full bg-white/5 h-1 rounded-full overflow-hidden mt-1">
-          <div className="bg-violet-500 h-full w-[85%] animate-pulse" />
+        <div className="w-full bg-surface/20 h-1 rounded-full overflow-hidden mt-1">
+          <div className="bg-primary h-full w-[85%] animate-pulse" />
         </div>
       </div>
       <div className="absolute right-3 bottom-3 opacity-15">
@@ -102,12 +102,12 @@ function RedroidVisual() {
 
 function PubotVisual() {
   return (
-    <div className="w-full h-full p-4 flex flex-col justify-between font-mono text-[9px] text-emerald-400 select-none overflow-hidden relative">
+    <div className="w-full h-full p-4 flex flex-col justify-between font-mono text-[9px] text-muted-foreground select-none overflow-hidden relative">
       <div className="flex items-center justify-between border-b border-white/10 pb-1.5 opacity-80">
         <div className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-rose-500/80" />
-          <span className="h-2 w-2 rounded-full bg-amber-500/80" />
-          <span className="h-2 w-2 rounded-full bg-emerald-500/80" />
+          <span className="h-2 w-2 rounded-full bg-primary/80" />
+          <span className="h-2 w-2 rounded-full bg-primary/30" />
+          <span className="h-2 w-2 rounded-full bg-surface-elevated/60" />
           <span className="text-[8px] text-muted-foreground ml-1">rpi_control.py</span>
         </div>
         <span className="text-[8px] text-muted-foreground">GPIO: UP</span>
@@ -115,8 +115,8 @@ function PubotVisual() {
       <div className="flex-1 pt-2 grid grid-cols-[1.5fr_1fr] gap-2 items-center opacity-90 leading-tight">
         <div className="space-y-1">
           <div>$ systemctl status pubot</div>
-          <div className="text-emerald-400 flex items-center gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+          <div className="text-muted-foreground flex items-center gap-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-ping" />
             active (running)
           </div>
           <div className="text-muted-foreground text-[8px]">
@@ -129,7 +129,7 @@ function PubotVisual() {
               key={i}
               className={cn(
                 "h-1.5 w-1.5 rounded-sm border border-white/5",
-                i === 3 || i === 7 ? "bg-emerald-500/80" : "bg-white/5"
+                i === 3 || i === 7 ? "bg-primary/80" : "bg-white/10"
               )}
             />
           ))}
@@ -221,7 +221,7 @@ export function MobileProjectCard({ project, compact = false, className }: Mobil
         <div className="mt-auto flex gap-2 pt-2">
           <Link
             to={`/projects/${project.slug}`}
-            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.97] glow-primary"
+            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-[0.97] glow-primary"
           >
             Case Study
             <ArrowRight className="h-4 w-4" aria-hidden />
@@ -231,7 +231,7 @@ export function MobileProjectCard({ project, compact = false, className }: Mobil
             target="_blank"
             rel="noreferrer"
             aria-label={`${project.name} on GitHub`}
-            className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-xl border border-border/80 bg-surface/60 text-muted-foreground transition-all duration-200 hover:border-primary/40 hover:text-primary active:scale-[0.97]"
+            className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-xl border border-border bg-surface/60 text-muted-foreground transition-all duration-200 hover:border-primary hover:text-white active:scale-[0.97]"
           >
             <Github className="h-4.5 w-4.5" aria-hidden />
           </a>

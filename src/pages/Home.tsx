@@ -49,148 +49,78 @@ export default function Home() {
   <link rel="canonical" href="/" />
 </Helmet>
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-6xl gap-12 px-4 pb-16 pt-16 sm:px-6 md:grid md:grid-cols-[1.2fr_1fr] md:gap-10 md:pb-24 md:pt-24">
-          <div className="flex flex-col gap-6">
-            {/* Mobile hero row */}
-            <div className="flex flex-col gap-6 md:hidden">
-              <div className="flex w-full items-start justify-between gap-4">
-                <div className="min-w-0 flex-1 space-y-3 text-left">
-                  <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1.5 font-mono text-[11px] text-muted-foreground">
-                    <span className="scan-dot" />research · malware · forensics · {profile.location}
+      <section className="relative overflow-hidden amoled-hero">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="hidden sm:block absolute left-[-14%] top-16 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+          <div className="hidden sm:block absolute right-[-18%] top-10 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6 sm:pb-16 sm:pt-16 md:px-0 md:pb-24 md:pt-24">
+          <div className="grid gap-6 lg:grid-cols-[1.55fr_1fr] items-start">
+            <div className="min-w-0 rounded-[2rem] sm:rounded-[2.5rem] bg-transparent p-6 sm:p-8 order-1 w-full lg:order-none">
+              <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-primary">
+                <span className="h-2 w-2 rounded-full bg-primary animate-pulse" /> research · tooling · writeups
+              </p>
+
+              <div className="mt-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4 sm:gap-6">
+                <img
+                  src={avatarAsset}
+                  alt="V. Vishwa Kumar"
+                  className="h-24 w-24 sm:h-24 sm:w-24 md:h-32 md:w-32 rounded-full ring-1 ring-white/6 object-cover shrink-0"
+                />
+                <div className="w-full sm:w-auto">
+                  <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-6xl">
+                    <span className="text-gradient">V. Vishwa Kumar</span>
+                  </h1>
+
+                  <p className="mt-2 mx-auto max-w-xl text-base font-medium leading-7 text-foreground/80 sm:mx-0 sm:max-w-none sm:text-lg md:text-xl">
+                    Security researcher, tool-maker, and threat analyst focused on Windows internals, malware, and DFIR.
                   </p>
-                  <div>
-                    <h1 className="font-display text-[1.85rem] font-semibold leading-[1.08] tracking-tight mobile-text-balance sm:text-5xl">
-                      <span className="text-primary">{profile.name}</span>
-                      <span className="mt-3 block text-xl font-medium text-foreground/85 sm:text-3xl">
-                        Security Researcher · Malware Analysis · Digital Forensics
-                      </span>
-                    </h1>
-                    <CredibilityBadges />
-                    <p className="mt-3 text-base leading-relaxed text-foreground/80 break-words">
-                      I work at the intersection of vulnerability assessment, malware analysis, and
-                      digital forensics. I build small research tools, document findings clearly, and
-                      study attacker tradecraft so my analysis is practical and repeatable.
-                    </p>
-                  </div>
-                </div>
 
-                <div className="relative flex h-full flex-shrink-0 items-start justify-center overflow-hidden rounded-full">
-                  <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl animate-cyber-pulse" aria-hidden />
-                  <img
-                    src={avatarAsset}
-                    alt={`${profile.name} avatar`}
-                    className="relative h-24 w-24 rounded-full border-2 border-primary/50 object-cover shadow-2xl ring-4 ring-primary/10 sm:h-28 sm:w-28"
-                    loading="eager"
-                    width={96}
-                    height={96}
-                  />
-                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-primary animate-cyber-pulse" title="Available for hire" />
+                  <p className="mt-3 mx-auto max-w-xl text-[11px] uppercase tracking-[0.28em] text-primary/80 sm:mx-0 sm:max-w-none">
+                    <span className="typing-effect">researching Windows internals, registry analysis, and breach response.</span>
+                  </p>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3">
-  <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 active:scale-[0.98] shadow-[0_12px_30px_-20px_rgba(255,46,46,0.3)] glow-primary">
-    View Writeups <ArrowRight className="h-4 w-4" />
-  </Link>
-  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-black px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98]">
-    View Projects <ArrowRight className="h-4 w-4" />
-  </Link>
-  <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98]">
-    <Download className="h-4 w-4" /> Download Resume
-  </a>
-</div>
-
-              <div className="grid w-full grid-cols-2 gap-2">
-                <SocialPill href={profile.links.github} icon={<Github className="h-3.5 w-3.5" />}>GitHub</SocialPill>
-                <SocialPill href={profile.links.linkedin} icon={<Linkedin className="h-3.5 w-3.5" />}>LinkedIn</SocialPill>
-                <SocialPill href={profile.links.bugcrowd}>Bugcrowd</SocialPill>
-                <SocialPill href={profile.links.hackerone}>HackerOne</SocialPill>
-                <SocialPill href={profile.links.tryhackme}>TryHackMe</SocialPill>
-                <SocialPill href={profile.links.hackthebox}>Hack The Box</SocialPill>
-                <SocialPill href={profile.links.email} icon={<Mail className="h-3.5 w-3.5" />}>Email</SocialPill>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl amoled-flat-button px-5 py-3 text-sm font-semibold sm:w-auto">
+                  View Writeups <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-border bg-surface/80 px-5 py-3 text-sm font-semibold sm:w-auto">
+                  View Projects <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-border bg-surface/80 px-5 py-3 text-sm font-medium sm:w-auto">
+                  <Download className="h-4 w-4" /> Download Resume
+                </a>
               </div>
 
-              <TerminalCard className="w-full">
-                <div className="space-y-1.5">
-                  <Line prompt>whoami</Line>
-                  <Line>vishwa.kumar — research / malware / forensics</Line>
-                  <Line prompt>cat ./targets.txt</Line>
-                  <Line>Vulnerability Research</Line>
-                  <Line>Malware Analysis</Line>
-                  <Line>Digital Forensics</Line>
-                  <Line>Threat Intelligence</Line>
-                  <Line prompt>./status --check</Line>
-                  <Line tone="success"><span className="scan-dot" />ready · open to opportunities</Line>
+              <p className="mt-8 text-sm text-muted-foreground max-w-xl">Focused on practical, reproducible security research — writeups, small DFIR tooling, and defensive artifacts.</p>
+            </div>
+
+            <div className="min-w-0 grid gap-5 order-2 lg:order-none w-full">
+              <div className="hero-panel min-w-0 w-full rounded-[1.25rem] p-5 sm:rounded-[1.5rem] sm:p-6">
+                <div className="mb-4 flex items-center justify-between rounded-full bg-transparent px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" /> TERMINAL
+                  </span>
+                  <span className="rounded-full border border-white/8 px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">local</span>
                 </div>
-              </TerminalCard>
-            </div>
 
-            <div className="hidden md:block">
-              <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[11px] text-muted-foreground">
-                <span className="scan-dot" />research · malware · forensics · {profile.location}
-              </p>
-              <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
-                <span className="text-primary">{profile.name}</span>
-                <span className="block text-foreground/85 text-2xl sm:text-3xl md:text-4xl mt-3 font-medium">
-                  Security Researcher · Vulnerability Assessment · Digital Forensics
-                </span>
-              </h1>
-              <CredibilityBadges />
-              <p className="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-                I work at the intersection of vulnerability assessment, malware analysis, and
-                digital forensics. I build small research tools, document findings clearly, and
-                study attacker tradecraft so my analysis is practical and repeatable.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-  <Link to="/writeups" className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 shadow-[0_10px_30px_-20px_rgba(255,46,46,0.25)] glow-primary">
-    View Writeups <ArrowRight className="h-4 w-4" />
-  </Link>
-  <Link to="/projects" className="inline-flex items-center gap-2 rounded-md border border-border bg-black px-4 py-2.5 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white shadow-sm">
-    View Projects <ArrowRight className="h-4 w-4" />
-  </Link>
-  <a href={profile.links.resume} download className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm font-medium hover:bg-surface-elevated">
-    <Download className="h-4 w-4" /> Download Resume
-  </a>
-</div>
-
-              <div className="mt-8 flex flex-wrap gap-2">
-                <SocialPill href={profile.links.github} icon={<Github className="h-3.5 w-3.5" />}>GitHub</SocialPill>
-                <SocialPill href={profile.links.linkedin} icon={<Linkedin className="h-3.5 w-3.5" />}>LinkedIn</SocialPill>
-                <SocialPill href={profile.links.bugcrowd}>Bugcrowd</SocialPill>
-                <SocialPill href={profile.links.hackerone}>HackerOne</SocialPill>
-                <SocialPill href={profile.links.tryhackme}>TryHackMe</SocialPill>
-                <SocialPill href={profile.links.hackthebox}>Hack The Box</SocialPill>
-                <SocialPill href={profile.links.email} icon={<Mail className="h-3.5 w-3.5" />}>Email</SocialPill>
+                <div className="rounded-[1.25rem] bg-[#000000] p-5 text-sm font-mono leading-7 text-foreground border border-white/6">
+                  <pre className="whitespace-pre-wrap break-words text-[13px] text-foreground/90">
+  {`$ cat whoami.md
+  Name: V. Vishwa Kumar
+  Title: Security Researcher — Vulnerability Research, Malware Analysis, DFIR
+  Location: India
+  Interests: Windows internals, registry forensics, tooling
+  Contact: vishwa[at]example.com
+  `}
+                  </pre>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="hidden md:flex flex-col items-center gap-5 md:items-end">
-            <div className="float-slow relative">
-              <div className="absolute -inset-2 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.12),transparent_45%)] blur-xl" aria-hidden />
-              <img
-                src={avatarAsset}
-                alt={`${profile.name} avatar`}
-                className="relative h-44 w-44 rounded-2xl border border-border object-cover shadow-2xl"
-                loading="eager"
-              />
-            </div>
-
-            <TerminalCard className="w-full max-w-md">
-              <div className="space-y-1.5">
-                <Line prompt>whoami</Line>
-                <Line>vishwa.kumar — research / malware / forensics</Line>
-                <Line prompt>cat ./targets.txt</Line>
-                <Line>Vulnerability Research</Line>
-                <Line>Malware Analysis</Line>
-                <Line>Digital Forensics</Line>
-                <Line>Threat Intelligence</Line>
-                <Line prompt>./status --check</Line>
-                <Line tone="success"><span className="scan-dot" />ready · open to opportunities</Line>
-              </div>
-            </TerminalCard>
           </div>
         </div>
       </section>
@@ -205,7 +135,7 @@ export default function Home() {
           {recruiterSnapshot.map((item, i) => {
             const Icon = snapshotIcons[i % snapshotIcons.length];
             return (
-              <div key={item.label} className="group glass rounded-xl p-5 transition hover:border-primary/40">
+              <div key={item.label} className="group section-card rounded-3xl p-6 transition hover:border-primary/40">
                 <div className="flex items-center gap-3">
                   <span className="grid h-9 w-9 place-items-center rounded-md border border-border bg-surface-elevated text-primary">
                     <Icon className="h-4 w-4" />
@@ -221,7 +151,7 @@ export default function Home() {
 
       {/* CTA */}
       <Section className="!py-10 md:!py-16">
-        <div className="glass overflow-hidden rounded-2xl p-8 md:p-12">
+        <div className="section-card overflow-hidden rounded-[2.25rem] p-8 md:p-12">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div className="max-w-xl">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">next_step</p>

@@ -99,6 +99,9 @@ export default function Home() {
                   SOC Analyst · DFIR Enthusiast · Security Operations
                 </span>
               </h1>
+              <p className="mt-4 text-sm uppercase tracking-[0.28em] text-primary/80">
+                <span className="typing-effect">blue team defense, incident response, and threat detection</span>
+              </p>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground break-words md:mt-6 md:text-lg">
                 I focus on blue team security — monitoring, incident investigation, threat
                 analysis, and security automation. I build small tools, document cases like

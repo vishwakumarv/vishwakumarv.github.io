@@ -31,15 +31,16 @@ export default function WriteupsLanding() {
       description="Choose a writeup category to explore detailed challenge walkthroughs and analysis."
       className="writeups-section py-10 sm:py-14 md:py-24"
     >
-      <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-5">
+      <div className="hidden gap-8 md:grid md:grid-cols-1 lg:grid-cols-2">
         {categories.map((category) => (
           <Link
             key={category}
             to={`/writeups/${category}`}
-            className="glass group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface-elevated p-8 transition hover:border-primary/60 hover:bg-surface/80"
+            className="group flex flex-col justify-start overflow-hidden p-6 transition hover:text-primary border border-white/10 rounded-3xl"
           >
             <div>
-              <h2 className="text-2xl font-semibold text-foreground">
+              <p className="text-xs uppercase tracking-[0.26em] text-primary/70">{categoryLabels[category]}</p>
+              <h2 className="mt-3 section-heading-gradient text-2xl font-semibold text-foreground">
                 {getCategoryLabel(category)}
               </h2>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">
@@ -50,15 +51,16 @@ export default function WriteupsLanding() {
         ))}
       </div>
 
-      <div className="flex flex-col gap-3 md:hidden">
+      <div className="flex flex-col gap-2 md:hidden">
         {categories.map((category) => (
           <Link
             key={category}
             to={`/writeups/${category}`}
-            className="glass group flex items-start justify-between gap-3 overflow-hidden rounded-xl border border-border bg-surface-elevated p-4 transition active:scale-[0.99] hover:border-primary/60 hover:bg-surface/80"
+            className="group flex items-start justify-between gap-3 overflow-hidden p-4 transition border border-white/10 rounded-lg"
           >
             <div className="min-w-0 flex-1">
-              <h2 className="text-lg font-semibold leading-snug text-foreground">
+              <p className="text-[10px] uppercase tracking-[0.28em] text-primary/70">{categoryLabels[category]}</p>
+              <h2 className="mt-2 section-heading-gradient text-lg font-semibold leading-snug text-foreground">
                 {getCategoryLabel(category)}
               </h2>
               <p className="mt-1.5 text-sm leading-5 text-muted-foreground">

@@ -171,6 +171,84 @@
       0 12px 40px -10px rgba(255, 46, 46, 0.55);
   }
 
+  .typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-word;
+    border-right: 2px solid rgba(255, 255, 255, 0.85);
+    animation: typing 3.5s steps(40, end) 0.5s forwards, blink-caret 0.75s step-end infinite;
+    width: 0;
+    max-width: 100%;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(255, 255, 255, 0.85); }
+  }
+
+  .section-heading-gradient {
+    background: linear-gradient(120deg, #ffffff 0%, #ff2e2e 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .section-card {
+    background: color-mix(in oklab, var(--surface) 75%, transparent);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 80px -54px rgba(255, 46, 46, 0.35);
+  }
+
+  .hero-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 18px 40px -30px rgba(255, 46, 46, 0.18);
+  }
+
+  /* AMOLED-first, flatter hero styles */
+  .amoled-hero {
+    background-color: #000000;
+    color-scheme: dark;
+  }
+
+  .amoled-hero .section-card,
+  .amoled-hero .hero-panel {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .amoled-flat-button {
+    background: linear-gradient(90deg, #ff3b3b, #ff2e2e);
+    color: #fff;
+    border: none;
+    box-shadow: none;
+  }
+
+  .hero-grid {
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255, 46, 46, 0.16), transparent 24%),
+      radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.08), transparent 18%),
+      radial-gradient(circle at 10% 90%, rgba(255, 46, 46, 0.08), transparent 22%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 35%);
+    background-size: cover;
+  }
+
+  .section-heading-gradient {
+    background: linear-gradient(120deg, #FFFFFF 0%, #ff2e2e 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .hairline {
     border: 1px solid var(--color-border);
   }

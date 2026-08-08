@@ -3,7 +3,7 @@ export const profile = {
   fullName: "Vishwa Kumar Venkateswaran",
   title: "Security Researcher · Vulnerability Assessment · Digital Forensics",
   location: "Bengaluru, India",
-  email: "vishwakumarv05@gmail.com",
+  email: "vkumxr@proton.me",
   phone: "+91 9342236718",
   summary:
     "Security researcher focused on vulnerability assessment, malware analysis, and digital forensics. I build small tools, document findings clearly, and study attacker tradecraft so my research is practical and repeatable.",
@@ -17,7 +17,7 @@ export const profile = {
     tryhackme: "https://tryhackme.com/p/vishwakumarv",
     hackthebox: "https://app.hackthebox.com/profile/vishwakumarv",
     writeups: "https://vishwakumarv.github.io",
-    email: "mailto:vishwakumarv05@gmail.com",
+    email: "mailto:vkumxr@proton.me",
     resume: "/Vishwa-Kumar-Resume.pdf",
   },
 };

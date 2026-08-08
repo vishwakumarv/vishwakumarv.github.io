@@ -114,8 +114,7 @@ export default function Home() {
   Name: V. Vishwa Kumar
   Title: Security Researcher — Vulnerability Research, Malware Analysis, DFIR
   Location: India
-  Interests: Windows internals, registry forensics, tooling
-  Contact: vishwa[at]example.com
+  Contact: vkumxr@proton.me
   `}
                   </pre>
                 </div>

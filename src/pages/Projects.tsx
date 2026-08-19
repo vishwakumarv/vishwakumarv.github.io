@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
-import { projects } from "@/data/portfolio";
-import { ArrowRight } from "lucide-react";
+import { ExternalLink, GitBranch, Terminal } from "lucide-react";
 
 export default function Projects() {
   return (
@@ -17,52 +15,35 @@ export default function Projects() {
       </Helmet>
 
       <Section
+        className="!py-10 md:!py-14"
         eyebrow="projects"
-        title="Projects"
-        description="Each project follows the same structure: summary, goal, problem solved, tools, methodology, personal contributions, findings, recommendations, skills, and learnings."
+        title="Projects are being rebuilt"
+        description="The project archive is being reworked into a cleaner collection of focused case studies."
       >
-        <div className="grid gap-5">
-          {projects.map((p) => (
-            <Link
-              key={p.slug}
-              to={`/projects/${p.slug}`}
-              className="group glass grid gap-6 rounded-xl p-6 transition hover:border-primary/50 md:grid-cols-[1fr_1.8fr] md:p-8"
+        <div className="relative overflow-hidden border border-border bg-[#000000] p-6 sm:p-8 md:p-10">
+          <div className="absolute right-6 top-6 text-success/30 sm:right-8 sm:top-8">
+            <Terminal className="h-14 w-14 sm:h-16 sm:w-16" strokeWidth={1} />
+          </div>
+          <div className="relative max-w-2xl">
+            <div className="mb-5 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-success" /> archive_status: rebuilding
+            </div>
+            <GitBranch className="mb-4 h-7 w-7 text-primary" />
+            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">This section is under development.</h2>
+            <p className="mt-4 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
+              The public project archive is being reorganized. In the meantime, browse the latest repositories and experiments on my GitHub profile.
+            </p>
+            <a
+              href="https://github.com/vishwakumarv"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-2 border border-primary bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
             >
-              <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary">{p.period}</p>
-                <h2 className="mt-2 font-display text-2xl font-semibold">{p.name}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{p.tagline}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => (
-                    <span key={t} className="rounded-full border border-border bg-surface-elevated/60 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-3 text-sm">
-                <Row label="Problem">{p.problem}</Row>
-                <Row label="Solution">{p.solution}</Row>
-                <Row label="Security relevance">{p.relevance}</Row>
-                <div className="pt-2">
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-primary">
-                    Read case study <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
+              Refer to GitHub <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </Section>
     </>
-  );
-}
-
-function Row({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <div className="grid gap-1 sm:grid-cols-[140px_1fr] sm:gap-4">
-      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/70">{label}</span>
-      <span className="text-foreground/90">{children}</span>
-    </div>
   );
 }

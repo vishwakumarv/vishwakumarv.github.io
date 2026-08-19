@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { ChevronDown, ArrowRight, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +28,7 @@ export function MobileSectionCard({
       className={cn(
         "mobile-section-card relative overflow-hidden rounded-2xl border transition-all duration-300 ease-out",
         open
-          ? "border-primary/45 bg-black shadow-[0_12px_36px_-12px_rgba(255,46,46,0.24)]"
+          ? "border-primary/45 bg-[#000000] shadow-[0_12px_36px_-12px_rgba(200,16,46,0.24)]"
           : "border-border/60 bg-surface/40 shadow-sm",
       )}
     >
@@ -36,7 +37,7 @@ export function MobileSectionCard({
         <span className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20" aria-hidden />
       )}
 
-      <button
+      <motion.button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
@@ -44,11 +45,13 @@ export function MobileSectionCard({
           "flex w-full min-h-[5rem] items-center gap-4 p-4 text-left transition-colors duration-200 active:bg-surface-elevated/45",
           open && "pb-2",
         )}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
         <span className={cn(
           "grid h-12 w-12 shrink-0 place-items-center rounded-xl border transition-all duration-300 shadow-sm",
           open
-            ? "border-primary/30 bg-black text-primary scale-105"
+            ? "border-primary/30 bg-[#000000] text-primary scale-105"
             : "border-border/60 bg-surface-elevated/80 text-muted-foreground",
         )}>
           <Icon className="h-5.5 w-5.5" aria-hidden />
@@ -70,7 +73,7 @@ export function MobileSectionCard({
         )}>
           <ChevronDown className="h-4.5 w-4.5" aria-hidden />
         </span>
-      </button>
+      </motion.button>
 
       <div
         className={cn(

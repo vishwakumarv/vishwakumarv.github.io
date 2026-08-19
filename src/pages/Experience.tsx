@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 
 const roleColors: Record<string, string> = {
-  "Summer Intern": "text-primary",
-  "Machine Learning Intern": "text-primary",
-  "Offensive Cyber Security Intern": "text-primary",
+  "Summer Intern": "text-muted-foreground",
+  "Machine Learning Intern": "text-muted-foreground",
+  "Offensive Cyber Security Intern": "text-muted-foreground",
 };
 
 export default function ExperiencePage() {
@@ -40,11 +40,14 @@ export default function ExperiencePage() {
       >
         {/* Experience Timeline */}
         <div className="mb-14">
-          <div className="mb-6 flex items-center gap-2">
+          <div className="mb-6 flex items-end justify-between gap-4 border-b border-border pb-4">
+            <div className="flex items-center gap-2">
             <Briefcase className="h-4 w-4 text-primary" />
             <h2 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Work Experience
             </h2>
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-widest text-tertiary">2025 — now</span>
           </div>
 
           <ol className="relative space-y-0 border-l border-border/50">
@@ -57,12 +60,12 @@ export default function ExperiencePage() {
                   <span className="h-2 w-2 rounded-full bg-primary" />
                 </span>
 
-                <div className="glass rounded-xl p-6 transition-colors hover:border-border">
+                <div className="glass rounded-none border-x-0 border-t-0 p-6 transition-colors hover:border-primary/40 md:p-8">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <p
                         className={`font-mono text-[11px] uppercase tracking-wider ${
-                          roleColors[x.role] ?? "text-primary"
+                          roleColors[x.role] ?? "text-muted-foreground"
                         }`}
                       >
                         {x.period}
@@ -80,7 +83,7 @@ export default function ExperiencePage() {
                       </p>
                     </div>
 
-                    <span className="rounded-full border border-border bg-surface-elevated px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    <span className="rounded-full border border-success/40 bg-success/5 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-success">
                       {x.current ? "current" : "completed"}
                     </span>
                   </div>
@@ -91,7 +94,7 @@ export default function ExperiencePage() {
                         key={idx}
                         className="flex gap-3 text-sm text-foreground/85"
                       >
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted" />
                         {b}
                       </li>
                     ))}
@@ -119,7 +122,7 @@ export default function ExperiencePage() {
                     {e.school}
                   </p>
                   <p className="text-sm text-muted-foreground">{e.degree}</p>
-                  <p className="font-mono text-xs text-primary">
+                  <p className="font-mono text-xs text-muted-foreground">
                     {e.period}
                   </p>
                 </div>
@@ -142,7 +145,7 @@ export default function ExperiencePage() {
                     key={c}
                     className="flex items-start gap-3 text-sm text-foreground/90"
                   >
-                    <span className="mt-0.5 text-primary">›</span>
+                    <span className="mt-0.5 text-muted-foreground">›</span>
                     {c}
                   </li>
                 ))}

@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import { Section } from "@/components/Section";
 import { TerminalCard } from "@/components/TerminalCard";
 import { profile, recruiterSnapshot } from "@/data/portfolio";
@@ -22,6 +24,39 @@ import {
 const snapshotIcons = [ShieldCheck, Terminal, Search, FileText, GitBranch, Bot];
 
 const credibilityBadges = ["Vulnerability Research", "Malware Analysis", "Digital Forensics"];
+const typingLines = [
+  "researching Windows internals",
+  "tracing malware behavior",
+  "documenting evidence for defenders",
+];
+
+function ResearchTicker() {
+  const [lineIndex, setLineIndex] = useState(0);
+  const [visibleText, setVisibleText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const target = typingLines[lineIndex];
+    const isComplete = visibleText === target;
+    const isEmpty = visibleText.length === 0;
+    const delay = isComplete ? 1800 : isEmpty && deleting ? 450 : deleting ? 34 : 58;
+
+    const timer = window.setTimeout(() => {
+      if (isComplete) {
+        setDeleting(true);
+      } else if (isEmpty && deleting) {
+        setDeleting(false);
+        setLineIndex((current) => (current + 1) % typingLines.length);
+      } else {
+        setVisibleText((current) => deleting ? current.slice(0, -1) : target.slice(0, current.length + 1));
+      }
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [deleting, lineIndex, visibleText]);
+
+  return <span className="typing-effect">{visibleText}<span className="typing-cursor" aria-hidden="true" /></span>;
+}
 
 export default function Home() {
   return (
@@ -49,18 +84,18 @@ export default function Home() {
   <link rel="canonical" href="/" />
 </Helmet>
       {/* HERO */}
-      <section className="relative overflow-hidden amoled-hero">
+      <section className="relative overflow-hidden amoled-hero border-b border-border/60">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="hidden sm:block absolute left-[-14%] top-16 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+          <div className="hidden sm:block absolute left-[-14%] top-16 h-72 w-72 rounded-full bg-white/[0.025] blur-3xl" />
           <div className="hidden sm:block absolute right-[-18%] top-10 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6 sm:pb-16 sm:pt-16 md:px-0 md:pb-24 md:pt-24">
-          <div className="grid gap-6 lg:grid-cols-[1.55fr_1fr] items-start">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 pb-14 pt-14 sm:px-6 sm:pb-20 sm:pt-20 md:px-0 md:pb-28 md:pt-28">
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 items-center">
             <div className="min-w-0 rounded-[2rem] sm:rounded-[2.5rem] bg-transparent p-6 sm:p-8 order-1 w-full lg:order-none">
-              <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-primary">
-                <span className="h-2 w-2 rounded-full bg-primary animate-pulse" /> research · tooling · writeups
+              <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+                <span className="h-2 w-2 rounded-full bg-success animate-pulse" /> research · tooling · writeups
               </p>
 
               <div className="mt-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4 sm:gap-6">
@@ -70,7 +105,7 @@ export default function Home() {
                   className="h-24 w-24 sm:h-24 sm:w-24 md:h-32 md:w-32 rounded-full ring-1 ring-white/6 object-cover shrink-0"
                 />
                 <div className="w-full sm:w-auto">
-                  <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-6xl">
+                  <h1 className="whitespace-nowrap text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-7xl">
                     <span className="text-gradient">V. Vishwa Kumar</span>
                   </h1>
 
@@ -78,8 +113,8 @@ export default function Home() {
                     Security researcher, tool-maker, and threat analyst focused on Windows internals, malware, and DFIR.
                   </p>
 
-                  <p className="mt-3 mx-auto max-w-xl text-[11px] uppercase tracking-[0.28em] text-primary/80 sm:mx-0 sm:max-w-none">
-                    <span className="typing-effect">researching Windows internals, registry analysis, and breach response.</span>
+                  <p className="mt-3 mx-auto max-w-xl text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:mx-0 sm:max-w-none">
+                    <span className="font-mono"><span className="text-success">$</span> <ResearchTicker /></span>
                   </p>
                 </div>
               </div>
@@ -103,12 +138,17 @@ export default function Home() {
               <div className="hero-panel min-w-0 w-full rounded-[1.25rem] p-5 sm:rounded-[1.5rem] sm:p-6">
                 <div className="mb-4 flex items-center justify-between rounded-full bg-transparent px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                   <span className="inline-flex items-center gap-3">
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" /> TERMINAL
+                    <span className="h-2.5 w-2.5 rounded-full bg-success animate-pulse" /> TERMINAL
                   </span>
                   <span className="rounded-full border border-white/8 px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">local</span>
                 </div>
 
-                <div className="rounded-[1.25rem] bg-[#000000] p-5 text-sm font-mono leading-7 text-foreground border border-white/6">
+                <motion.div
+                  className="rounded-[1.25rem] bg-[#000000] p-5 text-sm font-mono leading-7 text-foreground border border-white/10 shadow-[0_24px_80px_-40px_rgba(57,211,83,0.3)]"
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
+                  transition={{ duration: 4, delay: 0.15, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" }}
+                >
                   <pre className="whitespace-pre-wrap break-words text-[13px] text-foreground/90">
   {`$ cat whoami.md
   Name: V. Vishwa Kumar
@@ -117,7 +157,7 @@ export default function Home() {
   Contact: vkumxr@proton.me
   `}
                   </pre>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -134,15 +174,22 @@ export default function Home() {
           {recruiterSnapshot.map((item, i) => {
             const Icon = snapshotIcons[i % snapshotIcons.length];
             return (
-              <div key={item.label} className="group section-card rounded-3xl p-6 transition hover:border-primary/40">
+              <motion.div
+                key={item.label}
+                className="group section-card rounded-3xl p-6 transition hover:border-border"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.35, delay: i * 0.05, ease: "easeOut" }}
+              >
                 <div className="flex items-center gap-3">
-                  <span className="grid h-9 w-9 place-items-center rounded-md border border-border bg-surface-elevated text-primary">
+                  <span className="grid h-9 w-9 place-items-center rounded-md border border-border bg-surface-elevated text-muted-foreground">
                     <Icon className="h-4 w-4" />
                   </span>
                   <p className="font-display text-sm font-semibold">{item.label}</p>
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">{item.value}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -153,7 +200,7 @@ export default function Home() {
         <div className="section-card overflow-hidden rounded-[2.25rem] p-8 md:p-12">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div className="max-w-xl">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">next_step</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">next_step</p>
               <h2 className="mt-2 font-display text-2xl font-semibold md:text-3xl">
                 Looking for a research-minded security collaborator?
               </h2>
@@ -187,7 +234,7 @@ function CredibilityBadges() {
           key={badge}
           className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-border/70 bg-surface/40 px-2.5 py-0.5 font-mono text-[10px] leading-tight text-muted-foreground/85 sm:text-[11px]"
         >
-          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-primary/50" aria-hidden />
+          <span className="h-1 w-1 flex-shrink-0 rounded-full bg-muted" aria-hidden />
           {badge}
         </li>
       ))}
@@ -222,8 +269,8 @@ function SocialPill({ href, icon, children }: { href: string; icon?: React.React
 
 function Line({ children, prompt, tone }: { children: React.ReactNode; prompt?: boolean; tone?: "success" }) {
   return (
-    <div className={tone === "success" ? "text-primary" : ""}>
-      {prompt && <span className="text-primary">$ </span>}
+    <div className={tone === "success" ? "text-success" : ""}>
+      {prompt && <span className="text-success">$ </span>}
       {!prompt && <span className="text-muted-foreground">› </span>}
       <span>{children}</span>
     </div>

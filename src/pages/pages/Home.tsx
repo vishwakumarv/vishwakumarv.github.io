@@ -113,7 +113,7 @@ export default function Home() {
   <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90 active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">
     View Writeups <ArrowRight className="h-4 w-4" />
   </Link>
-  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-black px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98] glow-primary sm:w-auto sm:rounded-md sm:py-2.5">
+  <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-[#000000] px-5 py-3 text-sm font-semibold text-muted-foreground transition hover:border-primary hover:text-white active:scale-[0.98] glow-primary sm:w-auto sm:rounded-md sm:py-2.5">
     View Projects <ArrowRight className="h-4 w-4" />
   </Link>
   <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-border bg-surface/60 px-5 py-3 text-sm font-medium transition hover:bg-surface-elevated active:scale-[0.98] sm:w-auto sm:rounded-md sm:py-2.5">

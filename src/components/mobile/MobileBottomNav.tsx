@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "motion/react";
 import { mobileNavItems } from "./mobile-nav";
 import { cn } from "@/lib/utils";
+
+const MotionLink = motion(Link);
 
 export function MobileBottomNav() {
   const { pathname } = useLocation();
@@ -15,7 +18,7 @@ export function MobileBottomNav() {
           {mobileNavItems.map(({ to, label, Icon, match }) => {
             const active = match(pathname);
             return (
-              <Link
+              <MotionLink
                 key={to}
                 to={to}
                 aria-current={active ? "page" : undefined}
@@ -25,6 +28,9 @@ export function MobileBottomNav() {
                     ? "bg-primary/12 text-primary"
                     : "text-muted-foreground hover:text-foreground",
                 )}
+                whileTap={{ scale: 0.88, y: 2 }}
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 500, damping: 26 }}
               >
                 <Icon
                   className={cn("h-5.5 w-5.5 shrink-0 transition-transform duration-300", active && "text-primary scale-105")}
@@ -38,7 +44,7 @@ export function MobileBottomNav() {
                     aria-hidden
                   />
                 )}
-              </Link>
+              </MotionLink>
             );
           })}
         </div>

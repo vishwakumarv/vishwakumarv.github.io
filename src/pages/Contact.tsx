@@ -8,6 +8,7 @@ import {
   ExternalLink,
   Copy,
   Check,
+  ArrowUpRight,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -78,99 +79,51 @@ export default function ContactPage() {
         <link rel="canonical" href="/contact" />
       </Helmet>
 
-      <Section
-        eyebrow="contact"
-        title="Let's talk"
-        description="For SOC, DFIR, detection engineering, or security operations roles — the fastest way to reach me is email or LinkedIn."
-      >
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="glass rounded-xl p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
-              primary
-            </p>
-
-            <h2 className="mt-2 font-display text-xl font-semibold">
-              Email
-            </h2>
-
-            <div className="mt-4 flex flex-wrap items-center gap-2">
-              <a
-                href={profile.links.email}
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90"
-              >
-                <Mail className="h-4 w-4" />
-                {profile.email}
-              </a>
-
-              <button
-                onClick={copy}
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface/60 px-3 py-2 text-xs hover:bg-surface-elevated"
-              >
-                {copied ? (
-                  <>
-                    <Check className="h-3.5 w-3.5 text-primary" />
-                    copied
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-3.5 w-3.5" />
-                    copy
-                  </>
-                )}
+      <Section eyebrow="contact / open-channel" title="Send a signal." description="For SOC, DFIR, detection engineering, or security operations roles, email is the most direct route.">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          <div className="border-t border-primary pt-6">
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-success">channel ready</p>
+            <h2 className="mt-5 max-w-md font-display text-4xl font-semibold tracking-tight sm:text-5xl">Let’s make the next investigation clearer.</h2>
+            <p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">Open to security research, SOC, DFIR, detection engineering, and carefully scoped collaboration.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={profile.links.email} className="inline-flex items-center gap-2 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"><Mail className="h-4 w-4" /> {profile.email}</a>
+              <button onClick={copy} className="inline-flex items-center gap-2 border border-border px-4 py-3 text-xs text-muted-foreground hover:text-foreground">
+                {copied ? <Check className="h-3.5 w-3.5 text-success" /> : <Copy className="h-3.5 w-3.5" />} {copied ? "copied" : "copy address"}
               </button>
             </div>
-
-            <p className="mt-4 text-sm text-muted-foreground">
-              Typical response time: within 24 hours.
-            </p>
+            <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-tertiary">response window: &lt; 24h</p>
           </div>
 
-          <div className="glass rounded-xl p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
-              channels
-            </p>
-
-            <h2 className="mt-2 font-display text-xl font-semibold">
-              Find me elsewhere
-            </h2>
-
-            <ul className="mt-4 divide-y divide-border/60">
+          <div className="border-y border-border">
+            <div className="flex items-center justify-between border-b border-border px-1 py-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">relay directory</p>
+              <span className="font-mono text-[10px] text-success">06 channels</span>
+            </div>
+            <ul className="divide-y divide-border/60">
               {channels.map((c) => (
                 <li key={c.label}>
                   <a
                     href={c.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between py-3 text-sm transition hover:text-primary"
+                    className="group flex items-center justify-between py-4 text-sm transition hover:text-primary"
                   >
                     <span className="inline-flex items-center gap-3">
-                      <span className="grid h-7 w-7 place-items-center rounded-md border border-border bg-surface-elevated text-primary">
+                      <span className="grid h-8 w-8 place-items-center border border-border bg-[#000000] text-muted-foreground group-hover:border-primary group-hover:text-primary">
                         {c.icon}
                       </span>
                       <span>{c.label}</span>
                     </span>
 
-                    <span className="font-mono text-xs text-muted-foreground">
+                    <span className="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground">
                       @{c.value}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-        </div>
-
-        <div className="mt-6 glass rounded-xl p-6">
-          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
-            recruiter_note
-          </p>
-
-          <p className="mt-2 text-sm text-foreground/90">
-            Open to SOC Analyst, DFIR Analyst, Detection Engineering, and
-            Security Operations roles — full-time starting 2027, internships
-            before that. Based in {profile.location}; open to remote and
-            relocation.
-          </p>
         </div>
       </Section>
     </>

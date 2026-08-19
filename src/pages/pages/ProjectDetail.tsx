@@ -100,7 +100,7 @@ export default function ProjectDetail() {
       <Block label="Skills Demonstrated">
         <div className="flex flex-wrap gap-1.5">
           {p.skills.map((s: string) => (
-            <span key={s} className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs text-foreground/90">
+            <span key={s} className="rounded-full border border-gray-700 bg-transparent px-2.5 py-1 text-xs text-gray-400">
               {s}
             </span>
           ))}

@@ -39,7 +39,7 @@ export default function WriteupsLanding() {
             className="group flex flex-col justify-start overflow-hidden p-6 transition hover:text-primary border border-white/10 rounded-3xl"
           >
             <div>
-              <p className="text-xs uppercase tracking-[0.26em] text-primary/70">{categoryLabels[category]}</p>
+              <p className="text-xs uppercase tracking-[0.26em] text-muted-foreground">{categoryLabels[category]}</p>
               <h2 className="mt-3 section-heading-gradient text-2xl font-semibold text-foreground">
                 {getCategoryLabel(category)}
               </h2>
@@ -59,7 +59,7 @@ export default function WriteupsLanding() {
             className="group flex items-start justify-between gap-3 overflow-hidden p-4 transition border border-white/10 rounded-lg"
           >
             <div className="min-w-0 flex-1">
-              <p className="text-[10px] uppercase tracking-[0.28em] text-primary/70">{categoryLabels[category]}</p>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{categoryLabels[category]}</p>
               <h2 className="mt-2 section-heading-gradient text-lg font-semibold leading-snug text-foreground">
                 {getCategoryLabel(category)}
               </h2>
@@ -67,7 +67,7 @@ export default function WriteupsLanding() {
                 {categoryDescriptions[category]}
               </p>
             </div>
-            <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-primary" />
+              <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-foreground" />
           </Link>
         ))}
       </div>

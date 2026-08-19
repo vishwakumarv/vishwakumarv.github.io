@@ -28,7 +28,7 @@ export default function ProjectDetail() {
       </Link>
 
       <header className="mt-6">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">{p.period}</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{p.period}</p>
         <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight md:text-5xl">{p.name}</h1>
         <p className="mt-3 text-lg text-muted-foreground">{p.tagline}</p>
         <div className="mt-5 flex flex-wrap gap-1.5">
@@ -58,7 +58,7 @@ export default function ProjectDetail() {
         <ol className="space-y-2 text-foreground/90">
           {p.methodology.map((m: string, i: number) => (
             <li key={i} className="flex gap-3">
-              <span className="mt-1 font-mono text-[10px] text-primary">{String(i + 1).padStart(2, "0")}</span>
+              <span className="mt-1 font-mono text-[10px] text-tertiary">{String(i + 1).padStart(2, "0")}</span>
               <span className="flex-1">{m}</span>
             </li>
           ))}
@@ -100,7 +100,7 @@ export default function ProjectDetail() {
       <Block label="Skills Demonstrated">
         <div className="flex flex-wrap gap-1.5">
           {p.skills.map((s: string) => (
-            <span key={s} className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs text-foreground/90">
+            <span key={s} className="rounded-full border border-gray-700 bg-transparent px-2.5 py-1 text-xs text-gray-400">
               {s}
             </span>
           ))}
@@ -119,14 +119,14 @@ export default function ProjectDetail() {
 function Block({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <section className="mt-10 border-t border-border/60 pt-8">
-      <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">{label}</h2>
+      <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">{label}</h2>
       <div className="mt-3 text-base text-foreground/90 leading-relaxed">{children}</div>
     </section>
   );
 }
 
 function Bullet({ children, tone }: { children: React.ReactNode; tone?: "success" | "warning" }) {
-  const color = tone === "warning" ? "bg-primary/80" : "bg-primary";
+  const color = tone === "warning" ? "bg-muted" : "bg-success";
   return (
     <li className="flex gap-3">
       <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${color}`} />

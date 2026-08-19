@@ -59,8 +59,8 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full">
-      <div className="glass border-b border-border/60">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <div className="border-b border-border/60 bg-[#000000]/95 backdrop-blur-xl">
+        <div className="mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
           <Link
             to="/"
             className="group flex items-center gap-2 font-display text-sm font-semibold tracking-tight"
@@ -80,7 +80,7 @@ export function SiteHeader() {
                 to={item.to}
                 className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
                   isActive(item.to)
-                    ? "bg-surface-elevated text-foreground"
+                    ? "relative text-foreground after:absolute after:inset-x-3 after:-bottom-[1.15rem] after:h-0.5 after:bg-primary"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -114,7 +114,7 @@ export function SiteHeader() {
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className="rounded-md border border-border p-1.5 md:hidden"
+            className="rounded-md border border-border bg-[#000000] p-1.5 md:hidden"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}

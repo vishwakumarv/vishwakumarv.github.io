@@ -1669,52 +1669,59 @@ export const skills = {
 
 export const certifications = [
   "Android Bug Bounty Hunting — EC-Council",
-  "Cybersecurity Assessment",
-  "BASH Training",
-  "Kotlin Assessment",
-  "Arduino Development",
+  "BASH Training — IIT Bombay",
 ];
 
 export const education = [
   {
     school: "PSG College of Technology, Coimbatore",
     degree: "B.E. Electronics and Communication Engineering",
-    period: "Aug 2023 – Jun 2027",
+    period: "Aug 2023 – May 2027 (Expected)",
   },
 ];
 
 export const experience = [
   {
-    role: "Summer Intern",
-    company: "Wimera Systems",
-    location: "Bangalore, Karnataka (Onsite)",
+    role: "Bug Bounty & Vulnerability Researcher",
+    company: "Bugcrowd",
+    location: "Remote",
     period: "May 2026 – Present",
     current: true,
     bullets: [
-      "Working on ESP32-based IoT device testing and dashboard validation workflows.",
-      "Gaining hands-on exposure to Matter protocol concepts and IoT application debugging.",
-      "Assisting in device monitoring, documentation, and embedded systems testing.",
+      "Perform independent vulnerability research on production web applications, identifying and responsibly disclosing flaws through Bug Bounty and VDP channels.",
+      "Design structured reconnaissance and manual testing methodologies to validate findings before submission and reduce false positives.",
+      "Document root-cause analysis for each finding using coordinated disclosure practices followed by enterprise security teams.",
+    ],
+  },
+  {
+    role: "Summer Intern",
+    company: "Wimera Systems",
+    location: "Bengaluru (Onsite)",
+    period: "May 2026 – Jun 2026",
+    bullets: [
+      "Built and validated Modbus RTU and TCP/IP communication layers between industrial devices and software systems, supporting 32+ concurrent connections with sub-200ms latency.",
+      "Shipped 2+ C# (.NET) tools for protocol validation and device communication testing, reducing manual troubleshooting time.",
+      "Debugged 50+ protocol and system-level failures across a distributed set of connected devices.",
     ],
   },
   {
     role: "Machine Learning Intern",
     company: "SaiKet Systems",
-    location: "Bangalore, Karnataka (Remote)",
+    location: "Remote",
     period: "Jan 2026 – Feb 2026",
     bullets: [
-      "Worked on ML-based workflows using Python and Hugging Face models for cybersecurity-related datasets and anomaly detection.",
-      "Assisted in data preprocessing, model evaluation, and experimental documentation.",
+      "Applied ML techniques for classification and anomaly detection on security-related datasets, including preprocessing and model optimization.",
+      "Documented experimental workflows for reproducibility and tuned classification and anomaly-detection workflows to improve accuracy.",
     ],
   },
   {
-    role: "Offensive Cyber Security Intern",
+    role: "Security Intern",
     company: "InLighnX Global Pvt. Ltd.",
-    location: "Bangalore, Karnataka (Remote)",
+    location: "Remote",
     period: "Oct 2025 – Dec 2025",
     bullets: [
-      "Worked on offensive cybersecurity concepts through hands-on Python-based security tool development in controlled testing environments.",
-      "Developed utilities including PDF protection, credential testing, and authentication analysis tools.",
-      "Gained practical exposure to vulnerability assessment, encryption workflows, and penetration testing fundamentals.",
+      "Completed structured training in offensive and defensive security methodologies, then built Python automation tools for authentication testing and file protection.",
+      "Applied MD5/SHA hashing and password-cracking techniques to evaluate real-world credential handling weaknesses.",
     ],
   },
 ];

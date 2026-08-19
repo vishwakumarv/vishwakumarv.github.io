@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import { ArrowRight, Github, Shield, Smartphone, Cpu } from "lucide-react";
 import type { Project } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
@@ -123,7 +124,7 @@ function PubotVisual() {
             Ping: 42cm | Speed: 80%
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-0.5 p-1 bg-black/35 rounded border border-white/5">
+        <div className="grid grid-cols-4 gap-0.5 rounded border border-white/5 bg-[#000000]/35 p-1">
           {[1,2,3,4,5,6,7,8].map((i) => (
             <span
               key={i}
@@ -168,11 +169,17 @@ export function MobileProjectCard({ project, compact = false, className }: Mobil
   const theme = projectThemes[project.slug] ?? defaultTheme;
 
   return (
-    <article
+    <motion.article
       className={cn(
         "mobile-project-card group flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-surface/40 shadow-md transition-all duration-300 active:scale-[0.985] active:border-primary/30",
         className,
       )}
+      whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.985 }}
+      drag="x"
+      dragConstraints={{ left: 0, right: 0 }}
+      dragElastic={0.08}
+      transition={{ type: "spring", stiffness: 420, damping: 28 }}
     >
       <div
         className={cn(
@@ -237,6 +244,6 @@ export function MobileProjectCard({ project, compact = false, className }: Mobil
           </a>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

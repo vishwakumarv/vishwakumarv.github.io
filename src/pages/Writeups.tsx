@@ -106,7 +106,7 @@ export default function WriteupsPage() {
 
               <div className="flex flex-1 flex-col gap-2.5 p-4 sm:gap-4 sm:p-5 lg:p-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-border px-2 py-0.5 text-[9px] uppercase tracking-[0.18em] text-primary sm:py-1 sm:text-[10px] sm:tracking-[0.2em]">
+                  <span className="rounded-full border border-gray-700 px-2 py-0.5 text-[9px] uppercase tracking-[0.18em] text-gray-400 sm:py-1 sm:text-[10px] sm:tracking-[0.2em]">
                     {getCategoryLabel(post.category)}
                   </span>
                 </div>

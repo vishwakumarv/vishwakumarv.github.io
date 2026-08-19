@@ -17,11 +17,11 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 md:py-24", className)}>
+    <section id={id} className={cn("page-frame mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 md:py-24", className)}>
       {(eyebrow || title || description) && (
-        <div className="mb-10 max-w-3xl">
+        <div className="section-heading-wrap mb-10 max-w-3xl">
           {eyebrow && (
-            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               {eyebrow}
             </p>
           )}

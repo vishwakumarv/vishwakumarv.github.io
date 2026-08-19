@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 import { profile } from "@/data/portfolio";
 import avatarAsset from "@/assets/avatar.png";
+import { ArrowUpRight, Crosshair, FileSearch, ScanLine } from "lucide-react";
 
 const pillars = [
   {
@@ -50,81 +51,37 @@ export default function AboutPage() {
         <link rel="canonical" href="/about" />
       </Helmet>
 
-      <Section eyebrow="about" title="Security research, malware analysis, and digital forensics">
-        <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
-          <div className="flex flex-col gap-6">
-            <div className="glass rounded-3xl border border-border bg-surface/80 p-6 shadow-sm md:p-8">
-              <div className="flex items-start gap-5">
-                <img
-                  src={avatarAsset}
-                  alt={`${profile.name} avatar`}
-                  className="h-32 w-32 rounded-3xl border border-border object-cover shadow-2xl"
-                />
-                <div className="min-w-0">
-                  <p className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-                    {profile.name}
-                  </p>
-                  <p className="mt-2 text-sm font-medium text-foreground/90">
-                    {profile.title}
-                  </p>
-                  <p className="mt-4 text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                    {profile.location}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-surface-elevated"
-                >
-                  Project case studies
-                </Link>
-                <Link
-                  to="/resume"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-surface-elevated"
-                >
-                  Resume
-                </Link>
-                <a
-                  href={profile.links.writeups}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-surface-elevated"
-                >
-                  Writeups archive ↗
-                </a>
+      <Section eyebrow="about / field-notes" title="A research practice built for evidence.">
+        <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+          <aside className="border-t border-border pt-6">
+            <div className="flex items-start gap-4">
+              <img src={avatarAsset} alt={`${profile.name} avatar`} className="h-20 w-20 rounded-full border border-border object-cover grayscale" />
+              <div>
+                <p className="font-display text-xl font-semibold">{profile.name}</p>
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-success">available / {profile.location}</p>
               </div>
             </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="space-y-4 rounded-3xl border border-border bg-surface/80 p-6 text-sm leading-relaxed text-muted-foreground shadow-sm md:p-8 md:text-base">
-              <p className="text-foreground/90">
-                I'm a security researcher focused on vulnerability assessment and research,
-                malware analysis, and digital forensics. My work centers on understanding
-                how systems fail, how tradecraft evolves, and how findings can be documented
-                in a way that is actionable for defenders and peers.
-              </p>
-
-              <p>
-                I work primarily in Linux environments, document investigations as structured
-                case studies, and participate in CTFs and labs across web, OSINT, reverse
-                engineering, and forensics. I value clear research, reliable evidence handling,
-                and practical analysis that can be reproduced and built on.
-              </p>
+            <p className="mt-8 max-w-xs text-sm leading-7 text-muted-foreground">{profile.summary}</p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              <Link to="/resume" className="inline-flex items-center gap-2 bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground">Resume <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+              <Link to="/contact" className="inline-flex items-center gap-2 border border-border px-3 py-2 text-xs text-muted-foreground hover:text-foreground">Contact <ArrowUpRight className="h-3.5 w-3.5" /></Link>
             </div>
+          </aside>
 
-            <div className="grid gap-3 sm:grid-cols-2">
-              {pillars.map((p) => (
-                <div key={p.label} className="glass rounded-3xl border border-border p-5 shadow-sm">
-                  <p className="font-display text-sm font-semibold text-foreground">
-                    {p.label}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {p.body}
-                  </p>
-                </div>
+          <div>
+            <div className="mb-12 max-w-2xl border-l border-primary pl-5 text-lg leading-8 text-foreground/90 md:text-2xl md:leading-10">
+              I study how systems fail, how tradecraft evolves, and how technical findings become useful to the people defending those systems.
+            </div>
+            <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
+              {pillars.map((p, index) => (
+                <article key={p.label} className="group border-t border-border pt-4">
+                  <div className="mb-5 flex items-center justify-between text-muted-foreground">
+                    <span className="font-mono text-[10px]">0{index + 1}</span>
+                    {index % 3 === 0 ? <Crosshair className="h-4 w-4" /> : index % 3 === 1 ? <FileSearch className="h-4 w-4" /> : <ScanLine className="h-4 w-4" />}
+                  </div>
+                  <h2 className="font-display text-base font-semibold">{p.label}</h2>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{p.body}</p>
+                </article>
               ))}
             </div>
           </div>

@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
-import { profile } from "@/data/portfolio";
-import avatarAsset from "@/assets/avatar.png";
-import { ArrowUpRight, Crosshair, FileSearch, ScanLine } from "lucide-react";
+import { certifications, education, experience, profile } from "@/data/portfolio";
+import { ArrowUpRight, Award, BriefcaseBusiness, Crosshair, FileSearch, GraduationCap, ScanLine } from "lucide-react";
 
 const pillars = [
   {
@@ -51,20 +50,44 @@ export default function AboutPage() {
         <link rel="canonical" href="/about" />
       </Helmet>
 
-      <Section eyebrow="about / field-notes" title="A research practice built for evidence.">
+      <Section eyebrow="about / field-notes" title="A research practice built for evidence." description="A concise view of what I study, how I work, and the training behind it.">
         <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <aside className="border-t border-border pt-6">
-            <div className="flex items-start gap-4">
-              <img src={avatarAsset} alt={`${profile.name} avatar`} className="h-20 w-20 rounded-full border border-border object-cover grayscale" />
-              <div>
-                <p className="font-display text-xl font-semibold">{profile.name}</p>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-success">available / {profile.location}</p>
-              </div>
+            <div>
+              <p className="font-display text-xl font-semibold">{profile.name}</p>
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-success">available / {profile.location}</p>
             </div>
             <p className="mt-8 max-w-xs text-sm leading-7 text-muted-foreground">{profile.summary}</p>
             <div className="mt-8 flex flex-wrap gap-2">
               <Link to="/resume" className="inline-flex items-center gap-2 bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground">Resume <ArrowUpRight className="h-3.5 w-3.5" /></Link>
               <Link to="/contact" className="inline-flex items-center gap-2 border border-border px-3 py-2 text-xs text-muted-foreground hover:text-foreground">Contact <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+            </div>
+            <div className="mt-10 space-y-5 border-t border-border pt-6">
+              <div className="flex gap-3">
+                <BriefcaseBusiness className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Current work</p>
+                  <p className="mt-1 text-sm font-medium">{experience.find((item) => item.current)?.role}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{experience.find((item) => item.current)?.company}</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Education</p>
+                  <p className="mt-1 text-sm font-medium">{education[0].school}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{education[0].degree}</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Award className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Certifications</p>
+                  <ul className="mt-1 space-y-1 text-xs text-muted-foreground">
+                    {certifications.map((certification) => <li key={certification}>{certification}</li>)}
+                  </ul>
+                </div>
+              </div>
             </div>
           </aside>
 

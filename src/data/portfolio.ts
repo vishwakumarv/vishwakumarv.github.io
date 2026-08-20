@@ -18,7 +18,7 @@ export const profile = {
     hackthebox: "https://app.hackthebox.com/profile/vishwakumarv",
     writeups: "https://vishwakumarv.github.io",
     email: "mailto:vkumxr@proton.me",
-    resume: "/Vishwa-Kumar-Resume.pdf",
+    resume: "/resume.pdf",
   },
 };
 
@@ -63,12 +63,12 @@ export const projects: Project[] = [
     solution:
       "A lab-only phishing simulation toolkit with templated landing pages, tunnel-based hosting, and instrumented capture for analyst review.",
     relevance:
-      "Demonstrates an attacker mindset SOC analysts need to recognize phishing TTPs, write detections, and document IR cases.",
-    tags: ["Threat Analysis", "Security Automation", "Detection Engineering", "Incident Documentation"],
+      "Demonstrates an attacker mindset for recognizing phishing TTPs, tracing exploit paths, and documenting technical evidence.",
+    tags: ["Threat Analysis", "Security Automation", "Vulnerability Analysis", "Incident Documentation"],
     summary:
-      "DEADPIXEL is a controlled phishing simulation framework built for security awareness exercises and detection-engineering practice. It lets a blue team replay realistic social-engineering scenarios in an isolated lab and study what the resulting telemetry looks like.",
+      "DEADPIXEL is a controlled phishing simulation framework built for security research and application testing. It lets researchers replay realistic social-engineering scenarios in an isolated lab and study the resulting technical evidence.",
     goal:
-      "Reproduce common phishing kill-chains end-to-end inside an isolated lab so the captured artifacts (URLs, headers, browser behavior, exfil patterns) can be used to write detections and train SOC playbooks.",
+      "Reproduce common phishing kill-chains end-to-end inside an isolated lab so the captured artifacts (URLs, headers, browser behavior, exfil patterns) can support vulnerability analysis and research documentation.",
     problemSolved:
       "Most awareness tooling is either expensive SaaS or unrealistic static slides. DEADPIXEL closes the gap with a free, scriptable lab harness that produces analyst-grade telemetry suitable for detection tuning and tabletop exercises.",
     tools: ["Bash", "PHP", "HTML/JS", "Cloudflare Tunnel", "Linux", "Burp Suite", "Wireshark"],
@@ -76,7 +76,7 @@ export const projects: Project[] = [
       "Mapped phishing campaigns to MITRE ATT&CK Initial Access techniques (T1566 family).",
       "Built modular HTML templates mirroring common SaaS login flows for awareness exercises.",
       "Wrapped delivery in tunnel-based hosting so engagements stay scoped and revocable.",
-      "Captured browser-permission prompts, referer chains, and request headers for blue-team review.",
+      "Captured browser-permission prompts, referer chains, and request headers for technical review.",
       "Documented each scenario with detection ideas and recommended log sources.",
     ],
     personalWork: [
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       "Alert on first-seen domains receiving credential-shaped POSTs from corporate browsers.",
       "Train users on the exact prompts simulated here, not abstract 'phishing awareness' slides.",
     ],
-    skills: ["Threat Analysis", "Detection Engineering", "Security Automation", "Linux", "Documentation"],
+    skills: ["Threat Analysis", "Vulnerability Analysis", "Security Automation", "Linux", "Documentation"],
     learnings: [
       "How seemingly small client-side signals (permission prompts, focus events) become useful detection primitives.",
       "Writing engagements as case studies sharpens both offensive and defensive thinking.",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     solution:
       "A Linux-based static analysis pipeline that extracts APKs, surfaces risky manifest entries, and highlights candidate code paths for review.",
     relevance:
-      "Mirrors the daily work of a mobile-focused DFIR analyst: take a sample, produce structured evidence, hand off findings.",
+      "Mirrors the daily work of a mobile security researcher: take a sample, produce structured evidence, and communicate findings.",
     tags: ["Malware Analysis", "Reverse Engineering", "Security Automation", "Log Investigation"],
     summary:
       "ReDroid-AI is a Linux toolkit that automates the boring half of Android static analysis so an analyst can spend time on the interesting half. It produces a consistent evidence bundle per sample for case files.",
@@ -140,7 +140,7 @@ export const projects: Project[] = [
     ],
     recommendations: [
       "Use static-first triage to filter samples before committing dynamic analysis time.",
-      "Treat manifest review as a required first step in any mobile DFIR engagement.",
+      "Treat manifest review as a required first step in any mobile malware investigation.",
       "Keep evidence bundles in a consistent format so cases are comparable over time.",
     ],
     skills: ["Reverse Engineering", "Malware Analysis", "Python", "Bash", "Linux", "Documentation"],
@@ -160,12 +160,12 @@ export const projects: Project[] = [
     solution:
       "A Raspberry Pi platform with motor control, ultrasonic sensing, and instrumented Linux telemetry to learn the full embedded stack from kernel to sensor.",
     relevance:
-      "Builds the Linux + hardware intuition that DFIR and OT-adjacent SOC roles draw on when triaging embedded incidents.",
+      "Builds the Linux and hardware intuition useful for embedded security research and vulnerability analysis.",
     tags: ["Linux", "Security Automation", "Log Investigation", "Documentation"],
     summary:
       "PuBOT is a Raspberry Pi platform built to learn embedded Linux end-to-end: GPIO, sensors, motors, and the telemetry the OS produces while running them. It became a portable lab for studying how to monitor embedded devices.",
     goal:
-      "Build first-hand intuition for the Linux + hardware boundary that DFIR analysts touch when investigating embedded or OT incidents.",
+      "Build first-hand intuition for the Linux and hardware boundary involved in embedded security research.",
     problemSolved:
       "Most analysts only ever see embedded devices through abstract log feeds. PuBOT removes that abstraction by being a real device whose internals can be poked, broken, and re-instrumented.",
     tools: ["Raspberry Pi", "Python", "Linux", "systemd", "journalctl", "GPIO/UART", "Ultrasonic + DC motors"],
@@ -173,7 +173,7 @@ export const projects: Project[] = [
       "Designed hardware integration for motors and ultrasonic sensors with safe GPIO handling.",
       "Built Python control loops with structured logging into the system journal.",
       "Used systemd units so the control stack behaves like a real production service.",
-      "Investigated failure modes by reading journalctl, dmesg, and process state — DFIR style.",
+      "Investigated failure modes by reading journalctl, dmesg, and process state — research style.",
     ],
     personalWork: [
       "Owned the full build: hardware wiring, control software, and Linux service packaging.",
@@ -187,14 +187,14 @@ export const projects: Project[] = [
     ],
     recommendations: [
       "Ship embedded devices with structured, centralized logging from day one.",
-      "Train SOC analysts on at least one embedded Linux device they can physically touch.",
+      "Give security researchers at least one embedded Linux device they can physically inspect and test.",
       "Use systemd unit hygiene as a baseline check for embedded fleet health.",
     ],
     skills: ["Linux", "Python", "Documentation", "Log Investigation", "Security Automation"],
     learnings: [
       "Hardware teaches debugging humility quickly.",
       "Good logging is a product feature, not an afterthought.",
-      "DFIR muscles transfer cleanly to embedded reliability work.",
+      "Vulnerability-research habits transfer cleanly to embedded reliability work.",
     ],
   },
 ];

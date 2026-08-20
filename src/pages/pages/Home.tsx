@@ -5,7 +5,6 @@ import { TerminalCard } from "@/components/TerminalCard";
 import { MobileSectionCard } from "@/components/mobile/MobileSectionCard";
 import { mobileExploreSections } from "@/components/mobile/mobile-nav";
 import { profile, recruiterSnapshot } from "@/data/portfolio";
-import avatarAsset from "@/assets/avatar.png";
 import {
   ArrowRight,
   Download,
@@ -74,18 +73,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="relative flex h-full flex-shrink-0 items-start justify-center overflow-hidden rounded-full">
-                  <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl animate-cyber-pulse" aria-hidden />
-                  <img
-                    src={avatarAsset}
-                    alt={`${profile.name} avatar`}
-                    className="relative h-24 w-24 rounded-full border-2 border-primary/50 object-cover shadow-2xl ring-4 ring-primary/10 sm:h-28 sm:w-28"
-                    loading="eager"
-                    width={96}
-                    height={96}
-                  />
-                  <span className="absolute bottom-1.5 right-1.5 h-3.5 w-3.5 rounded-full border-2 border-background bg-primary animate-cyber-pulse" title="Available for hire" />
-                </div>
               </div>
             </div>
 
@@ -149,16 +136,6 @@ export default function Home() {
           </div>
 
           <div className="hidden flex-col items-center gap-5 md:flex md:items-end">
-            <div className="float-slow relative">
-              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-primary/30 via-transparent to-primary/10 blur-xl" aria-hidden />
-              <img
-                src={avatarAsset}
-                alt={`${profile.name} avatar`}
-                className="relative h-44 w-44 rounded-2xl border border-border object-cover shadow-2xl"
-                loading="eager"
-              />
-            </div>
-
             <TerminalCard className="w-full max-w-md">
               <div className="space-y-1.5">
                 <Line prompt>whoami</Line>

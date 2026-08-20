@@ -103,10 +103,6 @@
 }
 
 @layer base {
-  #root {
-    zoom: 1.33;
-  }
-
   * {
     border-color: var(--color-border);
   }
@@ -332,6 +328,12 @@
 
   .page-frame {
     position: relative;
+    animation: page-enter 480ms ease-out both;
+  }
+
+  @keyframes page-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .page-frame::before {
@@ -354,11 +356,13 @@
 
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   #root {
     zoom: 1.33;
   }
+}
 
+@media (max-width: 767px) {
   body {
     background-attachment: scroll;
   }
@@ -386,8 +390,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #root {
-    zoom: 1.33;
+  .page-frame {
+    animation: none;
   }
 
   .float-slow {

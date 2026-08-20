@@ -19,7 +19,7 @@ const categoryDescriptions: Record<typeof categories[number], string> = {
   ctf: "Explore capture-the-flag writeups covering cryptography, web exploitation, forensics, and binary challenges.",
   hackthebox: "Browse HackTheBox writeups for exploitation, privilege escalation, and lab analysis.",
   tryhackme: "Browse TryHackMe writeups for defensive analysis, web labs, and practical exercises.",
-  cyberdefenders: "Browse CyberDefenders blue team writeups covering malware analysis, DFIR, and threat hunting.",
+  cyberdefenders: "Browse CyberDefenders writeups covering malware analysis, threat research, and artifact investigation.",
   hacks: "Technical hacks and miscellaneous security notes and experiments.",
 };
 
@@ -60,7 +60,7 @@ export default function WriteupsPage() {
   return (
     <>
       <Helmet>
-        <title>{`${selectedCategoryLabel} — Malware, DFIR & Detection Notes`}</title>
+        <title>{`${selectedCategoryLabel} — Vulnerability & Security Research Notes`}</title>
         <meta
           name="description"
           content={`${selectedCategoryLabel} and walkthroughs covering challenge solutions, exploitation, and analysis.`}
@@ -94,7 +94,7 @@ export default function WriteupsPage() {
             <Link
               key={post.slug}
               to={`/writeups/${post.category}/${post.slug}`}
-              className="group glass flex flex-col overflow-hidden rounded-xl border border-border bg-surface-elevated transition hover:border-primary/50 sm:rounded-2xl lg:rounded-3xl"
+              className="group glass flex flex-col overflow-hidden rounded-xl border border-border bg-surface-elevated transition duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_16px_40px_-24px_rgba(200,16,46,0.7)] sm:rounded-2xl lg:rounded-3xl"
             >
               {post.cover ? (
                 <img

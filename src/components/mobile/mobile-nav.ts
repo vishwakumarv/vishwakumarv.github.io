@@ -23,6 +23,12 @@ export const mobileNavItems: MobileNavItem[] = [
     match: (pathname) => pathname === "/",
   },
   {
+    to: "/about",
+    label: "About",
+    Icon: User,
+    match: (pathname) => pathname.startsWith("/about"),
+  },
+  {
     to: "/projects",
     label: "Projects",
     Icon: FolderKanban,
@@ -61,11 +67,11 @@ export const mobileExploreSections: MobileSectionItem[] = [
   {
     id: "about",
     title: "About Me",
-    description: "Blue-team mindset, Linux daily driver, continuous learning.",
+    description: "Vulnerability research mindset, Linux daily driver, continuous learning.",
     to: "/about",
     Icon: User,
     preview:
-      "Final-year engineering student preparing for SOC, DFIR, and Security Operations roles.",
+      "Final-year engineering student focused on vulnerability research and security testing.",
   },
   {
     id: "experience",
@@ -78,26 +84,26 @@ export const mobileExploreSections: MobileSectionItem[] = [
   {
     id: "projects",
     title: "Projects",
-    description: "Flagship case studies — DEADPIXEL, ReDroid-AI, PuBOT.",
+    description: "Security tooling, analysis workflows, and research experiments.",
     to: "/projects",
     Icon: FolderKanban,
-    preview: "Phishing simulation, Android static analysis, embedded Linux telemetry.",
+    preview: "Vulnerability research tooling, malware analysis, and embedded security work.",
   },
   {
     id: "skills",
     title: "Skills",
-    description: "SOC operations, tools, languages, and forensics.",
+    description: "Security testing, analysis tools, languages, and forensics.",
     to: "/resume",
     Icon: FileText,
-    preview: "Alert triage, detection engineering, malware analysis, Python & Bash.",
+    preview: "Web testing, vulnerability analysis, malware research, Python & Bash.",
   },
   {
     id: "certifications",
     title: "Certifications",
     description: "Professional training and assessments.",
-    to: "/experience",
-    Icon: Briefcase,
-    preview: "Android Bug Bounty Hunting, Cybersecurity Assessment, BASH Training.",
+    to: "/resume",
+    Icon: FileText,
+    preview: "Android Bug Bounty Hunting and BASH Training from my resume.",
   },
   {
     id: "contact",
@@ -105,6 +111,6 @@ export const mobileExploreSections: MobileSectionItem[] = [
     description: "Email, LinkedIn, and security platform profiles.",
     to: "/contact",
     Icon: Mail,
-    preview: "Open to SOC, DFIR, and Security Operations roles — remote or relocation.",
+    preview: "Open to vulnerability research, application security, and technical collaboration.",
   },
 ];

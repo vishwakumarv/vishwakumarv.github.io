@@ -17,7 +17,7 @@ export default function ResumePage() {
 
         <meta
           name="description"
-          content="Resume of Vishwa Kumar: SOC Analyst & DFIR — skills, certifications, education, experience, and projects."
+          content="Resume of Vishwa Kumar: security and vulnerability researcher — skills, certifications, education, experience, and projects."
         />
 
         <meta property="og:title" content="Resume — Vishwa Kumar" />

@@ -6,7 +6,6 @@ import {
   Briefcase,
   GraduationCap,
   Award,
-  ArrowRight,
 } from "lucide-react";
 
 const roleColors: Record<string, string> = {
@@ -22,12 +21,12 @@ export default function ExperiencePage() {
         <title>Experience — V. Vishwa Kumar</title>
         <meta
           name="description"
-          content="Work experience, education, and certifications of Vishwa Kumar — SOC Analyst & DFIR Enthusiast."
+          content="Work experience, education, and certifications of Vishwa Kumar — security and vulnerability researcher."
         />
         <meta property="og:title" content="Experience — V. Vishwa Kumar" />
         <meta
           property="og:description"
-          content="Internships, education, and certifications in security operations and DFIR."
+          content="Internships, education, and certifications in vulnerability research, security testing, and malware analysis."
         />
         <meta property="og:url" content="/experience" />
         <link rel="canonical" href="/experience" />
@@ -36,7 +35,7 @@ export default function ExperiencePage() {
       <Section
         eyebrow="experience"
         title="Where I've worked & learned"
-        description="Internships, education, and certifications that shaped my security operations mindset."
+        description="Internships, education, and certifications that shaped my approach to security and vulnerability research."
       >
         {/* Experience Timeline */}
         <div className="mb-14">
@@ -154,20 +153,8 @@ export default function ExperiencePage() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-14 flex flex-wrap gap-4">
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 glow-primary"
-          >
-            View Projects
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-
-          <Link
-            to="/resume"
-            className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm hover:bg-surface-elevated"
-          >
+        <div className="mt-14">
+          <Link to="/resume" className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/60 px-4 py-2.5 text-sm hover:bg-surface-elevated">
             Full Resume & Download
           </Link>
         </div>

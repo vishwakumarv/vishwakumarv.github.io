@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Section } from "@/components/Section";
 import { profile } from "@/data/portfolio";
-import avatarAsset from "@/assets/avatar.png";
 
 const pillars = [
   {
@@ -53,11 +52,6 @@ export default function AboutPage() {
       <Section eyebrow="about" title="A blue-team mindset, in practice">
         <div className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-12">
           <div className="flex flex-col items-center gap-6 md:items-start">
-            <img
-              src={avatarAsset}
-              alt={`${profile.name} avatar`}
-              className="h-44 w-44 rounded-3xl border border-border object-cover shadow-lg md:h-40 md:w-40 md:rounded-2xl md:shadow-none"
-            />
             <div className="text-center md:text-left">
               <p className="font-display text-xl font-semibold">
                 {profile.name}

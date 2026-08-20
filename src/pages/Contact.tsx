@@ -37,24 +37,6 @@ export default function ContactPage() {
       icon: <Github className="h-4 w-4" />,
     },
     {
-      label: "Bugcrowd",
-      value: "vishwakumarv",
-      href: profile.links.bugcrowd,
-      icon: <ExternalLink className="h-4 w-4" />,
-    },
-    {
-      label: "HackerOne",
-      value: "vishwakumarv_",
-      href: profile.links.hackerone,
-      icon: <ExternalLink className="h-4 w-4" />,
-    },
-    {
-      label: "TryHackMe",
-      value: "vishwakumarv",
-      href: profile.links.tryhackme,
-      icon: <ExternalLink className="h-4 w-4" />,
-    },
-    {
       label: "Writeups",
       value: "vishwakumarv.github.io",
       href: profile.links.writeups,
@@ -73,18 +55,18 @@ export default function ContactPage() {
         <meta property="og:title" content="Contact — Vishwa Kumar" />
         <meta
           property="og:description"
-          content="Professional contact for SOC, DFIR, and security operations opportunities."
+          content="Contact Vishwa Kumar for vulnerability research, security testing, and technical collaboration."
         />
         <meta property="og:url" content="/contact" />
         <link rel="canonical" href="/contact" />
       </Helmet>
 
-      <Section eyebrow="contact / open-channel" title="Send a signal." description="For SOC, DFIR, detection engineering, or security operations roles, email is the most direct route.">
+      <Section eyebrow="contact / open-channel" title="Send a signal." description="For vulnerability research, security testing, or carefully scoped technical collaboration, email is the most direct route.">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div className="border-t border-primary pt-6">
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-success">channel ready</p>
             <h2 className="mt-5 max-w-md font-display text-4xl font-semibold tracking-tight sm:text-5xl">Let’s make the next investigation clearer.</h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">Open to security research, SOC, DFIR, detection engineering, and carefully scoped collaboration.</p>
+            <p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">Open to vulnerability research, application security, malware analysis, and carefully scoped collaboration.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={profile.links.email} className="inline-flex items-center gap-2 bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"><Mail className="h-4 w-4" /> {profile.email}</a>
               <button onClick={copy} className="inline-flex items-center gap-2 border border-border px-4 py-3 text-xs text-muted-foreground hover:text-foreground">

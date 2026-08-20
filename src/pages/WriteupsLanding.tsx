@@ -15,7 +15,7 @@ const categoryDescriptions: Record<typeof categories[number], string> = {
   ctf: "Explore capture-the-flag writeups covering cryptography, web exploitation, forensics, and binary challenges.",
   hackthebox: "Browse HackTheBox writeups for exploitation, privilege escalation, and lab analysis.",
   tryhackme: "Browse TryHackMe writeups for defensive analysis, web labs, and practical exercises.",
-  cyberdefenders: "Browse CyberDefenders blue team writeups covering malware analysis, DFIR, and threat hunting.",
+  cyberdefenders: "Browse CyberDefenders writeups covering malware analysis, threat research, and artifact investigation.",
   hacks: "Technical hacks, experiments, and misc security notes.",
 };
 
@@ -36,7 +36,7 @@ export default function WriteupsLanding() {
           <Link
             key={category}
             to={`/writeups/${category}`}
-            className="group flex flex-col justify-start overflow-hidden p-6 transition hover:text-primary border border-white/10 rounded-3xl"
+            className="group flex flex-col justify-start overflow-hidden rounded-3xl border border-white/10 p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/60 hover:bg-surface-elevated/40 hover:text-primary"
           >
             <div>
               <p className="text-xs uppercase tracking-[0.26em] text-muted-foreground">{categoryLabels[category]}</p>
@@ -56,7 +56,7 @@ export default function WriteupsLanding() {
           <Link
             key={category}
             to={`/writeups/${category}`}
-            className="group flex items-start justify-between gap-3 overflow-hidden p-4 transition border border-white/10 rounded-lg"
+            className="group flex items-start justify-between gap-3 overflow-hidden rounded-lg border border-white/10 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-surface-elevated/40"
           >
             <div className="min-w-0 flex-1">
               <p className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{categoryLabels[category]}</p>

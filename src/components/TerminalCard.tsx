@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode;
 };
 
-export function TerminalCard({ title = "shell — vishwa@soc", className = "", children }: Props) {
+export function TerminalCard({ title = "shell — vishwa@research", className = "", children }: Props) {
   return (
     <motion.div
       className={`glass overflow-hidden rounded-xl ${className}`}

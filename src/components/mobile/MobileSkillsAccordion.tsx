@@ -8,7 +8,7 @@ import { skills } from "@/data/portfolio";
 import { Shield, Terminal, Code, Search, type LucideIcon } from "lucide-react";
 
 const skillGroupIcons: Record<string, LucideIcon> = {
-  "Security Operations": Shield,
+  "Security Research": Shield,
   "Tools & Technologies": Terminal,
   "Languages & Scripting": Code,
   "Threat & Forensics": Search,

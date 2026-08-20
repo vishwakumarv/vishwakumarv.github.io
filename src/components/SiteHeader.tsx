@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Shield } from "lucide-react";
+import { Download, Menu, X, Shield } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -35,19 +35,10 @@ function XIcon() {
   );
 }
 
-function TryHackMeIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
-      <path d="M10.705 0C7.54 0 4.902 2.285 4.338 5.284A4.868 4.868 0 0 0 0 10.116a4.868 4.868 0 0 0 4.868 4.868h5.837V10.4H7.88l4.12-4.12 4.12 4.12h-2.825v4.584h5.837A4.868 4.868 0 0 0 24 10.116a4.868 4.868 0 0 0-4.338-4.832C19.098 2.285 16.46 0 13.295 0h-2.59zm1.295 15.9v4.347l-2.056-2.057 2.056-2.29z" />
-    </svg>
-  );
-}
-
 const socials = [
   { label: "GitHub", href: "https://github.com/vishwakumarv", Icon: GithubIcon },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/vishwakumarv", Icon: LinkedinIcon },
   { label: "Twitter", href: "https://x.com/vishwakumarv_", Icon: XIcon },
-  { label: "TryHackMe", href: "https://tryhackme.com/p/vishwakumarv", Icon: TryHackMeIcon },
 ];
 
 export function SiteHeader() {
@@ -78,9 +69,9 @@ export function SiteHeader() {
               <Link
                 key={item.to}
                 to={item.to}
-                className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+                className={`group relative rounded-md px-3 py-1.5 text-sm transition-all duration-200 hover:-translate-y-0.5 ${
                   isActive(item.to)
-                    ? "relative text-foreground after:absolute after:inset-x-3 after:-bottom-[1.15rem] after:h-0.5 after:bg-primary"
+                    ? "text-foreground after:absolute after:inset-x-3 after:-bottom-[1.15rem] after:h-0.5 after:bg-primary after:transition-all after:duration-300"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -104,11 +95,13 @@ export function SiteHeader() {
             ))}
 
             <a
-              href="/Vishwa-Kumar-Resume.pdf"
+              href="/resume.pdf"
               download
-              className="ml-1 inline-flex items-center rounded-md bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition hover:opacity-90"
+              aria-label="Download resume"
+              title="Download resume"
+              className="ml-1 grid h-7 w-7 place-items-center rounded-md bg-primary text-primary-foreground transition duration-200 hover:-translate-y-0.5 hover:opacity-90"
             >
-              Download Resume
+              <Download className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </div>
 
@@ -129,10 +122,10 @@ export function SiteHeader() {
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className={`rounded-md px-3 py-2 text-sm ${
+                  className={`rounded-md px-3 py-2 text-sm transition-all duration-200 ${
                     isActive(item.to)
                       ? "bg-surface-elevated text-foreground"
-                      : "text-muted-foreground"
+                      : "text-muted-foreground hover:translate-x-1 hover:text-foreground"
                   }`}
                 >
                   {item.label}
@@ -155,7 +148,7 @@ export function SiteHeader() {
               </div>
 
               <a
-                href="/Vishwa-Kumar-Resume.pdf"
+                href="/resume.pdf"
                 download
                 className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground"
               >

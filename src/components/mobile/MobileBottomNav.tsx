@@ -14,7 +14,7 @@ export function MobileBottomNav() {
       aria-label="Primary mobile navigation"
     >
       <div className="mobile-bottom-nav-inner mx-auto max-w-lg px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-        <div className="mobile-bottom-nav-bar flex items-stretch justify-around gap-1 rounded-2xl border border-border/70 bg-surface/90 px-1 py-1.5 shadow-[0_-8px_32px_-8px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+        <div className="mobile-bottom-nav-bar grid grid-cols-5 gap-1 rounded-2xl border border-border/70 bg-surface/90 px-1 py-1.5 shadow-[0_-8px_32px_-8px_rgba(0,0,0,0.45)] backdrop-blur-xl">
           {mobileNavItems.map(({ to, label, Icon, match }) => {
             const active = match(pathname);
             return (
@@ -23,7 +23,7 @@ export function MobileBottomNav() {
                 to={to}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "mobile-nav-item relative flex min-h-12 min-w-[3.5rem] flex-1 flex-col items-center justify-center gap-1.5 rounded-xl px-1 py-2 text-[10px] font-medium transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-90",
+                  "mobile-nav-item relative flex min-h-12 min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-1 py-2 text-[10px] font-medium transition-all duration-350 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-90",
                   active
                     ? "bg-primary/12 text-primary"
                     : "text-muted-foreground hover:text-foreground",

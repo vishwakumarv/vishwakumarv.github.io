@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Section } from "@/components/Section";
 import { TerminalCard } from "@/components/TerminalCard";
-import { profile, recruiterSnapshot } from "@/data/portfolio";
-import avatarAsset from "@/assets/avatar.png";
+import { certifications, experience, profile, recruiterSnapshot } from "@/data/portfolio";
 import {
   ArrowRight,
   Download,
@@ -19,6 +18,7 @@ import {
   FileText,
   GitBranch,
   Bot,
+  Award,
 } from "lucide-react";
 
 const snapshotIcons = [ShieldCheck, Terminal, Search, FileText, GitBranch, Bot];
@@ -98,19 +98,14 @@ export default function Home() {
                 <span className="h-2 w-2 rounded-full bg-success animate-pulse" /> research · tooling · writeups
               </p>
 
-              <div className="mt-6 flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-4 sm:gap-6">
-                <img
-                  src={avatarAsset}
-                  alt="V. Vishwa Kumar"
-                  className="h-24 w-24 sm:h-24 sm:w-24 md:h-32 md:w-32 rounded-full ring-1 ring-white/6 object-cover shrink-0"
-                />
-                <div className="w-full sm:w-auto">
-                  <h1 className="whitespace-nowrap text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-7xl">
+              <div className="mt-6 text-center sm:text-left">
+                <div className="w-full">
+                  <h1 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-5xl md:text-7xl">
                     <span className="text-gradient">V. Vishwa Kumar</span>
                   </h1>
 
                   <p className="mt-2 mx-auto max-w-xl text-base font-medium leading-7 text-foreground/80 sm:mx-0 sm:max-w-none sm:text-lg md:text-xl">
-                    Security researcher, tool-maker, and threat analyst focused on Windows internals, malware, and DFIR.
+                    Security researcher and vulnerability researcher focused on Windows internals, malware analysis, and exploit research.
                   </p>
 
                   <p className="mt-3 mx-auto max-w-xl text-[11px] uppercase tracking-[0.28em] text-muted-foreground sm:mx-0 sm:max-w-none">
@@ -123,15 +118,15 @@ export default function Home() {
                 <Link to="/writeups" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl amoled-flat-button px-5 py-3 text-sm font-semibold sm:w-auto">
                   View Writeups <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link to="/projects" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-border bg-surface/80 px-5 py-3 text-sm font-semibold sm:w-auto">
-                  View Projects <ArrowRight className="h-4 w-4" />
-                </Link>
                 <a href={profile.links.resume} download className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-border bg-surface/80 px-5 py-3 text-sm font-medium sm:w-auto">
                   <Download className="h-4 w-4" /> Download Resume
                 </a>
+                <Link to="/contact" className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl border border-border bg-surface/80 px-5 py-3 text-sm font-medium sm:w-auto">
+                  Get in touch <Mail className="h-4 w-4" />
+                </Link>
               </div>
 
-              <p className="mt-8 text-sm text-muted-foreground max-w-xl">Focused on practical, reproducible security research — writeups, small DFIR tooling, and defensive artifacts.</p>
+              <p className="mt-8 text-sm text-muted-foreground max-w-xl">Focused on practical, reproducible vulnerability research — writeups, analysis tooling, and technical artifacts.</p>
             </div>
 
             <div className="min-w-0 grid gap-5 order-2 lg:order-none w-full">
@@ -152,7 +147,7 @@ export default function Home() {
                   <pre className="whitespace-pre-wrap break-words text-[13px] text-foreground/90">
   {`$ cat whoami.md
   Name: V. Vishwa Kumar
-  Title: Security Researcher — Vulnerability Research, Malware Analysis, DFIR
+  Title: Security Researcher — Vulnerability Research, Malware Analysis
   Location: India
   Contact: vkumxr@proton.me
   `}
@@ -164,11 +159,41 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-y border-border/60 bg-surface/25">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:px-6 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-12 md:py-10">
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">proof_of_work</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold text-balance">Grounded in hands-on security work.</h2>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
+              Current research, practical training, and documented analysis shape the work behind this portfolio.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="border-l border-primary/60 pl-4">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Current role</p>
+              <p className="mt-1 text-sm font-semibold">{experience.find((item) => item.current)?.role ?? "Security Research"}</p>
+              <p className="mt-1 text-xs text-muted-foreground">Bugcrowd · vulnerability research</p>
+            </div>
+            <div className="border-l border-primary/60 pl-4">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Training</p>
+              <div className="mt-1 space-y-1">
+                {certifications.map((certification) => (
+                  <p key={certification} className="flex gap-2 text-xs text-foreground/90">
+                    <Award className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span>{certification}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* RECRUITER SNAPSHOT */}
       <Section
         eyebrow="recruiter_snapshot"
-        title="Research profile snapshot"
-        description="A quick-read view of how I approach vulnerability research, malware analysis, and digital forensics."
+        title="Research profile"
+        description="A quick-read view of the skills and working habits behind my security research."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {recruiterSnapshot.map((item, i) => {

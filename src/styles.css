@@ -50,7 +50,7 @@
   --radius: 0.5rem;
 
   --background: #000000;
-  --foreground: #f2f2f2;
+  --foreground: #e8f5e9;
 
   --surface: #000000;
   --surface-elevated: #111111;
@@ -60,8 +60,8 @@
   --popover: #000000;
   --popover-foreground: #f2f2f2;
 
-  --primary: #c8102e;
-  --primary-foreground: #f2f2f2;
+  --primary: #39d353;
+  --primary-foreground: #000000;
 
   --secondary: #000000;
   --secondary-foreground: #a3a3a3;
@@ -70,23 +70,23 @@
   --muted-foreground: #a3a3a3;
   --tertiary: #666666;
 
-  --accent: #c8102e;
-  --accent-foreground: #f2f2f2;
+  --accent: #39d353;
+  --accent-foreground: #000000;
 
   --destructive: #c8102e;
   --destructive-foreground: #f2f2f2;
 
   --border: #525252;
   --input: #000000;
-  --ring: #c8102e;
+  --ring: #39d353;
 
   --grid: rgba(255,255,255,0.045);
   --success: #39d353;
   --warning: #a3a3a3;
-  --critical: #c8102e;
+  --critical: #ff3b30;
   --info: #a3a3a3;
 
-  --chart-1: #c8102e;
+  --chart-1: #39d353;
   --chart-2: #39d353;
   --chart-3: #a3a3a3;
   --chart-4: #666666;
@@ -94,12 +94,12 @@
 
   --sidebar: #000000;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #c8102e;
-  --sidebar-primary-foreground: #f2f2f2;
+  --sidebar-primary: #39d353;
+  --sidebar-primary-foreground: #000000;
   --sidebar-accent: #000000;
   --sidebar-accent-foreground: #a3a3a3;
   --sidebar-border: #525252;
-  --sidebar-ring: #c8102e;
+  --sidebar-ring: #39d353;
 }
 
 @layer base {
@@ -127,7 +127,7 @@
   }
 
   ::selection {
-    background: rgba(255, 46, 46, 0.35);
+    background: rgba(57, 211, 83, 0.35);
     color: var(--color-foreground);
   }
 }
@@ -157,15 +157,15 @@
 
   .glow-primary {
     box-shadow:
-      0 0 0 1px rgba(200, 16, 46, 0.2),
-      0 10px 35px -16px rgba(200, 16, 46, 0.35);
+      0 0 0 1px rgba(57, 211, 83, 0.2),
+      0 10px 35px -16px rgba(57, 211, 83, 0.35);
   }
 
   .glow-primary-strong {
     box-shadow:
-      0 0 0 1px rgba(200, 16, 46, 0.25),
-      0 0 18px rgba(200, 16, 46, 0.45),
-      0 12px 40px -10px rgba(200, 16, 46, 0.55);
+      0 0 0 1px rgba(57, 211, 83, 0.25),
+      0 0 18px rgba(57, 211, 83, 0.45),
+      0 12px 40px -10px rgba(57, 211, 83, 0.55);
   }
 
   .typing-effect {
@@ -219,7 +219,7 @@
 
   .amoled-flat-button {
     background: var(--color-primary);
-    color: #f2f2f2;
+    color: #000000;
     border: none;
     box-shadow: none;
   }
